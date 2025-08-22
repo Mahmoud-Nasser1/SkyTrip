@@ -19,7 +19,7 @@ Optionally, the platform can include **hotel booking and travel packages**, maki
 ---
 
 ## 👨‍💻 Team Members  
-- Mahmoud Nasser Mohamed  
+- Mahmoud Nasser Mohamed (leader)
 - Ahmed Hussein El_Metwally  
 - Renad Hazem Sayed  
 - Nada Wael Lotfy  
