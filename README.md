@@ -1,4 +1,4 @@
-# ✈️ Flight Booking Website
+# ✈️ SkyTrip
 
 ## 📌 Description  
 The **Flight Booking Website** is an online platform that helps users **search, compare, and book flights** quickly and easily.  
