@@ -5,7 +5,7 @@ import Header from "./components/header/Header";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Booking from "./pages/booking/Booking";
 import ContactUs from "./pages/contactUs/ContactUs";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/DashBoard";
 import Flights from "./pages/flights/Flights";
 import FlightsDetails from "./pages/flightsDetails/FlightsDetails";
 import Home from "./pages/home/Home";
