@@ -127,7 +127,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -151,7 +151,7 @@ const PayForm = () => {
                         <CreditCardIcon className="absolute left-0 h-4 w-4 text-blue-gray-300" />
                       }
                       placeholder="0000 0000 0000 0000"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -172,7 +172,7 @@ const PayForm = () => {
                           onChange={(e) => setCardExpires(e.target.value)}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="00/00"
-                          className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                          className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -191,7 +191,7 @@ const PayForm = () => {
                           maxLength={4}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="000"
-                          className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                          className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -208,7 +208,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="John Doe"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -308,7 +308,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -332,7 +332,7 @@ const PayForm = () => {
                     </Typography>
                     <Select
                       placeholder="USA"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -360,7 +360,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="0000"
-                      className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
