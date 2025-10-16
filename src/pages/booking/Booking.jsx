@@ -1,5 +1,11 @@
+import PassengerInfo from "./components/PassengerInfo";
+
 const Booking = () => {
-  return <div>Booking</div>;
+  return (
+    <div>
+      <PassengerInfo />
+    </div>
+  );
 };
 
 export default Booking;
