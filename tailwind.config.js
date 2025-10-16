@@ -62,8 +62,7 @@ module.exports = withMT({
       },
       backgroundImage: {
         "gradient-main": "linear-gradient(to right, #8b5cf6, #fb923c)", // violet → peach
-        "gradient-secondery":
-          "linear-gradient(to right, #38bdf8, #8b5cf6, #fb923c)", // sky → violet → peach
+        "gradient-secondery": "linear-gradient(to right, #38bdf8, #8b5cf6, #fb923c)", // sky → violet → peach
       },
     },
   },
