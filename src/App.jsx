@@ -18,8 +18,9 @@ import SignUp from "./pages/signUp/SignUp";
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Routes>
+        <Route path="/booking" element={<Booking />} />
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/flights" element={<Flights />} />
@@ -30,7 +31,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
