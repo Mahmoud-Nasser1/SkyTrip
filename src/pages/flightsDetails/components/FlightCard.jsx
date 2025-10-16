@@ -8,8 +8,13 @@ import {
 } from "@material-tailwind/react";
 import { FaArrowRight } from "react-icons/fa";
 import { LuShield } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const FlightCard = () => {
+  const navigate = useNavigate();
+  const goBooking = () => {
+    navigate("/booking");
+  };
   return (
     <div className="flex justify-center">
       <Card className="mt-6 w-96 shadow-xl ">
@@ -38,7 +43,10 @@ const FlightCard = () => {
           </div>
         </CardBody>
         <CardFooter className="pt-0 flex flex-col justify-center gap-4">
-          <Button className="bg-gradient-main rounded-3xl flex justify-center items-center gap-4">
+          <Button
+            onClick={goBooking}
+            className="bg-gradient-main rounded-3xl flex justify-center items-center gap-4"
+          >
             Proceed to Booking
             <FaArrowRight />
           </Button>

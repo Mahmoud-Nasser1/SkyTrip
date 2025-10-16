@@ -1,8 +1,13 @@
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 import { LuCreditCard } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const PassengerInfo = () => {
+  const navigate = useNavigate();
+  const goPayment = () => {
+    navigate("/payment");
+  };
   return (
     <div className="lg:w-3/4  w-full p-8 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center m-5">
       <h1 className="mb-2">Passenger Information</h1>
@@ -84,7 +89,10 @@ const PassengerInfo = () => {
         <button className="px-8 py-3 rounded-full border-2 border-gradient-violet text-gradient-violet hover:bg-gradient-violet hover:text-white transition-all duration-400">
           Back
         </button>
-        <button className="flex-1 px-8 py-3 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-2xl transition-all">
+        <button
+          onClick={goPayment}
+          className="flex-1 px-8 py-3 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-2xl transition-all"
+        >
           Continue to payment
         </button>
       </div>
