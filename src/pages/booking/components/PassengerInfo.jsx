@@ -4,9 +4,9 @@ import { LuCreditCard } from "react-icons/lu";
 
 const PassengerInfo = () => {
   return (
-    <div className="w-1/2 p-8 flex flex-col gap-5 bg-white rounded-2xl shadow-lg  m-5">
+    <div className="lg:w-3/4  w-full p-8 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center m-5">
       <h1 className="mb-2">Passenger Information</h1>
-      <div className="flex gap-5">
+      <div className="flex gap-5 md:flex-row flex-col">
         <div className="flex-1">
           <label htmlFor="first-name" className="flex gap-1 text-gray-700 mb-2">
             <CiUser
