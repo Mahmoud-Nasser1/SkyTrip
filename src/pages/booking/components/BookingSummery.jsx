@@ -26,7 +26,7 @@ const BookingSummery = () => {
         <div>
           <h1 className="text-sm text-gray-600">Class</h1>
           <p className="text-gray-900">Economy</p>
-          <div class="h-px bg-gray-200 my-4"></div>
+          <div classNames="h-px bg-gray-200 my-4"></div>
           <div>
             <div className="flex justify-between">
               <span className="text-gray-600  mb-5">Base Fare</span>
@@ -41,10 +41,10 @@ const BookingSummery = () => {
               <span className="text-gray-900 dark:text-white mb-5">$25</span>
             </div>
           </div>
-          <div class="h-px bg-gray-200 my-4"></div>
-          <div class="flex justify-between items-center">
-            <span class="text-xl text-gray-900">Total</span>
-            <span class="text-2xl text-gradient-violet">$714</span>
+          <div className="h-px bg-gray-200 my-4"></div>
+          <div className="flex justify-between items-center">
+            <span className="text-xl text-gray-900">Total</span>
+            <span className="text-2xl text-gradient-violet">$714</span>
           </div>
         </div>
       </div>
