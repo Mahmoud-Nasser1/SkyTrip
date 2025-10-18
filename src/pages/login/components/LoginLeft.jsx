@@ -21,7 +21,7 @@ const LoginLeft = () => {
         </p>
         <div className="overflow-hidden shadow-xl rounded-2xl w-full max-w-sm h-64 sm:h-72 md:h-80">
           <img
-            src="/signup.jpeg"
+            src="/login.jpeg"
             alt="Sign Up Image"
             className="w-full h-full object-cover"
           />

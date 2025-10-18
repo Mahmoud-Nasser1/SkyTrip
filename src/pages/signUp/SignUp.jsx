@@ -4,11 +4,11 @@ import SignUpRight from "./component/SignUpRight";
 function SignUp() {
   return (
     <div
-      className="w-full  min-h-screen p-4
+      className="w-full p-4 my-6
   flex flex-col lg:flex-row justify-evenly items-center gap-2 overflow-hidden"
     >
-      <SignUpForm />
-      <SignUpRight />
+      <SignUpForm className="w-full" />
+      <SignUpRight className="w-full" />
     </div>
   );
 }
