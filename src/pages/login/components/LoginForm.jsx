@@ -10,12 +10,12 @@ const LoginForm = () => {
           <h1 className="text-4xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
             Sign In
           </h1>
-          <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-muted-foreground">
+          <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-foreground">
             Enter your credentials to access your account
           </Typography>
           <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
             <div className=" flex flex-col gap-2 mb-4 relative">
-              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
+              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Email Address
               </Typography>
               <EnvelopeIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
@@ -30,7 +30,7 @@ const LoginForm = () => {
               />
             </div>
             <div className="mb-4 flex flex-col gap-2 relative">
-              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
+              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Password
               </Typography>
               <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
@@ -51,7 +51,7 @@ const LoginForm = () => {
                   <Typography
                     variant="small"
                     color="gray"
-                    className="flex flex-wrap items-center  text-base text-light-muted-foreground dark:text-dark-muted-foreground"
+                    className="flex flex-wrap items-center  text-base text-light-muted-foreground dark:text-dark-foreground"
                   >
                     Remember me
                   </Typography>
@@ -72,7 +72,7 @@ transition-transform duration-300 hover:scale-105"
             >
               Sign IN
             </Button>
-            <p className="text-center my-3  text-light-muted-foreground dark:text-dark-muted-foreground">
+            <p className="text-center my-3  text-light-muted-foreground dark:text-dark-foreground">
               Or sign up with
             </p>
             <div className="flex flex-wrap gap-5 justify-center ">

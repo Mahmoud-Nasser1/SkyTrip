@@ -16,7 +16,7 @@ const SignUpRight = () => {
         <h1 className="p-2 text-center text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
           Join SkyTrip
         </h1>
-        <p className="text-lg text-light-muted-foreground dark:text-dark-muted-foreground text-center">
+        <p className="text-lg text-light-muted-foreground dark:text-dark-foreground text-center">
           Your journey to amazing destinations begins here
         </p>
         <div className="overflow-hidden shadow-xl rounded-2xl w-full max-w-sm h-64 sm:h-72 md:h-80">
