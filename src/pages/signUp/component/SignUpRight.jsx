@@ -16,7 +16,7 @@ const SignUpRight = () => {
         <h1 className="p-2 text-center text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
           Join SkyTrip
         </h1>
-        <p className="text-lg text-light-muted-foreground dark:text-dark-muted-foreground text-center">
+        <p className="text-lg text-light-muted-foreground dark:text-dark-foreground text-center">
           Your journey to amazing destinations begins here
         </p>
         <div className="overflow-hidden shadow-xl rounded-2xl w-full max-w-sm h-64 sm:h-72 md:h-80">
@@ -27,7 +27,7 @@ const SignUpRight = () => {
           />
         </div>
         <div className="flex flex-col gap-4 w-full flex-wrap">
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 ✈️
@@ -38,7 +38,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 💰
@@ -49,7 +49,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🧾
@@ -60,7 +60,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🔔
