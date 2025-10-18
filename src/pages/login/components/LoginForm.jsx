@@ -1,43 +1,19 @@
-import {
-  Card,
-  Input,
-  Checkbox,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
-import {
-  UserIcon,
-  EnvelopeIcon,
-  PhoneIcon,
-  LockClosedIcon,
-} from "@heroicons/react/24/outline";
-const SignUpLeft = () => {
+import { Card, Checkbox, Button, Typography } from "@material-tailwind/react";
+import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+
+const LoginForm = () => {
   return (
     <div>
       <div className=" rounded-3xl shadow-2xl p-7 ">
         <Card color="transparent" shadow={false}>
           <h1 className="text-4xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
-            Create Account
+            Sign In
           </h1>
           <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-muted-foreground">
-            Join us and start your travel adventure
+            Enter your credentials to access your account
           </Typography>
           <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
-            <div className=" flex flex-col gap-2 mb-4 relative">
-              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
-                Full Name
-              </Typography>
-              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
-
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
-                autoComplete="name"
-              />
-            </div>
             <div className=" flex flex-col gap-2 mb-4 relative">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
                 Email Address
@@ -55,21 +31,6 @@ const SignUpLeft = () => {
             </div>
             <div className="mb-4 flex flex-col gap-2 relative">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
-                Phone Number
-              </Typography>
-              <PhoneIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
-
-              <input
-                type="tel"
-                placeholder="Enter your phone number"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
-                autoComplete="tel"
-              />
-            </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
-              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
                 Password
               </Typography>
               <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
@@ -82,49 +43,34 @@ const SignUpLeft = () => {
            transition-colors text-gray-900 dark:text-white placeholder-gray-400"
                 autoComplete="new-password"
               />
-            </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
-              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
-                Confirm Password
-              </Typography>
-              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
-
-              <input
-                type="password"
-                placeholder="••••••••"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
-                autoComplete="new-password"
-              />
             </div>
-            <Checkbox
-              className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex flex-wrap items-center  font-semibold  text-base"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className=" transition-colors font-semibold text-gradient-violet hover:underline"
+            <div className="flex flex-col md:flex-row md:justify-between gap-4 flex-wrap">
+              <Checkbox
+                className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
+                label={
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="flex flex-wrap items-center  text-base text-light-muted-foreground dark:text-dark-muted-foreground"
                   >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{
-                className: "-ml-2.5 rounded",
-              }}
-            />
+                    Remember me
+                  </Typography>
+                }
+                containerProps={{
+                  className: "-ml-2.5 rounded",
+                }}
+              />
+              <Typography className=" transition-colors  text-gradient-violet hover:underline flex justify-center items-center">
+                Forget Password?
+              </Typography>
+            </div>
+
             <Button
-              className="mt-6 rounded-full bg-gradient-to-br from-gradient-violet to-gradient-peach p-5 
+              className="text-base mt-6 rounded-full bg-gradient-to-br from-gradient-violet to-gradient-peach p-5 
 transition-transform duration-300 hover:scale-105"
               fullWidth
             >
-              Create Account
+              Sign IN
             </Button>
             <p className="text-center my-3  text-light-muted-foreground dark:text-dark-muted-foreground">
               Or sign up with
@@ -178,13 +124,10 @@ transition-transform duration-300 hover:scale-105"
               </Button>
             </div>
             <Typography color="gray" className="mt-4 text-center font-normal">
-              Already have an account?{" "}
-              <a
-                href="#"
-                className="font-semibold text-gradient-violet hover:underline"
-              >
-                Sign In
-              </a>
+              Don't have an account?{" "}
+              <span className="font-semibold text-gradient-violet hover:underline">
+                <Link to="/signup">Sign Up now</Link>
+              </span>
             </Typography>
           </form>
         </Card>
@@ -193,4 +136,4 @@ transition-transform duration-300 hover:scale-105"
   );
 };
 
-export default SignUpLeft;
+export default LoginForm;

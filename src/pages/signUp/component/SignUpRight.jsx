@@ -27,7 +27,7 @@ const SignUpRight = () => {
           />
         </div>
         <div className="flex flex-col gap-4 w-full flex-wrap">
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 ✈️
@@ -38,7 +38,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 💰
@@ -49,7 +49,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🧾
@@ -60,7 +60,7 @@ const SignUpRight = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🔔

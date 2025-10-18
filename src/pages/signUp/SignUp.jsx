@@ -1,4 +1,4 @@
-import SignUpLeft from "./component/SignUpLeft";
+import SignUpForm from "./component/SignUpForm";
 import SignUpRight from "./component/SignUpRight";
 
 function SignUp() {
@@ -7,7 +7,7 @@ function SignUp() {
       className="w-full  min-h-screen p-4
   flex flex-col lg:flex-row justify-evenly items-center gap-2 overflow-hidden"
     >
-      <SignUpLeft />
+      <SignUpForm />
       <SignUpRight />
     </div>
   );
