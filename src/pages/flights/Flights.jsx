@@ -21,7 +21,7 @@ const Flights = () => {
       arrivalCity: "Paris (CDG)",
       cabinClass: "Economy",
       flightType: "Non-stop",
-      price: 599,
+      price: 598,
     },
     {
       airline: "Global Airways",
