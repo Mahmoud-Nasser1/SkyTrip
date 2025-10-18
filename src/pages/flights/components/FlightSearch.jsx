@@ -5,20 +5,20 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
-import { LuFilter } from "react-icons/lu";
 import { Slider } from "@material-tailwind/react";
 import { Checkbox } from "@material-tailwind/react";
+import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 
 const FlightSearch = () => {
   return (
-    <Card className="mt-6 w-96">
+    <Card className="mt-6 w-96 shadow-xl">
       <CardBody className="flex flex-col gap-4">
         <Typography
           variant="h5"
           color="blue-gray"
-          className="mb-2 flex gap-2 items-center"
+          className="mb-2 flex gap-2 items-center text-gradient-violet"
         >
-          <LuFilter />
+          <HiAdjustmentsHorizontal className="text-3xl " />
           Refine Search
         </Typography>
 
