@@ -124,7 +124,7 @@ transition-transform duration-300 hover:scale-105"
               </Button>
             </div>
             <Typography color="gray" className="mt-4 text-center font-normal">
-              Don't have an account?{" "}
+              Don't have an account?
               <span className="font-semibold text-gradient-violet hover:underline">
                 <Link to="/signup">Sign Up now</Link>
               </span>

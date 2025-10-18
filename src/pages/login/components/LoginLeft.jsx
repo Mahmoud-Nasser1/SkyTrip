@@ -30,7 +30,7 @@ const LoginLeft = () => {
           <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">✈️</div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className=" text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 1000+ Flights
               </span>
             </div>
@@ -39,7 +39,7 @@ const LoginLeft = () => {
           <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">🌍</div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 200+ Destinations{" "}
               </span>
             </div>
@@ -48,7 +48,7 @@ const LoginLeft = () => {
           <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">⭐ </div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 50k+ Reviews{" "}
               </span>
             </div>
