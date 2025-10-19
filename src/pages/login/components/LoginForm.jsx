@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 const LoginForm = () => {
   return (
     <div>
-      <div className=" rounded-3xl shadow-2xl p-7 ">
+      <div
+        className=" rounded-3xl shadow-2xl p-7 hover:shadow-2xl hover:shadow-gradient-violet/30 
+  hover:scale-[1.01] hover:border-gradient-violet duration-300"
+      >
         <Card color="transparent" shadow={false}>
           <h1 className="text-4xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
             Sign In
@@ -66,7 +69,7 @@ const LoginForm = () => {
             </div>
 
             <Button
-              className="text-base mt-6 rounded-full bg-gradient-to-br from-gradient-violet to-gradient-peach p-5 
+              className="text-base mt-6 rounded-full  bg-gradient-to-r from-gradient-violet to-gradient-peach p-5 
 transition-transform duration-300 hover:scale-105"
               fullWidth
             >

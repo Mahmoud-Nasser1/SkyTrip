@@ -14,12 +14,12 @@ import NotFound from "./pages/notFound/NotFound";
 import Payment from "./pages/payment/Payment";
 import Profile from "./pages/profile/Profile";
 import SignUp from "./pages/signUp/SignUp";
-import PayForm from './pages/payment/component/PayForm';
+import PayForm from "./pages/payment/component/PayForm";
 
 const App = () => {
   return (
-    <div>
-      <Header/>
+    <div className="bg-gray-50">
+      <Header />
       <Routes>
         <Route path="/booking" element={<Booking />} />
         <Route path="/" element={<Home />} />
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

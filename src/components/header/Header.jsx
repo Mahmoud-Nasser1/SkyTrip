@@ -9,8 +9,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return  <>
-      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 border-white/20 shadow-lg border-b border-gray-200">
-        <div className="max-w-screen-3xl mx-auto flex items-center justify-between px-6 py-4">
+      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 border-white/20 shadow-lg border-b border-gray-200 ">
+        <div className="max-w-screen-3xl mx-auto flex items-center justify-between px-6 py-4 container m-auto">
           <div className="flex items-center gap-2">
             <div className="text-white bg-gradient-to-r from-gradient-sky via-gradient-violet to-gradient-peach p-2 rounded-full text-xl">
               <IoMdAirplane />
@@ -33,27 +33,27 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center lg:space-x-8">
             <ul className="flex items-center gap-8">
               <li> 
-                <NavLink to={"/"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+                <NavLink to={"/"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/flights"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+                <NavLink to={"/flights"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   Flights
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/about-us"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+                <NavLink to={"/about-us"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   About Us
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/dashboard"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+                <NavLink to={"/dashboard"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   Dashboard
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/contact-us"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+                <NavLink to={"/contact-us"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   Contact
                 </NavLink>
               </li>

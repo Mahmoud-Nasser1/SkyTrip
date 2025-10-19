@@ -4,7 +4,7 @@ import StepperWithContent from "./components/StepperWithContent";
 
 const Booking = () => {
   return (
-    <div className="flex flex-col gap-12 container mx-auto my-10">
+    <div className="flex flex-col gap-12 container mx-auto my-24 ">
       <div
         className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 
   hover:scale-[1.01] hover:border-gradient-violet duration-500"
