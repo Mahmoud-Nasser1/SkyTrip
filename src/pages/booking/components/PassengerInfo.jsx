@@ -9,7 +9,10 @@ const PassengerInfo = () => {
     navigate("/payment");
   };
   return (
-    <div className="lg:w-3/4  w-full p-8 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center m-5">
+    <div
+      className="lg:w-3/4  w-full p-8 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center m-5 transition-all duration-500 hover:shadow-2xl hover:shadow-gradient-violet/30  border border-white/40 
+  hover:scale-[1.01] hover:border-gradient-violet"
+    >
       <h1 className="mb-2">Passenger Information</h1>
       <div className="flex gap-5 md:flex-row flex-col">
         <div className="flex-1">

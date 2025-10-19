@@ -1,5 +1,13 @@
+import LoginForm from "./components/LoginForm";
+import LoginLeft from "./components/LoginLeft";
+
 const Login = () => {
-  return <div>Login</div>;
+  return (
+    <div className="w-full my-6 p-4 pt-24 flex flex-col lg:flex-row justify-evenly items-center gap-2 overflow-hidden">
+      <LoginLeft className="w-full" />
+      <LoginForm className="w-full" />
+    </div>
+  );
 };
 
 export default Login;

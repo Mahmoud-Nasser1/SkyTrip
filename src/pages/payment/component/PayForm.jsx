@@ -70,8 +70,8 @@ const PayForm = () => {
     navigate("/");
   };
   return (
-    <div className="w-full flex justify-center">
-      <Card className="w-1/2 ">
+    <div className="w-full flex justify-center py-24">
+      <Card className="w-1/2 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
         <CardHeader
           color="gray"
           floated={false}
@@ -217,7 +217,7 @@ const PayForm = () => {
 
                   <Button
                     size="lg"
-                    className="bg-gradient-main"
+                    className="bg-gradient-main rounded-full"
                     onClick={handleOpen}
                   >
                     Pay Now
