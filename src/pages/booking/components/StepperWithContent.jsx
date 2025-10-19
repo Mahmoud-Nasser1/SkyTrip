@@ -27,8 +27,8 @@ export default function StepperWithGradientLine() {
   };
 
   return (
-    <div className="w-full px-7 py-10 relative ">
-      <div className="relative flex items-center justify-between">
+    <div className="w-full px-7 py-10 relative  ">
+      <div className="relative flex items-center justify-between ">
         <div className="absolute top-1/2 left-0 w-full h-[3px] bg-gray-300 -z-10">
           <div
             className="h-full transition-all duration-500 bg-gradient-to-r from-gradient-violet to-gradient-peach"

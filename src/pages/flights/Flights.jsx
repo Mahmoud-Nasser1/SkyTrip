@@ -64,7 +64,7 @@ const Flights = () => {
 
   const toggleOpen = () => setOpen((cur) => !cur);
   return (
-    <div className="container mx-auto flex flex-col">
+    <div className="container mx-auto flex flex-col mt-28">
       <FlightFilter />
       <div className="flex gap-4 justify-between py-6">
         <div className="w-1/4">

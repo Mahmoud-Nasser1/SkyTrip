@@ -31,7 +31,7 @@ const CardFlight = ({
             <GiCommercialAirplane />
           </div>
           <div className="w-full flex flex-col gap-3">
-            <h1 className="text-xl font-bold text-gradient-sky ps-8">
+            <h1 className="text-md font-bold text-gradient-sky ps-8">
               {airline}
             </h1>
             <div className="w-full flex">

@@ -19,7 +19,7 @@ import PayForm from './pages/payment/component/PayForm';
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header/>
       <Routes>
         <Route path="/booking" element={<Booking />} />
         <Route path="/" element={<Home />} />
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer/>
     </div>
   );
 };
