@@ -9,9 +9,12 @@ import { Link } from "react-router-dom";
 const SignUpForm = () => {
   return (
     <div>
-      <div className=" rounded-3xl shadow-2xl p-7 ">
+      <div
+        className=" rounded-3xl shadow-2xl p-7 hover:shadow-2xl hover:shadow-gradient-violet/30 
+  hover:scale-[1.01] hover:border-gradient-violet duration-300"
+      >
         <Card color="transparent" shadow={false}>
-          <h1 className="text-4xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
+          <h1 className="text-4xl  bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
             Create Account
           </h1>
           <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-foreground">
