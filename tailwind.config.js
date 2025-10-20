@@ -9,6 +9,15 @@ export default withMT({
   ],
   theme: {
     extend: {
+      keyframes: {
+        rotateBorder: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        rotateBorder: "rotateBorder 4s linear infinite",
+      },
       colors: {
         gradient: {
           sky: "#38bdf8",

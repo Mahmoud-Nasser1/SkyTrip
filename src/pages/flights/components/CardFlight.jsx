@@ -24,7 +24,7 @@ const CardFlight = ({
     navigate("/flightdetails");
   };
   return (
-    <Card className="cursor-pointer rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl">
+    <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl">
       <CardBody>
         <div className="flex items-center container mx-auto">
           <div className="bg-gradient-to-l from-gradient-violet to-gradient-sky p-4 text-white rounded-xl text-3xl">
@@ -72,7 +72,7 @@ const CardFlight = ({
             <label htmlFor="">per person</label>
             <button
               type="button"
-              className="rounded-full bg-gradient-main p-4 px-5 flex items-center text-white gap-2 hover:shadow-xl"
+              className="rounded-full bg-gradient-main p-4 px-5 flex items-center text-sm text-white gap-2 hover:shadow-xl"
               onClick={goFlightDetails}
             >
               View Details <IoIosArrowDropright />
