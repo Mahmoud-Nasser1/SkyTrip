@@ -64,9 +64,9 @@ const Flights = () => {
 
   const toggleOpen = () => setOpen((cur) => !cur);
   return (
-    <div className="container mx-auto flex flex-col mt-28">
+    <div className="container mx-auto flex flex-col">
       <FlightFilter />
-      <div className="flex gap-4 justify-between py-6">
+      <div className="flex lg:flex-row flex-col gap-6 container mx-auto justify-evenly flex-wrap-reverse py-6">
         <div className="w-1/4">
           <div className="sticky top-6">
             <FlightSearch />
@@ -87,7 +87,7 @@ const Flights = () => {
           </div>
 
           <div>
-            <Collapse open={open}>
+            <Collapse open={open} className={open ? "overflow-visible" : ""}>
               <div className="w-full flex flex-col gap-6">
                 {flights.map((flight, index) => (
                   <CardFlight key={index} flight={flight} />

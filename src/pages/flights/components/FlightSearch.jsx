@@ -11,7 +11,7 @@ import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 
 const FlightSearch = () => {
   return (
-    <Card className="mt-6 w-96 shadow-xl">
+    <Card className="mt-6 shadow-xl">
       <CardBody className="flex flex-col gap-4">
         <Typography
           variant="h5"
