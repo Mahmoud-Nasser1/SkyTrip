@@ -11,7 +11,7 @@ const FlightStepper = () => {
   return (
     <div className="flex flex-col gap-4 justify-center p-8 shadow-xl rounded-xl ">
       <h1 className="font-bold text-xl">Flight Route</h1>
-      <div className="p-24 pt-16 w-full bg-gradient-to-r from-purple-50 via-blue-50 to-orange-50 rounded-xl border-4">
+      <div className="p-[14%] pt-16 pb-20 w-full bg-gradient-to-r from-purple-50 via-blue-50 to-orange-50 rounded-xl border-4">
         <Stepper
           activeStep={activeStep}
           lineClassName="!bg-gradient-to-r from-purple-400 to-orange-400"
