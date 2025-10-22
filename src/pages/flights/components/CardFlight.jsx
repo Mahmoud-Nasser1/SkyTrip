@@ -26,12 +26,12 @@ const CardFlight = ({
   return (
     <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl">
       <CardBody>
-        <div className="flex items-center container mx-auto">
+        <div className="flex flex-col lg:flex-row  items-center container mx-auto">
           <div className="bg-gradient-to-l from-gradient-violet to-gradient-sky p-4 text-white rounded-xl text-3xl">
             <GiCommercialAirplane />
           </div>
           <div className="w-full flex flex-col gap-3">
-            <h1 className="text-md font-bold text-gradient-sky ps-8">
+            <h1 className="text-md font-bold text-gradient-sky ps-3 flex justify-start">
               {airline}
             </h1>
             <div className="w-full flex">
@@ -64,15 +64,17 @@ const CardFlight = ({
             </div>
           </div>
 
-          <div className="flex flex-col items-center w-1/4">
-            <label htmlFor="">From</label>
-            <h1 className="font-semibold text-2xl text-gradient-violet">
-              $599
-            </h1>
-            <label htmlFor="">per person</label>
+          <div className="flex flex-col items-stretch lg:items-center w-full lg:w-auto">
+            <div className="flex flex-col items-center">
+              <label htmlFor="">From</label>
+              <h1 className="font-semibold text-2xl text-gradient-violet">
+                $599
+              </h1>
+              <label htmlFor="">per person</label>
+            </div>
             <button
               type="button"
-              className="rounded-full bg-gradient-main p-4 px-5 flex items-center text-sm text-white gap-2 hover:shadow-xl"
+              className="rounded-full lg:min-w-max bg-gradient-main p-4 px-5 flex justify-center items-center text-sm text-white gap-2 hover:shadow-xl"
               onClick={goFlightDetails}
             >
               View Details <IoIosArrowDropright />

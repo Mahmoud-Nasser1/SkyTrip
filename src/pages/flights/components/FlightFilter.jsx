@@ -4,13 +4,13 @@ import Dropdown from "./Dropdown";
 
 const FlightFilter = () => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 bg-white shadow-xl p-4 rounded-2xl">
+    <div className="flex lg:mx-6 flex-wrap items-center justify-between gap-4 bg-white shadow-xl p-4 rounded-2xl">
       <div className="flex items-center gap-2 text-gray-800 font-bold">
         <LuFilter className="text-gradient-violet text-2xl" />
         <span>Filters</span>
       </div>
 
-      <div className="flex flex-wrap gap-3 w-full sm:w-auto justify-between sm:justify-end">
+      <div className="flex flex-wrap gap-3 w-full sm:w-auto justify-start lg:justify-between ">
         <Dropdown
           label="All Airlines"
           items={["All Airlines", "SkyWings", "Global Airways"]}

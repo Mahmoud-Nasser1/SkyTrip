@@ -16,8 +16,8 @@ const FlightCard = () => {
     navigate("/booking");
   };
   return (
-    <div className="flex justify-center">
-      <Card className="mt-6 w-96 shadow-xl ">
+    <div className="flex justify-stretch lg:justify-center">
+      <Card className="mt-6 w-full lg:w-96 shadow-xl ">
         <CardBody>
           <div className="flex flex-col gap-4 p-4 rounded-3xl ">
             <h1 className="font-semibold text-lg ">Price Breakdown</h1>

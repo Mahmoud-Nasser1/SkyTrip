@@ -9,7 +9,7 @@ const FlightSummery = () => {
   return (
     <div className="flex flex-col shadow-xl p-12 rounded-3xl gap-6">
       <h1 className="text-xl font-bold">Flight Summary</h1>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-8">
         <div className="flex items-center gap-4">
           <section>
             <GiCommercialAirplane className="text-3xl text-gradient-violet" />
