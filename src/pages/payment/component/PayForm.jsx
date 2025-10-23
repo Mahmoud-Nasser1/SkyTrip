@@ -71,7 +71,7 @@ const PayForm = () => {
   };
   return (
     <div className="w-full flex justify-center py-24">
-      <Card className="w-1/2 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
+      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
         <CardHeader
           color="gray"
           floated={false}
