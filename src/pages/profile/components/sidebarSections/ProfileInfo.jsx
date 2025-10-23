@@ -11,7 +11,7 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
         <div className="flex-1">
           <label className="flex gap-1 text-gray-700 mb-2">
             <CiUser
-              className="text-xl text-gradient-violet font-normal"
+              className="text-xl text-gradient-violet font-normal "
               style={{ strokeWidth: 1.1 }}
             />
             First Name

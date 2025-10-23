@@ -1,34 +1,49 @@
+import {
+  Tabs,
+  TabsHeader,
+  TabsBody,
+  Tab,
+  TabPanel,
+} from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
-export const tabs = {
-  info: "Profile Info",
-  trips: "My Trips",
-  flights: "Saved Flights",
-  payments: "Payments",
-  settings: "Settings",
-};
-
-const ProfileSidebar = ({ activeTab }) => {
+const ProfileSidebar = ({ activeTab, tabsData }) => {
   const navigate = useNavigate();
   return (
-    <div className="bg-white shadow-md rounded-3xl p-6">
-      <ul className="space-y-2">
-        {Object.entries(tabs).map(([tabId, label]) => (
-          <li key={tabId}>
-            <button
-              onClick={() => navigate(`/profile/${tabId}`)}
-              className={`w-full text-left px-4 py-3 rounded-2xl transition ${
-                activeTab === tabId
-                  ? " bg-gradient-main text-white"
-                  : " text-gray-800 hover:bg-gray-200"
-              }`}
-            >
-              {label}
-            </button>
-          </li>
+    <Tabs
+      value={activeTab}
+      orientation="vertical"
+      className="overflow-visible	grid grid-cols-1 md:grid-cols-4 gap-6 mt-6"
+    >
+      <TabsHeader
+        className="bg-white shadow-md rounded-3xl p-6 md:col-span-1 space-y-1"
+        indicatorProps={{
+          className: "bg-transparent  shadow-none rounded-none",
+        }}
+      >
+        {tabsData.map(({ label, tabId }) => (
+          <Tab
+            key={tabId}
+            value={tabId}
+            onClick={() => navigate(`/profile/${tabId}`)}
+            className={`w-full px-4 py-3 rounded-2xl ${
+              activeTab === tabId
+                ? " bg-gradient-main text-white"
+                : " text-gray-800 hover:bg-gray-200"
+            }`}
+          >
+            {label}
+          </Tab>
         ))}
-      </ul>
-    </div>
+      </TabsHeader>
+      <TabsBody className="bg-white shadow-md rounded-3xl p-6  md:col-span-3 ">
+        {tabsData.map(({ tabId, content }) => (
+          <TabPanel key={tabId} value={tabId}>
+            {content}
+          </TabPanel>
+        ))}
+      </TabsBody>
+    </Tabs>
   );
 };
 
