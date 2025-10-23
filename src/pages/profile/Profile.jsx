@@ -1,8 +1,12 @@
 import NotFound from "../notFound/NotFound";
-import ProfileContent from "./components/ProfileContent";
 import ProfileHeader from "./components/ProfileHeader";
-import ProfileSidebar, { tabs } from "./components/ProfileSidebar";
+import ProfileSidebar from "./components/ProfileSidebar";
 import { useParams } from "react-router-dom";
+import MyTrips from "./components/sidebarSections/MyTrips";
+import ProfileInfo from "./components/sidebarSections/ProfileInfo";
+import SavedFlights from "./components/sidebarSections/SavedFlights";
+import Payments from "./components/sidebarSections/Payments";
+import Settings from "./components/sidebarSections/Settings";
 
 const user = {
   name: "John Doe",
@@ -13,28 +17,50 @@ const user = {
   tripsCompleted: 3,
 };
 
+const tabsData = [
+  {
+    label: "Profile Info",
+    tabId: "info",
+    content: <ProfileInfo user={user} />,
+  },
+  {
+    label: "My Trips",
+    tabId: "trips",
+    content: <MyTrips />,
+  },
+  {
+    label: "Saved Flights",
+    tabId: "flights",
+    content: <SavedFlights />,
+  },
+  {
+    label: "Payments",
+    tabId: "payments",
+    content: <Payments />,
+  },
+  {
+    label: "Settings",
+    tabId: "settings",
+    content: <Settings />,
+  },
+];
+
 const Profile = () => {
   const { tabId } = useParams();
-  if (tabId && !tabs[tabId]) {
+
+  const validTab = tabsData.find((tab) => tab.tabId === tabId);
+  if (tabId && !validTab) {
     return <NotFound />;
   }
+
   const activeTab = tabId || "info";
 
   return (
-    <div className="min-h-screen bg-gray-50/50 pt-24 pb-32 px-4 lg:px-6">
+    <div className="bg-gray-50/50 pt-24 pb-24 px-4 lg:px-6">
       <ProfileHeader user={user} />
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
-        <div className="md:col-span-1">
-          <ProfileSidebar activeTab={activeTab} />
-        </div>
-        <div className="md:col-span-3">
-          <ProfileContent activeTab={activeTab} user={user} />
-        </div>
-      </div>
+      <ProfileSidebar activeTab={activeTab} tabsData={tabsData} />
     </div>
   );
-
 };
 
 export default Profile;
