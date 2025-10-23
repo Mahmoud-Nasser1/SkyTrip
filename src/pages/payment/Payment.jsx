@@ -18,7 +18,7 @@ const Payment = () => {
   };
   return (
     <main className="flex flex-col items-center py-24">
-      <div className="flex flex-col rounded-3xl border-2 w-3/4 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
+      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-3/4 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
         <div className="flex flex-col bg-gradient-main rounded-t-3xl p-4 text-white gap-4">
           <section className="flex items-center gap-2 ">
             <FaLock className="font-bold text-2xl" />
