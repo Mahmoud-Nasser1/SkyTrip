@@ -48,11 +48,6 @@ export default function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/dashboard"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
-                  Dashboard
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to={"/contact-us"} className={({ isActive }) => `transition dark:text-white hover:text-gradient-violet ${isActive ? "text-gradient-violet" : "text-gray-600"}`}>
                   Contact
                 </NavLink>
@@ -70,43 +65,38 @@ export default function Header() {
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-[9999] lg:hidden bg-white dark:bg-gray-900 shadow-xl flex flex-col items-center justify-center gap-8 transition-opacity duration-300 ease-in-out ${isOpen? "opacity-100 visible pointer-events-auto": "opacity-0 invisible pointer-events-none"}`}>
-        <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-gray-700 dark:text-gray-200">
-          <IoClose className="text-3xl" />
-        </button>
+  <div className={`fixed top-0 right-0 w-1/2 h-full z-[9999] lg:hidden bg-white dark:bg-gray-900 shadow-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 visible translate-x-0 pointer-events-auto" : "opacity-0 invisible translate-x-full pointer-events-none"}`}>
+  <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-gray-700 dark:text-gray-200">
+    <IoClose className="text-3xl" />
+  </button>
 
-        <ul className="flex flex-col items-center justify-center gap-8">
-          <li>
-          <NavLink to={"/"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
-            Home
-          </NavLink>
-          </li>
-          <li>
-          <NavLink to={"/flights"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
-            Flights
-          </NavLink>
-          </li>
-          <li>
-          <NavLink to={"/about-us"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
-            About Us
-          </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/dashboard"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-          <NavLink to={"/contact-us"} className={({ isActive }) => ` text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
-            Contact
-          </NavLink>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to={"/login"}  className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow">
-              Login
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </>
+  <ul className="flex flex-col items-center justify-center gap-8">
+    <li>
+      <NavLink onClick={() => setIsOpen(false)} to={"/"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink onClick={() => setIsOpen(false)} to={"/flights"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+        Flights
+      </NavLink>
+    </li>
+    <li>
+      <NavLink onClick={() => setIsOpen(false)} to={"/about-us"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+        About Us
+      </NavLink>
+    </li>
+    <li>
+      <NavLink onClick={() => setIsOpen(false)} to={"/contact-us"} className={({ isActive }) => `text-2xl transition dark:text-white hover:text-gradient-violet ${isActive ? "text-purple-900" : "text-gray-600"}`}>
+        Contact
+      </NavLink>
+    </li>
+    <li>
+      <Link onClick={() => setIsOpen(false)} to={"/login"} className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow">
+        Login
+      </Link>
+    </li>
+  </ul>
+</div>
+</>
 }
