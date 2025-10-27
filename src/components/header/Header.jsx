@@ -65,7 +65,7 @@ export default function Header() {
         </div>
       </nav>
 
-  <div className={`fixed top-0 right-0 w-1/2 h-full z-[9999] lg:hidden bg-white dark:bg-gray-900 shadow-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 visible translate-x-0 pointer-events-auto" : "opacity-0 invisible translate-x-full pointer-events-none"}`}>
+<div className={`fixed top-0 left-0 w-full h-1/2 z-[9999] lg:hidden bg-white dark:bg-gray-900 shadow-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${isOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible -translate-y-full pointer-events-none"}`}>
   <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-gray-700 dark:text-gray-200">
     <IoClose className="text-3xl" />
   </button>
@@ -98,5 +98,6 @@ export default function Header() {
     </li>
   </ul>
 </div>
+
 </>
 }
