@@ -60,9 +60,14 @@ export default function Footer() {
           <div className="Explore">
             <h1 className="text-gray-900 mb-3">Explore</h1>
             <ul className="space-y-2 text-gray-600">
-              <li className="hover:text-gradient-violet cursor-pointer">Contact</li>
+              <li className="hover:text-gradient-violet cursor-pointer">
+                <Link to={"/about-us"}>Contact</Link>
+              </li>
               <li className="hover:text-gradient-violet cursor-pointer">My Profile</li>
-              <li className="hover:text-gradient-violet cursor-pointer">Login</li>
+              
+              <li className="hover:text-gradient-violet cursor-pointer">
+                <Link to={"/login"}>Login</Link>
+              </li>
             </ul>
           </div>
 
