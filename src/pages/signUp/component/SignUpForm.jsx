@@ -1,4 +1,10 @@
-import { Card, Checkbox, Button, Typography } from "@material-tailwind/react";
+import {
+  Card,
+  Checkbox,
+  Button,
+  Typography,
+  Input,
+} from "@material-tailwind/react";
 import {
   UserIcon,
   EnvelopeIcon,
@@ -18,11 +24,11 @@ const SignUpForm = () => {
             Join us and start your travel adventure
           </Typography>
           <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
-            <div className=" flex flex-col gap-2 mb-4 relative">
+            <div className=" flex flex-col gap-2 mb-4 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Full Name
               </Typography>
-              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="text"
@@ -33,11 +39,11 @@ const SignUpForm = () => {
                 autoComplete="name"
               />
             </div>
-            <div className=" flex flex-col gap-2 mb-4 relative">
+            <div className=" flex flex-col gap-2 mb-4 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Email Address
               </Typography>
-              <EnvelopeIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <EnvelopeIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="text"
@@ -48,11 +54,11 @@ const SignUpForm = () => {
                 autoComplete="email"
               />
             </div>
-            <div className="mb-4 flex flex-col gap-2 relative">
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Phone Number
               </Typography>
-              <PhoneIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <PhoneIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="tel"
@@ -63,11 +69,11 @@ const SignUpForm = () => {
                 autoComplete="tel"
               />
             </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Password
               </Typography>
-              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="password"
@@ -77,12 +83,12 @@ const SignUpForm = () => {
            transition-colors text-gray-900 dark:text-white placeholder-gray-400"
                 autoComplete="new-password"
               />
-            </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
+            </div>
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Confirm Password
               </Typography>
-              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="password"
