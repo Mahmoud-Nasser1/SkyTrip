@@ -32,9 +32,9 @@ export default function AboutUs() {
       </div>
     </section>
 
-  <section className="blocks flex flex-wrap items-center justify-center gap-6 min-h-[50vh] px-6 md:px-16 py-12 md:py-20 bg-gradient-to-b from-white to-blue-50">
+ <section className="blocks flex flex-wrap items-center justify-center gap-6 min-h-[50vh] px-6 md:px-16 py-12 md:py-20  bg-gradient-to-b from-white to-blue-50  dark:from-[#0f172a] dark:to-[#1e293b]">
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400 dark:bg-[#0f172a]">
     <BsPeople className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       2M+
@@ -42,7 +42,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Happy Travelers</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block dark:bg-[#0f172a] flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <TbWorld className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       200+
@@ -50,7 +50,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Destinations</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex dark:bg-[#0f172a] flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <IoMdAirplane className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       10K+
@@ -58,7 +58,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Daily Flights</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex flex-col dark:bg-[#0f172a] items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <FiAward className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       50+
@@ -68,7 +68,7 @@ export default function AboutUs() {
 
 </section>
 
-  <section className="py-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 mx-auto">
+<section className="py-20 bg-gradient-to-b from-blue-50 to-white dark:from-[#0f172a] dark:to-[#0f172a] mx-auto">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10">
 
     <div className="l-side flex flex-col max-w-xl">
@@ -100,7 +100,7 @@ export default function AboutUs() {
     </div>
 
     <div className="r-side w-full md:w-1/2 flex justify-center">
-      <img src="/room.jpeg" alt="Our office" className="w-full  md:h-[400px] object-cover rounded-3xl shadow-2xl"/>
+      <img src="/room.jpeg" alt="Our office" className="w-full md:h-[400px] object-cover rounded-3xl shadow-2xl"/>
     </div>
   </div>
 </section>

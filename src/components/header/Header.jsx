@@ -4,13 +4,16 @@ import { IoMdAirplane } from "react-icons/io";
 import { FiMoon } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
+import { CiSun } from "react-icons/ci";
+import useDarkMode from "../../hooks/darkMode";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useDarkMode();
 
   return (
     <>
-      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 border-white/20 shadow-lg border-b border-gray-200 ">
+      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-white/20 shadow-lg border-b border-gray-200 dark:border-gray-700 transition">
         <div className="max-w-screen-3xl mx-auto flex items-center justify-between px-6 py-4 container m-auto">
           <div className="flex items-center gap-2">
             <div className="text-white bg-gradient-to-r from-gradient-sky via-gradient-violet to-gradient-peach p-2 rounded-full text-xl">
@@ -22,19 +25,22 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-3 lg:hidden">
-            <button className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-              <FiMoon className="text-xl text-gray-700 dark:text-gray-200" />
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            >
+              {theme === "dark" ? (
+                <CiSun className="text-xl text-yellow-400" />
+              ) : (
+                <FiMoon className="text-xl text-gray-700 dark:text-gray-200" />
+              )}
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
-              {isOpen ? (
-                <IoClose className="text-3xl" />
-              ) : (
-                <RxHamburgerMenu className="text-2xl" />
-              )}
+              {isOpen ?  <><IoClose className="text-3xl" /></> : <><RxHamburgerMenu className="text-2xl" /></>}
             </button>
           </div>
 
@@ -90,8 +96,15 @@ export default function Header() {
               </li>
             </ul>
 
-            <button className="p-2 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-all border border-white/30 hover:scale-110">
-              <FiMoon className="text-xl text-gradient-violet dark:text-gray-200" />
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-all border border-white/30 hover:scale-110"
+            >
+              {theme === "dark" ? (
+                <CiSun className="text-xl text-yellow-400" />
+              ) : (
+                <FiMoon className="text-xl text-gradient-violet dark:text-gray-200" />
+              )}
             </button>
 
             <Link
@@ -125,7 +138,7 @@ export default function Header() {
               to={"/"}
               className={({ isActive }) =>
                 `text-2xl transition dark:text-white hover:text-gradient-violet ${
-                  isActive ? "text-purple-900" : "text-gray-600"
+                  isActive ? "text-gradient-violet" : "text-gray-600"
                 }`
               }
             >
@@ -138,7 +151,7 @@ export default function Header() {
               to={"/flights"}
               className={({ isActive }) =>
                 `text-2xl transition dark:text-white hover:text-gradient-violet ${
-                  isActive ? "text-purple-900" : "text-gray-600"
+                  isActive ? "text-gradient-violet" : "text-gray-600"
                 }`
               }
             >
@@ -151,7 +164,7 @@ export default function Header() {
               to={"/about-us"}
               className={({ isActive }) =>
                 `text-2xl transition dark:text-white hover:text-gradient-violet ${
-                  isActive ? "text-purple-900" : "text-gray-600"
+                  isActive ? "text-gradient-violet" : "text-gray-600"
                 }`
               }
             >
@@ -164,7 +177,7 @@ export default function Header() {
               to={"/contact-us"}
               className={({ isActive }) =>
                 `text-2xl transition dark:text-white hover:text-gradient-violet ${
-                  isActive ? "text-purple-900" : "text-gray-600"
+                  isActive ? "text-gradient-violet" : "text-gray-600"
                 }`
               }
             >
