@@ -1,4 +1,5 @@
 import { Button, Card, Chip } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 const myTripsData = [
   {
@@ -18,6 +19,11 @@ const myTripsData = [
 ];
 
 const MyTrips = () => {
+  const navigate = useNavigate();
+  const goFlightDetails = () => {
+    navigate("/flightdetails");
+  };
+
   return (
     <div>
       <h1 className="mb-4 text-gray-800">My Trips</h1>
@@ -26,7 +32,8 @@ const MyTrips = () => {
         {myTripsData.map(({ id, destination, date, status, price }) => (
           <Card
             key={id}
-            className=" p-6 shadow-lg border border-purple-100  hover:border-purple-600"
+            className=" p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30 
+  hover:scale-[1.01] hover:border-gradient-violet duration-500"
           >
             <div className="flex flex-col gap-4 justify-between items-center  md:flex-row ">
               <div className="flex flex-col gap-4 ">
@@ -40,7 +47,8 @@ const MyTrips = () => {
                   <Button
                     size="md"
                     variant="outlined"
-                    className=" capitalize  rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-purple-500"
+                    className=" capitalize  rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-gradient-main "
+                    onClick={goFlightDetails}
                   >
                     View Details
                   </Button>

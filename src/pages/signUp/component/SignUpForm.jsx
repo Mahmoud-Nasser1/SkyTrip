@@ -5,8 +5,95 @@ import {
   PhoneIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 const SignUpForm = () => {
+  const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  let emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  let phoneCheck = /^(?:\+20|0020)?01[0125][0-9]{8}$/;
+  const handleValidation = (e) => {
+    e.preventDefault();
+    const newErrors = {};
+
+    if (
+      user.firstName.length < 3 ||
+      user.firstName[0] !== user.firstName[0].toUpperCase() ||
+      user.firstName.includes(" ")
+    ) {
+      newErrors.firstName =
+        "First name must be at least 3 letters, start with a capital letter, and contain no spaces.";
+    }
+
+    if (
+      user.lastName.length < 3 ||
+      user.lastName[0] !== user.lastName[0].toUpperCase() ||
+      user.lastName.includes(" ")
+    ) {
+      newErrors.lastName =
+        "Last name must be at least 3 letters, start with a capital letter, and contain no spaces.";
+    }
+
+    if (!emailCheck.test(user.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+
+    if (!phoneCheck.test(user.phoneNumber)) {
+      newErrors.phoneNumber = "Please enter a valid phone number.";
+    }
+
+    if (user.password.length < 6 || !user.password.includes("!")) {
+      newErrors.password =
+        "Password must be at least 6 characters and contain '!'.";
+    }
+
+    if (user.confirmPassword !== user.password) {
+      newErrors.confirmPassword = "Passwords do not match.";
+    }
+
+    setError(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setSuccess(true);
+
+      //   const dbUser = {
+      //     firstName: user.firstName,
+      //     lastName: user.lastName,
+      //     email: user.email,
+      //     phoneNumber: user.phoneNumber,
+      //     password: user.password,
+      //   };
+      //    fetch("", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(dataToSend),
+      // })
+      //   .then((res) => res.json())
+      //   .catch((err) => console.error(err));
+    }
+  };
+
   return (
     <div>
       <div
@@ -20,81 +107,142 @@ const SignUpForm = () => {
           <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-foreground">
             Join us and start your travel adventure
           </Typography>
-          <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
-            <div className=" flex flex-col gap-2 mb-4 relative">
+          <form
+            className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96"
+            onSubmit={handleValidation}
+          >
+            <div className=" flex flex-col gap-2 mb-4 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
-                Full Name
+                First Name
               </Typography>
-              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="text"
-                placeholder="Full Name"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                placeholder="First Name"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="name"
+                value={user.firstName}
+                onChange={(e) =>
+                  setUser({ ...user, firstName: e.target.value })
+                }
               />
+              {error.firstName && (
+                <p className="text-red-500 text-sm mt-1">{error.firstName}</p>
+              )}
             </div>
-            <div className=" flex flex-col gap-2 mb-4 relative">
+            <div className=" flex flex-col gap-2 mb-4 relative group">
+              <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
+                Last Name
+              </Typography>
+              <UserIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
+                autoComplete="name"
+                value={user.lastName}
+                onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+              />
+              {error.lastName && (
+                <p className="text-red-500 text-sm mt-1">{error.lastName}</p>
+              )}
+            </div>
+            <div className=" flex flex-col gap-2 mb-4 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Email Address
               </Typography>
-              <EnvelopeIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <EnvelopeIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="text"
                 placeholder="name@gmail.com"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="email"
+                value={user.email}
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
               />
+              {error.email && (
+                <p className="text-red-500 text-sm mt-1">{error.email}</p>
+              )}
             </div>
-            <div className="mb-4 flex flex-col gap-2 relative">
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Phone Number
               </Typography>
-              <PhoneIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <PhoneIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="tel"
                 placeholder="Enter your phone number"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="tel"
+                value={user.phoneNumber}
+                onChange={(e) =>
+                  setUser({ ...user, phoneNumber: e.target.value })
+                }
               />
+              {error.phoneNumber && (
+                <p className="text-red-500 text-sm mt-1">{error.phoneNumber}</p>
+              )}
             </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Password
               </Typography>
-              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="password"
                 placeholder="••••••••"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="new-password"
+                value={user.password}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
-            </div>{" "}
-            <div className="mb-4 flex flex-col gap-2 relative">
+              {error.password && (
+                <p className="text-red-500 text-sm mt-1">{error.password}</p>
+              )}
+            </div>
+            <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Confirm Password
               </Typography>
-              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600" />
+              <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
                 type="password"
-                placeholder="••••••••"
-                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-700 
-           focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
-           transition-colors text-gray-900 dark:text-white placeholder-gray-400"
+                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
+    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
+    transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="new-password"
+                value={user.confirmPassword}
+                onChange={(e) =>
+                  setUser({ ...user, confirmPassword: e.target.value })
+                }
               />
+              {error.confirmPassword && (
+                <p className="text-red-500 text-sm mt-1">
+                  {error.confirmPassword}
+                </p>
+              )}
             </div>
             <Checkbox
               className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
@@ -121,6 +269,7 @@ const SignUpForm = () => {
               className="mt-6 rounded-full bg-gradient-to-br from-gradient-violet to-gradient-peach p-5 
 transition-transform duration-300 hover:scale-105"
               fullWidth
+              type="submit"
             >
               Create Account
             </Button>
@@ -184,6 +333,32 @@ transition-transform duration-300 hover:scale-105"
           </form>
         </Card>
       </div>
+      {success && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg max-w-md w-full relative">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-900"
+              onClick={() => setSuccess(false)}
+            >
+              ✖
+            </button>
+            <div className="text-center">
+              <Typography color="green" variant="h5" className="mb-4">
+                ✔️ Account Created!
+              </Typography>
+              <Typography className="text-gray-600 mb-6">
+                Your account was successfully created.
+              </Typography>
+              <Button
+                className="bg-gradient-to-br from-gradient-violet to-gradient-peach rounded-full px-6 py-3"
+                onClick={() => navigate("/login")}
+              >
+                Go to Login
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
