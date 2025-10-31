@@ -1,8 +1,28 @@
 import { Card, Checkbox, Button, Typography } from "@material-tailwind/react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [error, setError] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    let newErrors = {};
+
+    if (!loginData.email) newErrors.email = "Email is required.";
+    if (!loginData.password) newErrors.password = "Password is required.";
+
+    setError(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      navigate("/");
+      localStorage.setItem("isLoggedIn", "true");
+    }
+  };
+
   return (
     <div>
       <div
@@ -16,7 +36,10 @@ const LoginForm = () => {
           <Typography className="mt-1 font-normal text-xl text-light-muted-foreground dark:text-dark-foreground">
             Enter your credentials to access your account
           </Typography>
-          <form className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96">
+          <form
+            className="mt-8 mb-2 w-full max-w-screen-lg sm:w-96"
+            onSubmit={handleLogin}
+          >
             <div className=" flex flex-col gap-2 mb-4 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
                 Email Address
@@ -30,7 +53,14 @@ const LoginForm = () => {
            focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
            transition-colors text-gray-900 dark:text-white placeholder-gray-400"
                 autoComplete="email"
+                value={loginData.email}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, email: e.target.value })
+                }
               />
+              {error.email && (
+                <p className="text-red-500 text-sm">{error.email}</p>
+              )}
             </div>
             <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
@@ -45,7 +75,14 @@ const LoginForm = () => {
            focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
            transition-colors text-gray-900 dark:text-white placeholder-gray-400"
                 autoComplete="new-password"
+                value={loginData.password}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, password: e.target.value })
+                }
               />
+              {error.password && (
+                <p className="text-red-500 text-sm">{error.password}</p>
+              )}
             </div>
             <div className="flex flex-col md:flex-row md:justify-between gap-4 flex-wrap">
               <Checkbox
@@ -72,6 +109,7 @@ const LoginForm = () => {
               className="text-base mt-6 rounded-full  bg-gradient-to-r from-gradient-violet to-gradient-peach p-5 
 transition-transform duration-300 hover:scale-105"
               fullWidth
+              type="submit"
             >
               Sign IN
             </Button>
