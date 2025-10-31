@@ -5,10 +5,11 @@ import { useParams } from "react-router-dom";
 import MyTrips from "./components/MyTrips";
 import ProfileInfo from "./components/ProfileInfo";
 import SavedFlights from "./components/SavedFlights";
-import AddPaymentMethod from "./components/AddPaymentMethod";
+import AddPayment from "./components/AddPayment";
 
 const user = {
-  name: "John Doe",
+  firstName: "John",
+  lastName: "Doe",
   email: "john.doe@example.com",
   phoneNumber: "+1 234 567 890",
   passport: "AB1234567",
@@ -24,7 +25,7 @@ const tabsData = [
   },
   { label: "My Trips", tabId: "trips", content: <MyTrips /> },
   { label: "Saved Flights", tabId: "flights", content: <SavedFlights /> },
-  { label: "Payments", tabId: "payments", content: <AddPaymentMethod /> },
+  { label: "Payments", tabId: "payments", content: <AddPayment /> },
 ];
 
 const Profile = () => {
@@ -38,7 +39,7 @@ const Profile = () => {
   const activeTab = tabId || "info";
 
   return (
-    <div className="bg-gray-50/50 pt-24 pb-24 px-4 lg:px-6">
+    <div className="bg-gray-50/50 pt-24 pb-24 px-4 lg:px-6 dark:bg-dark-background">
       <ProfileHeader user={user} />
       <ProfileSidebar activeTab={activeTab} tabsData={tabsData} />
     </div>
