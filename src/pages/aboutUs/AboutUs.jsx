@@ -105,7 +105,7 @@ export default function AboutUs() {
   </div>
 </section>
 
-<section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-[#0f172a] dark:to-[#0f172a]">
+  <section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-gray-900 dark:to-violet-950">
   <div className="upper text-center mb-12">
     <h1 className="inline-block px-4 py-2 rounded-full bg-gradient-violet/10 text-gradient-violet mb-4 w-fit">
       Our Values
@@ -121,7 +121,7 @@ export default function AboutUs() {
   </div>
 
   <div className="lower flex flex-wrap justify-center gap-8 mt-16 mx-auto">
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <CiHeart className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-red-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Customer First</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -129,7 +129,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <MdOutlineShield className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Trust & Safety</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -137,7 +137,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <HiMiniArrowTrendingUp className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-violet mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Innovation</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -145,7 +145,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <FiClock className="w-14 h-14 sm:w-16 sm:h-16 rounded-sm bg-gradient-to-br from-orange-400 to-amber-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">24/7 Support</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -155,24 +155,26 @@ export default function AboutUs() {
   </div>
 </section>
 
-<section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-[#0f172a] dark:to-[#0f172a]">
+  <section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-gray-900 dark:to-violet-950">
   <div className="upper text-center mb-12">
     <h1 className="inline-block px-4 py-2 rounded-full bg-gradient-violet/10 text-gradient-violet mb-4 w-fit">
       Meet Our Team
     </h1>
 
-    <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
-      The Minds Behind SkyVoyage
-    </h1>
+<h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
+    The Minds Behind SkyVoyage
+</h1>
 
     <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
       Passionate professionals dedicated to making your travel dreams come true
     </p>
   </div>
   
-  <div className="team flex flex-wrap justify-center gap-6">
+  <div className="team">
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+  <div className="flex flex-wrap justify-center gap-6">
+
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
         <img src="/woman1.jpeg" alt="Sarah Johnson" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
       </div>
@@ -187,13 +189,17 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img src="/man2.jpeg" alt="michale chen" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+        <img
+          src="/man2.jpeg"
+          alt="michale chen"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
-          Michale Chen
+          Michale chen
         </h3>
         <p className="text-indigo-500 dark:text-indigo-400 text-sm">
           Chief Technology Officer
@@ -202,9 +208,13 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img src="/woman 2.jpeg" alt="Emily Rodriguez" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+        <img
+          src="/woman 2.jpeg"
+          alt="Emily Rodriguez"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
@@ -217,23 +227,27 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img src="/man1.jpeg" alt="David Kim" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+        <img
+          src="/man1.jpeg"
+          alt="David Kim"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
           David Kim
         </h3>
         <p className="text-indigo-500 dark:text-indigo-400 text-sm">
-          Customer Experience <br/> Director
+          Customer Experince <br/> Director
         </p>
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
   </div>
-</section>
-
+  </div>
+  </section>
 
 <section>
   <div className="py-20 px-4 bg-gradient-to-r from-gradient-sky via-gradient-violet to-gradient-peach">
