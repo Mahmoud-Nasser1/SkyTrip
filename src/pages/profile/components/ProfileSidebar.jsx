@@ -16,7 +16,7 @@ const ProfileSidebar = ({ activeTab, tabsData }) => {
       className="overflow-visible	grid grid-cols-1 md:grid-cols-4 gap-6 mt-6"
     >
       <TabsHeader
-        className="bg-white shadow-md rounded-3xl p-6 md:col-span-1 space-y-1"
+        className="bg-white shadow-md rounded-3xl p-6 md:col-span-1 space-y-1 dark:bg-dark-card"
         indicatorProps={{
           className: "bg-transparent  shadow-none rounded-none",
         }}
@@ -28,15 +28,15 @@ const ProfileSidebar = ({ activeTab, tabsData }) => {
             onClick={() => navigate(`/profile/${tabId}`)}
             className={`w-full px-4 py-3 rounded-2xl ${
               activeTab === tabId
-                ? " bg-gradient-main text-white"
-                : " text-gray-800 hover:bg-gray-200"
+                ? " bg-gradient-main text-white "
+                : " text-gray-800 hover:bg-gray-200 dark:text-white dark:hover:bg-dark-accent"
             }`}
           >
             {label}
           </Tab>
         ))}
       </TabsHeader>
-      <TabsBody className="bg-white shadow-md rounded-3xl p-6  md:col-span-3 ">
+      <TabsBody className="bg-white shadow-md rounded-3xl p-6  md:col-span-3 dark:bg-dark-card">
         {tabsData.map(({ tabId, content }) => (
           <TabPanel key={tabId} value={tabId}>
             {content}
