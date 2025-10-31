@@ -15,7 +15,7 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const AddPaymentMethod = () => {
-  const [paymentMethods, setPaymentMethods] = useState([
+  const [paymentMethods] = useState([
     { id: 1, cardNumber: "1234 5678 9876 4242", expiry: "12/26" },
   ]);
 

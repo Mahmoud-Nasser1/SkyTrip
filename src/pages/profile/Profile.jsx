@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import MyTrips from "./components/MyTrips";
 import ProfileInfo from "./components/ProfileInfo";
 import SavedFlights from "./components/SavedFlights";
-import AddPaymentMethod from "./components/addPaymentMethod";
+import AddPaymentMethod from "./components/AddPaymentMethod";
 
 const user = {
   name: "John Doe",
