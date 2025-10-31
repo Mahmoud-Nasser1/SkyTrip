@@ -4,11 +4,16 @@ import {
   EnvelopeIcon,
   PhoneIcon,
   LockClosedIcon,
+  EyeSlashIcon,
+  EyeIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const SignUpForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState({
@@ -31,48 +36,41 @@ const SignUpForm = () => {
 
   let emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   let phoneCheck = /^(?:\+20|0020)?01[0125][0-9]{8}$/;
+  const passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
   const handleValidation = (e) => {
     e.preventDefault();
-    const newErrors = {};
+    const newErrors = {
+      firstName:
+        user.firstName.length < 3 ||
+        user.firstName[0] !== user.firstName[0].toUpperCase() ||
+        user.firstName.includes(" ")
+          ? "First name must be at least 3 letters, start with a capital letter, and contain no spaces."
+          : "",
 
-    if (
-      user.firstName.length < 3 ||
-      user.firstName[0] !== user.firstName[0].toUpperCase() ||
-      user.firstName.includes(" ")
-    ) {
-      newErrors.firstName =
-        "First name must be at least 3 letters, start with a capital letter, and contain no spaces.";
-    }
+      lastName:
+        user.lastName.length < 3 ||
+        user.lastName[0] !== user.lastName[0].toUpperCase() ||
+        user.lastName.includes(" ")
+          ? "Last name must be at least 3 letters, start with a capital letter, and contain no spaces."
+          : "",
 
-    if (
-      user.lastName.length < 3 ||
-      user.lastName[0] !== user.lastName[0].toUpperCase() ||
-      user.lastName.includes(" ")
-    ) {
-      newErrors.lastName =
-        "Last name must be at least 3 letters, start with a capital letter, and contain no spaces.";
-    }
-
-    if (!emailCheck.test(user.email)) {
-      newErrors.email = "Please enter a valid email address.";
-    }
-
-    if (!phoneCheck.test(user.phoneNumber)) {
-      newErrors.phoneNumber = "Please enter a valid phone number.";
-    }
-
-    if (user.password.length < 6 || !user.password.includes("!")) {
-      newErrors.password =
-        "Password must be at least 6 characters and contain '!'.";
-    }
-
-    if (user.confirmPassword !== user.password) {
-      newErrors.confirmPassword = "Passwords do not match.";
-    }
+      email: !emailCheck.test(user.email)
+        ? "Please enter a valid email address."
+        : "",
+      phoneNumber: !phoneCheck.test(user.phoneNumber)
+        ? "Please enter a valid phone number."
+        : "",
+      password: !passwordCheck.test(user.password)
+        ? "Password must be at least 8 characters, include uppercase, lowercase, number, and special character."
+        : "",
+      confirmPassword:
+        user.confirmPassword !== user.password ? "Passwords do not match." : "",
+    };
 
     setError(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.values(newErrors).every((err) => err === "")) {
       setSuccess(true);
 
       //   const dbUser = {
@@ -144,7 +142,7 @@ const SignUpForm = () => {
                 type="text"
                 placeholder="Last Name"
                 className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
-    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    ${error.lastName ? "border-red-500" : "border-gray-200"}
     focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
     transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="name"
@@ -165,7 +163,7 @@ const SignUpForm = () => {
                 type="text"
                 placeholder="name@gmail.com"
                 className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
-    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    ${error.email ? "border-red-500" : "border-gray-200"}
     focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
     transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="email"
@@ -186,7 +184,7 @@ const SignUpForm = () => {
                 type="tel"
                 placeholder="Enter your phone number"
                 className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
-    ${error.firstName ? "border-red-500" : "border-gray-200"}
+    ${error.phoneNumber ? "border-red-500" : "border-gray-200"}
     focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
     transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="tel"
@@ -206,19 +204,30 @@ const SignUpForm = () => {
               <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
-                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
-    ${error.firstName ? "border-red-500" : "border-gray-200"}
+                className={`w-full pl-12 pr-10 py-3 rounded-2xl border-2
+    ${error.password ? "border-red-500" : "border-gray-200"}
     focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
     transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="new-password"
                 value={user.password}
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
+
               {error.password && (
                 <p className="text-red-500 text-sm mt-1">{error.password}</p>
               )}
+              <span
+                className="absolute right-4 top-12 cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
+              </span>
             </div>
             <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-foreground">
@@ -227,9 +236,10 @@ const SignUpForm = () => {
               <LockClosedIcon className="absolute left-4 top-12 w-5 h-5 text-gray-600 group-focus-within:text-gradient-violet duration-200" />
 
               <input
-                type="password"
-                className={`w-full pl-12 pr-4 py-3 rounded-2xl border-2
-    ${error.firstName ? "border-red-500" : "border-gray-200"}
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="••••••••"
+                className={`w-full pl-12 pr-10 py-3 rounded-2xl border-2
+    ${error.confirmPassword ? "border-red-500" : "border-gray-200"}
     focus:border-gradient-violet outline-none bg-white dark:bg-gray-800 
     transition-colors text-gray-900 dark:text-white placeholder-gray-400`}
                 autoComplete="new-password"
@@ -243,6 +253,16 @@ const SignUpForm = () => {
                   {error.confirmPassword}
                 </p>
               )}
+              <span
+                className="absolute right-4 top-12 cursor-pointer"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                {showConfirmPassword ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
+              </span>
             </div>
             <Checkbox
               className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
