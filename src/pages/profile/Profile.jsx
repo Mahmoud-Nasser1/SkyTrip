@@ -2,11 +2,10 @@ import NotFound from "../notFound/NotFound";
 import ProfileHeader from "./components/ProfileHeader";
 import ProfileSidebar from "./components/ProfileSidebar";
 import { useParams } from "react-router-dom";
-import MyTrips from "./components/sidebarSections/MyTrips";
-import ProfileInfo from "./components/sidebarSections/ProfileInfo";
-import SavedFlights from "./components/sidebarSections/SavedFlights";
-import Payments from "./components/sidebarSections/Payments";
-import Settings from "./components/sidebarSections/Settings";
+import MyTrips from "./components/MyTrips";
+import ProfileInfo from "./components/ProfileInfo";
+import SavedFlights from "./components/SavedFlights";
+import AddPaymentMethod from "./components/AddPaymentMethod";
 
 const user = {
   name: "John Doe",
@@ -23,26 +22,9 @@ const tabsData = [
     tabId: "info",
     content: <ProfileInfo user={user} />,
   },
-  {
-    label: "My Trips",
-    tabId: "trips",
-    content: <MyTrips />,
-  },
-  {
-    label: "Saved Flights",
-    tabId: "flights",
-    content: <SavedFlights />,
-  },
-  {
-    label: "Payments",
-    tabId: "payments",
-    content: <Payments />,
-  },
-  {
-    label: "Settings",
-    tabId: "settings",
-    content: <Settings />,
-  },
+  { label: "My Trips", tabId: "trips", content: <MyTrips /> },
+  { label: "Saved Flights", tabId: "flights", content: <SavedFlights /> },
+  { label: "Payments", tabId: "payments", content: <AddPaymentMethod /> },
 ];
 
 const Profile = () => {

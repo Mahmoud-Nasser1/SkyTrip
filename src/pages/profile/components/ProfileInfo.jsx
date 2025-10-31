@@ -20,7 +20,7 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
             type="text"
             defaultValue={name.split(" ")[0]}
             className="w-full px-4 py-3 rounded-2xl border border-gray-200
-        focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
+        focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
         bg-white text-gray-700"
           />
         </div>
@@ -37,7 +37,7 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
             type="text"
             defaultValue={name.trim().split(" ").slice(-1)[0]}
             className="w-full px-4 py-3 rounded-2xl border border-gray-200
-        focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
+        focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
         bg-white text-gray-700"
           />
         </div>
@@ -51,8 +51,8 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
         <input
           type="email"
           defaultValue={email}
-          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full	
-           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
+          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full
+           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
              bg-white text-gray-700"
         />
       </div>
@@ -65,8 +65,8 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
         <input
           type="text"
           defaultValue={phoneNumber}
-          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full	
-           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
+          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full
+           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
              bg-white text-gray-700"
         />
       </div>
@@ -78,8 +78,8 @@ const ProfileInfo = ({ user: { name, email, phoneNumber, passport } }) => {
         <input
           type="text"
           defaultValue={passport}
-          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full	
-           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
+          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full
+           focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
              bg-white text-gray-700"
         />
       </div>
