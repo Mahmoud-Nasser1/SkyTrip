@@ -9,7 +9,7 @@ import { FiFacebook, FiLinkedin } from "react-icons/fi";
 
 export default function Footer() {
   return <>
-    <footer className="w-full bg-white border-t">
+    <footer className="w-full bg-white border-t dark:bg-[#0f172a]  dark:border-gray-800/2">
       <div className="max-w-screen-xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div className="info max-w-md">
@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="text-gray-600 text-sm leading-relaxed w-64 md:w-78">
+            <p className="text-gray-600 text-sm leading-relaxed w-64 md:w-78 dark:gray-400">
               Your trusted partner for seamless flight bookings and unforgettable travel experiences around the globe.
             </p>
 
@@ -43,39 +43,39 @@ export default function Footer() {
           </div>
 
           <div className="quick">
-            <h1 className=" text-gray-900 mb-3">Quick Links</h1>
+            <h1 className=" text-gray-900 mb-3 dark:text-white">Quick Links</h1>
             <ul className="space-y-2 text-gray-600">
-              <li className="hover:text-gradient-violet cursor-pointer">
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">
                 <Link to={"/"}>Home</Link>
               </li>
-              <li className="hover:text-gradient-violet cursor-pointer">
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">
                 <Link to={"/flights"}>Flights</Link>
               </li>
-              <li className="hover:text-gradient-violet cursor-pointer">
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">
                 <Link to={"/about-us"}>About Us</Link>
               </li>
             </ul>
           </div>
 
           <div className="Explore">
-            <h1 className="text-gray-900 mb-3">Explore</h1>
+            <h1 className="text-gray-900 mb-3 dark:text-white">Explore</h1>
             <ul className="space-y-2 text-gray-600">
-              <li className="hover:text-gradient-violet cursor-pointer">
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">
                 <Link to={"/about-us"}>Contact</Link>
               </li>
-              <li className="hover:text-gradient-violet cursor-pointer">My Profile</li>
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">My Profile</li>
               
-              <li className="hover:text-gradient-violet cursor-pointer">
+              <li className="hover:text-gradient-violet cursor-pointer dark:text-gray-400">
                 <Link to={"/login"}>Login</Link>
               </li>
             </ul>
           </div>
 
           <div className="Contact">
-            <h1 className=" text-gray-900 mb-3">Contact Us</h1>
+            <h1 className=" text-gray-900 mb-3 dark:text-white">Contact Us</h1>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-center">
-                <MdOutlineMail className="text-gradient-violet text-xl mr-2" />
+                <MdOutlineMail className="text-gradient-violet text-xl mr-2 " />
                 support@skyvoyage.com
               </li>
               <li className="flex items-center">

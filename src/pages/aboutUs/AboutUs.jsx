@@ -32,9 +32,9 @@ export default function AboutUs() {
       </div>
     </section>
 
-  <section className="blocks flex flex-wrap items-center justify-center gap-6 min-h-[50vh] px-6 md:px-16 py-12 md:py-20 bg-gradient-to-b from-white to-blue-50">
+ <section className="blocks flex flex-wrap items-center justify-center gap-6 min-h-[50vh] px-6 md:px-16 py-12 md:py-20  bg-gradient-to-b from-white to-blue-50  dark:from-[#0f172a] dark:to-[#1e293b]">
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400 dark:bg-[#0f172a]">
     <BsPeople className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       2M+
@@ -42,7 +42,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Happy Travelers</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block dark:bg-[#0f172a] flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <TbWorld className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       200+
@@ -50,7 +50,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Destinations</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex dark:bg-[#0f172a] flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <IoMdAirplane className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       10K+
@@ -58,7 +58,7 @@ export default function AboutUs() {
     <h2 className="text-md font-medium text-gray-500">Daily Flights</h2>
   </div>
 
-  <div className="Block flex flex-col items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
+  <div className="Block flex flex-col dark:bg-[#0f172a] items-center justify-center rounded-lg bg-white shadow-md w-[45%] sm:w-[45%] md:w-52 h-52 text-center transform transition duration-300 hover:scale-105 hover:shadow-gray-400">
     <FiAward className="text-6xl mb-2 bg-gradient-to-r from-gradient-violet to-gradient-peach p-3 rounded-md text-white" />
     <h2 className="text-3xl font-bold bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
       50+
@@ -68,7 +68,7 @@ export default function AboutUs() {
 
 </section>
 
-  <section className="py-20 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 mx-auto">
+<section className="py-20 bg-gradient-to-b from-blue-50 to-white dark:from-[#0f172a] dark:to-[#0f172a] mx-auto">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10">
 
     <div className="l-side flex flex-col max-w-xl">
@@ -100,12 +100,12 @@ export default function AboutUs() {
     </div>
 
     <div className="r-side w-full md:w-1/2 flex justify-center">
-      <img src="/room.jpeg" alt="Our office" className="w-full  md:h-[400px] object-cover rounded-3xl shadow-2xl"/>
+      <img src="/room.jpeg" alt="Our office" className="w-full md:h-[400px] object-cover rounded-3xl shadow-2xl"/>
     </div>
   </div>
 </section>
 
-  <section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-gray-900 dark:to-violet-950">
+<section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-[#0f172a] dark:to-[#0f172a]">
   <div className="upper text-center mb-12">
     <h1 className="inline-block px-4 py-2 rounded-full bg-gradient-violet/10 text-gradient-violet mb-4 w-fit">
       Our Values
@@ -121,7 +121,7 @@ export default function AboutUs() {
   </div>
 
   <div className="lower flex flex-wrap justify-center gap-8 mt-16 mx-auto">
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <CiHeart className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-red-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Customer First</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -129,7 +129,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <MdOutlineShield className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Trust & Safety</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -137,7 +137,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <HiMiniArrowTrendingUp className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-violet mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">Innovation</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -145,7 +145,7 @@ export default function AboutUs() {
       </p>
     </div>
 
-    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
+    <div className="card w-[80%] sm:w-[45%] lg:w-[22%] p-5 sm:p-6 md:p-8 rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:-translate-y-2 group">
       <FiClock className="w-14 h-14 sm:w-16 sm:h-16 rounded-sm bg-gradient-to-br from-orange-400 to-amber-400 mb-6 group-hover:scale-110 text-white" />
       <h3 className="text-lg sm:text-xl mb-3 text-gray-900 dark:text-white">24/7 Support</h3>
       <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line text-sm sm:text-base">
@@ -155,26 +155,24 @@ export default function AboutUs() {
   </div>
 </section>
 
-  <section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-gray-900 dark:to-violet-950">
+<section className="py-20 bg-gradient-to-b from-white to-violet-50 dark:from-[#0f172a] dark:to-[#0f172a]">
   <div className="upper text-center mb-12">
     <h1 className="inline-block px-4 py-2 rounded-full bg-gradient-violet/10 text-gradient-violet mb-4 w-fit">
       Meet Our Team
     </h1>
 
-<h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
-    The Minds Behind SkyVoyage
-</h1>
+    <h1 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
+      The Minds Behind SkyVoyage
+    </h1>
 
     <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
       Passionate professionals dedicated to making your travel dreams come true
     </p>
   </div>
   
-  <div className="team">
+  <div className="team flex flex-wrap justify-center gap-6">
 
-  <div className="flex flex-wrap justify-center gap-6">
-
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
         <img src="/woman1.jpeg" alt="Sarah Johnson" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
       </div>
@@ -189,17 +187,13 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img
-          src="/man2.jpeg"
-          alt="michale chen"
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
+        <img src="/man2.jpeg" alt="michale chen" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
-          Michale chen
+          Michale Chen
         </h3>
         <p className="text-indigo-500 dark:text-indigo-400 text-sm">
           Chief Technology Officer
@@ -208,13 +202,9 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img
-          src="/woman 2.jpeg"
-          alt="Emily Rodriguez"
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
+        <img src="/woman 2.jpeg" alt="Emily Rodriguez" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
@@ -227,27 +217,23 @@ export default function AboutUs() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
 
-    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+    <div className="w-[230px] sm:w-[200px] md:w-[220px] lg:w-[240px] relative overflow-hidden rounded-2xl bg-white dark:bg-[#0f172a] border border-gray-300 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
       <div className="aspect-square overflow-hidden">
-        <img
-          src="/man1.jpeg"
-          alt="David Kim"
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
+        <img src="/man1.jpeg" alt="David Kim" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
       </div>
       <div className="p-4 text-center">
         <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
           David Kim
         </h3>
         <p className="text-indigo-500 dark:text-indigo-400 text-sm">
-          Customer Experince <br/> Director
+          Customer Experience <br/> Director
         </p>
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
     </div>
   </div>
-  </div>
-  </section>
+</section>
+
 
 <section>
   <div className="py-20 px-4 bg-gradient-to-r from-gradient-sky via-gradient-violet to-gradient-peach">
