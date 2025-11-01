@@ -25,7 +25,7 @@ const SavedFlights = () => {
   };
   return (
     <div>
-      <h1 className="mb-4 text-gray-800">Saved Flights</h1>
+      <h1 className="mb-4 text-gray-800 dark:text-white">Saved Flights</h1>
 
       <div className="space-y-6">
         {savedFlightsData.map(
@@ -33,15 +33,17 @@ const SavedFlights = () => {
             <Card
               key={id}
               className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30 
-  hover:scale-[1.01] hover:border-gradient-violet duration-500"
+  hover:scale-[1.01] hover:border-gradient-violet duration-500 dark:bg-dark-muted dark:border-dark-border"
             >
               <div className="flex flex-col  justify-between items-center  md:flex-row ">
                 <div className="flex flex-col gap-4 ">
                   <div className="space-y-2">
-                    <p className="text-base font-bold text-gray-900">
+                    <p className="text-base font-bold text-gray-900 dark:text-white">
                       {startCity} → {endCity}
                     </p>
-                    <p className="text-sm text-gray-500">{flightClass}</p>
+                    <p className="text-sm text-gray-500 dark:text-white">
+                      {flightClass}
+                    </p>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Button
@@ -54,7 +56,7 @@ const SavedFlights = () => {
                     <Button
                       size="md"
                       variant="outlined"
-                      className="rounded-full px-6 border-gray-300 text-gray-700 hover:text-red-800 hover:border-red-900"
+                      className="rounded-full px-6 border-gray-300 text-gray-700 hover:text-red-800 hover:border-red-900 dark:bg-dark-destructive dark:text-white "
                     >
                       Remove
                     </Button>
@@ -62,7 +64,9 @@ const SavedFlights = () => {
                 </div>
 
                 <div className="flex justify-end md:justify-start">
-                  <p className="text-xl  text-purple-400">{price}</p>
+                  <p className="text-xl  text-purple-400 dark:text-white">
+                    {price}
+                  </p>
                 </div>
               </div>
             </Card>

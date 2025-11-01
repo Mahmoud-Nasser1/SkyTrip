@@ -1,7 +1,7 @@
 const SignUpRight = () => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center gap-4  p-4   ">
+      <div className="flex flex-col justify-center items-center gap-4  p-4 mb-6  ">
         <div className="w-20 h-20 bg-gradient-to-br from-gradient-sky via-gradient-violet to-gradient-peach rounded-2xl  flex items-center justify-center shadow-lg transition-transform duration-200 hover:rotate-12">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ const SignUpRight = () => {
         <h1 className="p-2 text-center text-4xl sm:text-5xl md:text-6xl bg-gradient-to-r from-gradient-violet via-gradient-peach to-gradient-sky bg-clip-text text-transparent">
           Join SkyTrip
         </h1>
-        <p className="text-lg text-light-muted-foreground dark:text-dark-foreground text-center">
+        <p className="text-lg text-light-muted-foreground dark:text-dark-muted-foreground text-center">
           Your journey to amazing destinations begins here
         </p>
         <div className="overflow-hidden shadow-xl rounded-2xl w-full max-w-sm h-64 sm:h-72 md:h-80">
@@ -27,45 +27,45 @@ const SignUpRight = () => {
           />
         </div>
         <div className="flex flex-col gap-4 w-full flex-wrap">
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2  dark:border-dark-secondary shadow-lg hover:border-gradient-violet light:hover:bg-purple-50/50 dark:hover:border-gradient-violet cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 ✈️
               </div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-muted-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 Book flights worldwide
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2  dark:border-dark-secondary shadow-lg hover:border-gradient-violet light:hover:bg-purple-50/50 dark:hover:border-gradient-violet cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 💰
               </div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-muted-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 Exclusive discounts & deals
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2  dark:border-dark-secondary shadow-lg hover:border-gradient-violet light:hover:bg-purple-50/50 dark:hover:border-gradient-violet cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🧾
               </div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-muted-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 Manage bookings easily
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent shadow-lg hover:border-gradient-violet hover:bg-purple-50/50 cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2  dark:border-dark-secondary shadow-lg hover:border-gradient-violet light:hover:bg-purple-50/50 dark:hover:border-gradient-violet cursor-pointer transition-all duration-300">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-gradient-to-br from-gradient-violet to-gradient-peach text-white text-xl shadow-md">
                 🔔
               </div>
-              <span className="text-gray-800 font-medium text-sm">
+              <span className="text-light-muted-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 Get real-time updates
               </span>
             </div>

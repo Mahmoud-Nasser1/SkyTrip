@@ -1,7 +1,7 @@
 const LoginLeft = () => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center gap-4  p-4   ">
+      <div className="dark:bg-dark-background flex flex-col justify-center items-center gap-4  p-4    ">
         <div className="w-20 h-20 bg-gradient-to-br from-gradient-sky via-gradient-violet to-gradient-peach rounded-2xl  flex items-center justify-center shadow-lg transition-transform duration-200 hover:rotate-12">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -27,28 +27,28 @@ const LoginLeft = () => {
           />
         </div>
         <div className="flex gap-4 w-full flex-wrap justify-center">
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2 border-light-border dark:border-dark-border shadow-lg dark:hover:border-gradient-violet hover:border-gradient-violet  cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">✈️</div>
-              <span className=" text-light-foreground dark:text-dark-foreground font-medium text-sm">
+              <span className=" text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 1000+ Flights
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2 border-light-border dark:border-dark-border shadow-lg dark:hover:border-gradient-violet hover:border-gradient-violet  cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">🌍</div>
-              <span className="text-light-foreground dark:text-dark-foreground font-medium text-sm">
+              <span className="text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 200+ Destinations{" "}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center justify-between p-4 rounded-2xl border border-transparent hover:border-gradient-violet shadow-md cursor-pointer transition-all duration-300">
+          <div className="flex items-center justify-between p-4 rounded-2xl border-2 border-light-border dark:border-dark-border shadow-lg dark:hover:border-gradient-violet hover:border-gradient-violet  cursor-pointer transition-all duration-300">
             <div className="flex flex-col items-center gap-1">
               <div className="text-xl">⭐ </div>
-              <span className="text-light-foreground dark:text-dark-foreground font-medium text-sm">
+              <span className="text-light-foreground dark:text-dark-muted-foreground font-medium text-sm">
                 50k+ Reviews{" "}
               </span>
             </div>
