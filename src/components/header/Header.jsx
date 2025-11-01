@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-white/20 shadow-lg border-b border-gray-200 dark:border-gray-700 transition">
+      <nav className="top-0 left-0 right-0 fixed z-50 backdrop-blur-md bg-white/70 dark:bg-[#111928] border-white/20 shadow-lg border-b border-gray-200 dark:border-gray-800 transition">
         <div className="max-w-screen-3xl mx-auto flex items-center justify-between px-6 py-4 container m-auto">
           <div className="flex items-center gap-2">
             <div className="text-white bg-gradient-to-r from-gradient-sky via-gradient-violet to-gradient-peach p-2 rounded-full text-xl">
@@ -118,7 +118,7 @@ export default function Header() {
       </nav>
 
       <div
-        className={`fixed top-0 left-0 w-full h-1/2 z-[9999] lg:hidden bg-white dark:bg-gray-900 shadow-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full h-1/2 z-[9999] lg:hidden bg-white dark:bg-[#111928] shadow-xl flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 visible translate-y-0 pointer-events-auto"
             : "opacity-0 invisible -translate-y-full pointer-events-none"
