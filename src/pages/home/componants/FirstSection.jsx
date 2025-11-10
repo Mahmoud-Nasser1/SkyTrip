@@ -14,10 +14,10 @@ const FirstSection = () => {
             />
           </div>
           <div className="relative z-10 text-center text-white px-4">
-            <h1 className="text-5xl md:text-7xl text-white mb-6">
+            <h1 className="text-3xl md:text-7xl text-white mb-6 sm:block hidden mt-10" >
               Fly in Style, Arrive in Comfort
             </h1>
-            <h3 className="text-xl md:text-2xl text-white/90 mb-12">
+            <h3 className="text-xl lg:text-2xl text-white/90 mb-12 md:block hidden">
               Discover your next adventure with exclusive deals and seamless
               booking
             </h3>
