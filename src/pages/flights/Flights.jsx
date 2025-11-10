@@ -12,6 +12,7 @@ import {
 const Flights = () => {
   const [flights, setflights] = useState([
     {
+      id: 1,
       airline: "SkyWings Airlines",
       departureTime: "08:00 AM",
       departureCity: "New York (JFK)",
@@ -24,6 +25,7 @@ const Flights = () => {
       price: 598,
     },
     {
+      id: 2,
       airline: "Global Airways",
       departureTime: "11:00 AM",
       departureCity: "New York (JFK)",
@@ -36,6 +38,7 @@ const Flights = () => {
       price: 449,
     },
     {
+      id: 3,
       airline: "Pacific Express",
       departureTime: "03:00 PM",
       departureCity: "New York (JFK)",
@@ -48,6 +51,7 @@ const Flights = () => {
       price: 679,
     },
     {
+      id: 4,
       airline: "Continental Air",
       departureTime: "06:30 PM",
       departureCity: "New York (JFK)",

@@ -368,7 +368,7 @@ const PayForm = () => {
                     />
                   </div>
 
-                  <Button size="lg" className="bg-gradient-main rounded-full">
+                  <Button size="lg" className="bg-gradient-main rounded-full" onClick={handleOpen}>
                     Pay with PayPal
                   </Button>
                   <Typography
