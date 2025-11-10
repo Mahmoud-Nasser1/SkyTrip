@@ -11,7 +11,7 @@ import {
 
 export function CardWithLink({ Icon, title, description, bgColor, href }) {
   return (
-    <Card className="mt-6 w-96 text-center transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 bg-white/90 backdrop-blur-sm border border-transparent hover:border-gradient-violet">
+    <Card className="mt-6 w-96 text-center transform transition-all duration-500 hover:scale-100 hover:shadow-2xl hover:shadow-gradient-violet/30 bg-white/90 backdrop-blur-sm border border-transparent hover:border-gradient-violet">
       <CardBody>
         <div
           className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-500 ${bgColor} hover:scale-110 hover:rotate-6 shadow-md hover:shadow-lg`}
