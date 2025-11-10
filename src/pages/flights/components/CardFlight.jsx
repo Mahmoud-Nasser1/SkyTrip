@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardBody } from "@material-tailwind/react";
+import { Card, CardHeader, CardBody, Chip } from "@material-tailwind/react";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { IoIosArrowDropright } from "react-icons/io";
 import { IoMdTime } from "react-icons/io";
@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const CardFlight = ({
   flight: {
+    id,
     airline,
     departureTime,
     departureCity,
@@ -20,8 +21,8 @@ const CardFlight = ({
   },
 }) => {
   const navigate = useNavigate();
-  const goFlightDetails = () => {
-    navigate("/flightdetails");
+  const goFlightDetails = (id) => {
+    navigate(`/flights/${id}`);
   };
   return (
     <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl">
@@ -62,6 +63,16 @@ const CardFlight = ({
                 <label htmlFor="">{arrivalCity}</label>
               </div>
             </div>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <Chip
+                value={cabinClass}
+                className="px-3 py-1 text-sm bg-blue-100  text-purple-300 rounded-full normal-case font-normal"
+              />
+              <Chip
+                value={stops}
+                className="px-3 py-1 text-sm bg-orange-100 text-purple-300 rounded-full normal-case font-normal"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col items-stretch lg:items-center w-full lg:w-auto">
@@ -75,7 +86,7 @@ const CardFlight = ({
             <button
               type="button"
               className="rounded-full lg:min-w-max bg-gradient-main p-4 px-5 flex justify-center items-center text-sm text-white gap-2 hover:shadow-xl"
-              onClick={goFlightDetails}
+              onClick={()=>goFlightDetails(id)}
             >
               View Details <IoIosArrowDropright />
             </button>
