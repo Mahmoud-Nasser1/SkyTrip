@@ -8,10 +8,11 @@ const SendMessage = () => {
   //   };
   return (
     <div
-      className="lg:w-3/5 w-full m-5 p-8 flex flex-col gap-6 justify-center 
-  rounded-3xl bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 
-  transition-all duration-300 hover:shadow-2xl hover:shadow-gradient-violet/30 
-  hover:scale-[1.01] hover:border-gradient-violet"
+      className="lg:w-3/5 w-full max-w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-8 justify-center 
+rounded-3xl bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 
+transition-all duration-300 hover:shadow-2xl hover:shadow-gradient-violet/30 
+hover:scale-[1] hover:border-gradient-violet
+"
     >
       <h1 className="mb-2">Send Us a Message</h1>
 
@@ -89,7 +90,7 @@ const SendMessage = () => {
       <button
         // onClick={goPayment}
         className="relative overflow-hidden px-8 py-5 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white font-semibold tracking-wide transition-all duration-300 
-             shadow-lg hover:shadow-gradient-peach/40 hover:scale-[1.05] hover:shadow-2xl"
+             shadow-lg hover:shadow-gradient-peach/40 hover:scale-[1] hover:shadow-2xl"
       >
         <span className="relative z-10">Send Message</span>
         <span className="absolute inset-0 bg-gradient-to-r from-gradient-peach to-gradient-violet opacity-0 transition-opacity duration-300 hover:opacity-100 blur-md"></span>

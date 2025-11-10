@@ -1,7 +1,7 @@
 const HelpCenter = () => {
   return (
     <div>
-      <div className="backdrop-blur-xl bg-white/80 rounded-3xl p-8 shadow-lg border border-white/40 flex flex-col gap-4 transition-all duration-300 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:scale-[1.01] hover:border-gradient-violet">
+      <div className="backdrop-blur-xl bg-white/80 rounded-3xl p-8 shadow-lg border border-white/40 flex flex-col gap-4 transition-all duration-300 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:scale-[1] hover:border-gradient-violet">
         <h1 className="text-gray-900 font-semibold text-lg mb-2">
           Help Center
         </h1>
