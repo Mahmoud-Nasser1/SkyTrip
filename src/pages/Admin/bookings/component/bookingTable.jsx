@@ -13,6 +13,12 @@ const bookings = [
   {id: "BK8825",passenger: "Robert Garcia",flight: "FL004",date: "Nov 19, 2025",seats: 2,amount: "$1,580",status: "Confirmed",statusColor: "green-600",},
 ];
 
+const statusColors = {
+  Confirmed: "text-green-600",
+  Pending: "text-yellow-600",
+  Cancelled: "text-red-600",
+};
+
   return <>
   <div className="w-full overflow-x-auto">
    <div className="overflow-hidden rounded-xl border dark:border-gray-800">
@@ -38,10 +44,14 @@ const bookings = [
               <td className='px-6'>{booking.seats}</td>
               <td className='px-3'>{booking.amount}</td>
               <td className='p-2'>
-              <div className={`flex items-center gap-1 text-${booking.statusColor}`}>
-              {booking.status === "Confirmed" ? <><AiFillCheckCircle /></> : booking.status === "Pending" ? <><AiFillCloseCircle /></> : <><AiFillCloseCircle /></>}
-    {booking.status}
-  </div>
+              <div className={`flex items-center gap-1 ${statusColors[booking.status]}`}>
+                      <>
+                        {booking.status === "Confirmed" && <AiFillCheckCircle />}
+                        {booking.status === "Pending" && <AiFillCloseCircle />}
+                        {booking.status === "Cancelled" && <AiFillCloseCircle />}
+                      </>
+                      {booking.status}
+                    </div>
 </td>
 <td className='flex gap-3 py-3'><FiEye/> <FiEdit /> <FiTrash2 className='text-red-600'/></td>
 </tr>))}

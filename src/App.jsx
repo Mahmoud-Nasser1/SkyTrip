@@ -15,12 +15,12 @@ import Profile from "./pages/profile/Profile";
 import SignUp from "./pages/signUp/SignUp";
 import PayForm from "./pages/payment/component/PayForm";
 
-import DashBoard from "./pages/Admin/dashboard/DashBoard";
-import Payments from "./pages/Admin/payments/Payments";
-import Users from "./pages/Admin/users/users";
-import Adminflights from "./pages/Admin/flights/AdminFlights";
-import AdminBookings from "./pages/Admin/bookings/adminBookings";
-import AdminLayout from "./pages/Admin/adminLayout/AdminLayout";
+import DashBoard from "./pages/admin/dashboard/DashBoard";
+import Payments from "./pages/admin/payments/Payments";
+import Users from "./pages/admin/users/Users";
+import Adminflights from "./pages/admin/flights/AdminFlights";
+import AdminBookings from "./pages/admin/bookings/AdminBookings";
+import AdminLayout from "./pages/admin/adminlayout/AdminLayout";
 
 
 
