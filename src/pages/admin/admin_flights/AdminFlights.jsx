@@ -1,7 +1,7 @@
 import FlightTable from './component/flightTable'
 import AddNewFlight from './component/modal'
 
-export default function Adminflights() {
+export default function AdminFlights() {
   return <>
   <section className="upper  mt-16">
   <div className='flex justify-between'>

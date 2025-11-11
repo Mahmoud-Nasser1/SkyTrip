@@ -1,4 +1,3 @@
-import AddNewFlight from "../admin_flights/component/modal";
 import BookingTable from "./component/bookingTable";
 
 export default function AdminBookings() {
@@ -25,7 +24,7 @@ export default function AdminBookings() {
         </div>
       </section>
 
-      <section className="flightTable mt-4">
+      <section className="bookingTable mt-4">
         <BookingTable />
       </section>
     </>

@@ -17,7 +17,7 @@ import PayForm from "./pages/payment/component/PayForm";
 
 import AdminBookings from "./pages/admin/admin_bookings/AdminBookings";
 import DashBoard from "./pages/admin/admin_dashboard/DashBoard";
-import Adminflights from "./pages/admin/admin_flights/AdminFlights";
+import AdminFlights from "./pages/admin/admin_flights/AdminFlights";
 import AdminLayout from "./pages/admin/admin_layout/AdminLayout";
 import Payments from "./pages/admin/admin_payments/Payments";
 import Users from "./pages/admin/admin_users/Users";
@@ -44,7 +44,7 @@ const App = () => {
           <Route index element={<DashBoard />} />
           <Route path="bookings" element={<AdminBookings />} />
           <Route path="dashboard" element={<DashBoard />} />
-          <Route path="adminflights" element={<Adminflights />} />
+          <Route path="adminflights" element={<AdminFlights />} />
           <Route path="payments" element={<Payments />} />
           <Route path="users" element={<Users />} />
         </Route>
