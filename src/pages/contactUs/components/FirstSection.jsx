@@ -11,7 +11,7 @@ import {
 
 export function CardWithLink({ Icon, title, description, bgColor, href }) {
   return (
-    <Card className="mt-6 w-96 text-center transform transition-all duration-500 hover:scale-100 hover:shadow-2xl hover:shadow-gradient-violet/30 bg-white/90 backdrop-blur-sm border border-transparent hover:border-gradient-violet">
+    <Card className="mt-6 w-96 text-center transform transition-all duration-500 hover:scale-100 hover:shadow-2xl hover:shadow-gradient-violet/30 bg-white/90 dark:bg-dark-card backdrop-blur-sm border border-transparent hover:border-gradient-violet">
       <CardBody>
         <div
           className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-500 ${bgColor} hover:scale-110 hover:rotate-6 shadow-md hover:shadow-lg`}
@@ -19,15 +19,13 @@ export function CardWithLink({ Icon, title, description, bgColor, href }) {
           <Icon className="h-8 w-8 text-white" />
         </div>
 
-        <Typography
-          variant="h5"
-          color="blue-gray"
-          className="mb-2 text-gray-800 "
-        >
+        <Typography variant="h5" className="mb-2 text-gray-800 dark:text-white">
           {title}
         </Typography>
 
-        <Typography className="mt-5 text-gray-600">{description}</Typography>
+        <Typography className="mt-5 text-gray-600 dark:text-gray-300">
+          {description}
+        </Typography>
       </CardBody>
 
       <CardFooter className="pt-0">
@@ -59,27 +57,24 @@ const FirstSection = () => {
         <div className="flex flex-wrap gap-12 justify-center text-center">
           <CardWithLink
             Icon={MdOutlineEmail}
-            bgColor="bg-gradient-to-r from-gradient-violet to-gradient-peach"
+            bgColor="bg-gradient-to-r from-gradient-violet to-gradient-peach dark:bg-dark-card"
             title="Call Us"
             description="Available 24/7"
-            href="Our Email Address"
-            content="01142070488"
+            href="01142070488"
           />
           <CardWithLink
             Icon={MdOutlineLocalPhone}
-            bgColor=" bg-gradient-to-r from-gradient-sky to-gradient-violet"
+            bgColor="bg-gradient-to-r from-gradient-sky to-gradient-violet dark:bg-dark-card"
             title="Booking Settings"
             description="Manage and update your booking preferences."
-            href="Our Phone Number"
-            content="mahmoudnasser80m@gmail.com"
+            href="mahmoudnasser80m@gmail.com"
           />
           <CardWithLink
             Icon={FaRegMessage}
-            bgColor=" bg-gradient-to-r from-gradient-peach to-gradient-sky "
-            title="Booking Settings"
-            description="Manage and update your booking preferences."
-            href="Live Chat"
-            content="Start Chat"
+            bgColor="bg-gradient-to-r from-gradient-peach to-gradient-sky dark:bg-dark-card"
+            title="Live Chat"
+            description="Chat with us instantly."
+            href="Start Chat"
           />
         </div>
       </div>

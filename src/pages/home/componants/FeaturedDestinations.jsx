@@ -1,5 +1,25 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import CardFeaturedDestination from "./CardFeaturedDestination";
+import Loading from "./../../../components/loading/Loading";
+
+// const [FeaturedDestinations, setFeaturedDestinations] = useState([]);
+
+// const fetchFeaturedDestinations = () => {
+//   fetch("")
+//     .then((response) => response.json())
+//     .then((data) => setFeaturedDestinations(data))
+//     .catch((error) =>
+//       console.error("Error fetching featured destinations:", error)
+//     );
+// };
+
+// useEffect(() => {
+//   fetchFeaturedDestinations();
+// }, []);
+
+// if (!FeaturedDestinations.length ) {
+//   return <Loading />;
+// }
 
 const FeaturedDestinations = () => {
   const [featuredDestinations, setFeaturedDestinations] = useState([
@@ -30,7 +50,7 @@ const FeaturedDestinations = () => {
   ]);
 
   return (
-    <div className="mt-20 mb-8 p-10">
+    <div className="  p-10 dark:bg-dark-background">
       <h1 className="text-4xl text-center mb-5 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
         Featured Destinations
       </h1>

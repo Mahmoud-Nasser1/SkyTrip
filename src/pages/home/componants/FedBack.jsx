@@ -1,6 +1,25 @@
 import React, { useState } from "react";
 import Card from "./CardFedback";
 
+// const [feedbackList, setfeedbackList] = useState([]);
+
+// const fetchfeedbackList = () => {
+//   fetch("")
+//     .then((response) => response.json())
+//     .then((data) => setfeedbackList(data))
+//     .catch((error) =>
+//       console.error("Error fetching featured destinations:", error)
+//     );
+// };
+
+// useEffect(() => {
+//   fetchfeedbackList();
+// }, []);
+
+// if (!feedbackList.length ) {
+//   return <Loading />;
+// }
+
 const Feedback = () => {
   const [feedbackList, setFeedbackList] = useState([
     {
@@ -27,7 +46,7 @@ const Feedback = () => {
   ]);
 
   return (
-    <div className="py-16 px-4 bg-gradient-to-br from-gradient-sky/10 via-gradient-violet/10 to-gradient-peach/10">
+    <div className="py-16 px-4 bg-gradient-to-br from-gradient-sky/10 via-gradient-violet/10 to-gradient-peach/10 dark:from-gradient-sky/5 dark:gradient-violet)/5 dark:to-gradient-peach/5 dark:bg-dark-background">
       <h1 className="text-4xl text-center mb-5 bg-gradient-to-r from-gradient-violet to-gradient-peach bg-clip-text text-transparent">
         What Our Travelers Say
       </h1>
