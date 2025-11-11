@@ -25,9 +25,9 @@ const CardFlight = ({
     navigate(`/flights/${id}`);
   };
   return (
-    <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl">
+    <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl dark:bg-dark-card dark:text-dark-primary">
       <CardBody>
-        <div className="flex flex-col lg:flex-row  items-center container mx-auto">
+        <div className="flex flex-col lg:flex-row  items-center container mx-auto ">
           <div className="bg-gradient-to-l from-gradient-violet to-gradient-sky p-4 text-white rounded-xl text-3xl">
             <GiCommercialAirplane />
           </div>
@@ -45,7 +45,7 @@ const CardFlight = ({
               <div className="flex items-center gap-3 w-1/2">
                 <hr className="flex-grow h-1 border-0 rounded-full bg-gradient-to-r from-gradient-violet via-pink-500 to-orange-400 shadow-md" />
 
-                <label className="flex flex-col items-center text-gray-600 text-sm">
+                <label className="flex flex-col items-center text-gray-600 text-sm dark:text-dark-primary">
                   <span className="flex items-center gap-1 ">
                     <IoMdTime />
                     {duration}
@@ -57,7 +57,7 @@ const CardFlight = ({
               </div>
 
               <div className="flex flex-col justify-center items-center w-1/4">
-                <h1 className="text-xl text-gradient-violet font-semibold">
+                <h1 className="text-xl text-gradient-violet te font-semibold">
                   {arrivalTime}
                 </h1>
                 <label htmlFor="">{arrivalCity}</label>
@@ -86,7 +86,7 @@ const CardFlight = ({
             <button
               type="button"
               className="rounded-full lg:min-w-max bg-gradient-main p-4 px-5 flex justify-center items-center text-sm text-white gap-2 hover:shadow-xl"
-              onClick={()=>goFlightDetails(id)}
+              onClick={() => goFlightDetails(id)}
             >
               View Details <IoIosArrowDropright />
             </button>

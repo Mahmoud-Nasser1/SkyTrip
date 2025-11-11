@@ -161,43 +161,45 @@ const Flights = () => {
   const toggleOpen = () => setOpen((cur) => !cur);
 
   return (
-    <div className="container mt-24 mx-auto flex flex-col">
-      <FlightFilter onFilterList={listFilters} />
-      <div className="flex lg:flex-row flex-col gap-6 container mx-auto justify-evenly flex-wrap py-6">
-        <div className="w-full lg:w-1/4">
-          <div className="sticky top-6">
-            <FlightSearch onFilter={searchFilters} />
+    <div className="dark:bg-dark-background dark:text-dark-primary">
+      <div className="container mt-24 mx-auto flex flex-col dark:mt-0 dark:pt-24">
+        <FlightFilter onFilterList={listFilters} />
+        <div className="flex lg:flex-row flex-col gap-6 container mx-auto justify-evenly flex-wrap py-6">
+          <div className="w-full lg:w-1/4">
+            <div className="sticky top-6">
+              <FlightSearch onFilter={searchFilters} />
+            </div>
           </div>
-        </div>
-        <div className="w-full lg:w-2/3 flex flex-col gap-6">
-          {filteredFlights.length > 0 ? (
-            filteredFlights.map((flight) => (
-              <CardFlight key={flight.id} flight={flight} />
-            ))
-          ) : (
-            <p className="text-center text-gray-600">
-              No flights match your filters.
-            </p>
-          )}
-          <div className="flex w-full justify-center pt-8">
-            <Button
-              onClick={toggleOpen}
-              variant="outlined"
-              className="rounded-full border-gradient-violet text-gradient-violet shadow-xl"
-            >
-              Load More Flights
-            </Button>
-          </div>
+          <div className="w-full lg:w-2/3 flex flex-col gap-6">
+            {filteredFlights.length > 0 ? (
+              filteredFlights.map((flight) => (
+                <CardFlight key={flight.id} flight={flight} />
+              ))
+            ) : (
+              <p className="text-center text-gray-600">
+                No flights match your filters.
+              </p>
+            )}
+            <div className="flex w-full justify-center pt-8">
+              <Button
+                onClick={toggleOpen}
+                variant="outlined"
+                className="rounded-full border-gradient-violet text-gradient-violet shadow-xl"
+              >
+                Load More Flights
+              </Button>
+            </div>
 
-          <div>
-            <Collapse open={open} className={open ? "overflow-visible" : ""}>
-              <div className="w-full flex flex-col gap-6">
-                {filteredFlights.length > 0 &&
-                  filteredFlights.map((flight) => (
-                    <CardFlight key={flight.id} flight={flight} />
-                  ))}
-              </div>
-            </Collapse>
+            <div>
+              <Collapse open={open} className={open ? "overflow-visible" : ""}>
+                <div className="w-full flex flex-col gap-6">
+                  {filteredFlights.length > 0 &&
+                    filteredFlights.map((flight) => (
+                      <CardFlight key={flight.id} flight={flight} />
+                    ))}
+                </div>
+              </Collapse>
+            </div>
           </div>
         </div>
       </div>
