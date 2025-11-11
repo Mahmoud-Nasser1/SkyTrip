@@ -9,7 +9,7 @@ import { FiFacebook, FiLinkedin } from "react-icons/fi";
 
 export default function Footer() {
   return <>
-    <footer className="w-full bg-white border-t dark:bg-[#0f172a]  dark:border-gray-800/2">
+    <footer className="w-full bg-white border-t dark:bg-[#0f172a]  dark:border-[#10161E]">
       <div className="max-w-screen-xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row justify-between gap-10">
           <div className="info max-w-md">
