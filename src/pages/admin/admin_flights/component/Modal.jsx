@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
-export default function AddNewFlight() {
+export default function Modal() {
   const [isOpen, setIsOpen] = useState(false);
 
 return (

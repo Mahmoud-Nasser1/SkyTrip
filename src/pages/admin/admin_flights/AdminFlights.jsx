@@ -1,5 +1,5 @@
 import FlightTable from './component/flightTable'
-import AddNewFlight from './component/modal'
+import Modal from './component/modal'
 
 export default function AdminFlights() {
   return <>
@@ -9,7 +9,7 @@ export default function AdminFlights() {
   <h1 className='text-black text-3xl mb-2 dark:text-white'>Flight Management</h1>
   <p className='text-gray-600 dark:text-gray-400'>Manage all flights and schedules</p>
   </div>
-  <AddNewFlight/>
+  <Modal/>
 </div>
 
 <div className="search mt-3">
