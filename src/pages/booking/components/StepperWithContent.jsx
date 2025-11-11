@@ -1,11 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { IoAirplane } from "react-icons/io5";
 import { Stepper, Step, Typography } from "@material-tailwind/react";
 import { CogIcon, BuildingLibraryIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 
-export default function StepperWithGradientLine() {
-  const [activeStep, setActiveStep] = React.useState(0);
+export default function StepperWithGradientLine({ numPage }) {
+  const [activeStep, setActiveStep] = useState(numPage);
   const navigate = useNavigate();
 
   const handleStepClick = (index, route) => {
