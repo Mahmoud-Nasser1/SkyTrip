@@ -5,7 +5,6 @@ import Header from "./components/header/Header";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Booking from "./pages/booking/Booking";
 import ContactUs from "./pages/contactUs/ContactUs";
-import Dashboard from "./pages/dashboard/DashBoard";
 import Flights from "./pages/flights/Flights";
 import FlightsDetails from "./pages/flightsDetails/FlightsDetails";
 import Home from "./pages/home/Home";
@@ -15,6 +14,13 @@ import Payment from "./pages/payment/Payment";
 import Profile from "./pages/profile/Profile";
 import SignUp from "./pages/signUp/SignUp";
 import PayForm from "./pages/payment/component/PayForm";
+
+import AdminBookings from "./pages/admin/admin_bookings/AdminBookings";
+import DashBoard from "./pages/admin/admin_dashboard/DashBoard";
+import AdminFlights from "./pages/admin/admin_flights/AdminFlights";
+import AdminLayout from "./pages/admin/admin_layout/AdminLayout";
+import Payments from "./pages/admin/admin_payments/Payments";
+import Users from "./pages/admin/admin_users/Users";
 
 const App = () => {
   return (
@@ -27,13 +33,21 @@ const App = () => {
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:flightId" element={<FlightsDetails />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile/:tabId?" element={<Profile />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/payment/payform" element={<PayForm />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<DashBoard />} />
+          <Route path="bookings" element={<AdminBookings />} />
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="adminflights" element={<AdminFlights />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="users" element={<Users />} />
+        </Route>
       </Routes>
       <Footer />
     </div>
