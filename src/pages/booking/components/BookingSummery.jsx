@@ -1,7 +1,7 @@
 const BookingSummery = () => {
   return (
     <div className="backdrop-blur-xl bg-white/80  rounded-3xl p-10 shadow-lg border border-white/40 sticky top-24 hover:shadow-2xl hover:shadow-gradient-violet/30 
-  hover:scale-[1.01] hover:border-gradient-violet duration-500 ">
+  hover:scale-[1] hover:border-gradient-violet duration-500 ">
       <h1 className="mb-6 text-gray-900">Booking Summary</h1>
       <div className="flex flex-col gap-6">
         <div>
