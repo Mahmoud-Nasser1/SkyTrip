@@ -15,15 +15,12 @@ import Profile from "./pages/profile/Profile";
 import SignUp from "./pages/signUp/SignUp";
 import PayForm from "./pages/payment/component/PayForm";
 
-import DashBoard from "./pages/admin/dashboard/DashBoard";
-import Payments from "./pages/admin/payments/Payments";
-import Users from "./pages/admin/users/Users";
-import Adminflights from "./pages/admin/flights/AdminFlights";
-import AdminBookings from "./pages/admin/bookings/AdminBookings";
-import AdminLayout from "./pages/admin/adminlayout/AdminLayout";
-
-
-
+import AdminBookings from "./pages/admin/admin_bookings/AdminBookings";
+import DashBoard from "./pages/admin/admin_dashboard/DashBoard";
+import Adminflights from "./pages/admin/admin_flights/AdminFlights";
+import AdminLayout from "./pages/admin/admin_layout/AdminLayout";
+import Payments from "./pages/admin/admin_payments/Payments";
+import Users from "./pages/admin/admin_users/Users";
 
 const App = () => {
   return (
@@ -42,16 +39,15 @@ const App = () => {
         <Route path="/payment/payform" element={<PayForm />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
-        
-        <Route path="/admin"   element={<AdminLayout/>}>
-        <Route index element={<DashBoard />} /> 
-        <Route path="bookings" element={<AdminBookings/>} />
-        <Route path="dashboard"element={<DashBoard/>} />
-        <Route path="adminflights"  element={<Adminflights/>} />
-        <Route path="payments" element={<Payments/>}/> 
-        <Route path="users" element={<Users/>} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<DashBoard />} />
+          <Route path="bookings" element={<AdminBookings />} />
+          <Route path="dashboard" element={<DashBoard />} />
+          <Route path="adminflights" element={<Adminflights />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="users" element={<Users />} />
         </Route>
-        
       </Routes>
       <Footer />
     </div>
