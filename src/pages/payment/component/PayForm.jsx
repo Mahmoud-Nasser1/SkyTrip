@@ -70,8 +70,8 @@ const PayForm = () => {
     navigate("/");
   };
   return (
-    <div className="w-full flex justify-center py-24">
-      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
+    <div className="w-full flex justify-center py-24 dark:bg-dark-background dark:text-dark-primary">
+      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
         <CardHeader
           color="gray"
           floated={false}
@@ -94,9 +94,9 @@ const PayForm = () => {
           </Typography>
         </CardHeader>
 
-        <CardBody>
-          <Tabs value={type} className="overflow-visible">
-            <TabsHeader className="relative z-0">
+        <CardBody className="dark:text-dark-primary">
+          <Tabs value={type} className="overflow-visible dark:text-dark-primary">
+            <TabsHeader className="relative z-0 dark:bg-dark-secondary dark:text-dark-primary">
               <Tab value="card" onClick={() => setType("card")}>
                 Pay with Card
               </Tab>
@@ -120,14 +120,14 @@ const PayForm = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mb-2 font-medium"
+                      className="mb-2 font-medium dark:text-dark-primary"
                     >
                       Your Email
                     </Typography>
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -138,7 +138,7 @@ const PayForm = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mb-2 font-medium"
+                      className="mb-2 font-medium dark:text-dark-primary"
                     >
                       Card Details
                     </Typography>
@@ -151,7 +151,7 @@ const PayForm = () => {
                         <CreditCardIcon className="absolute left-0 h-4 w-4 text-blue-gray-300" />
                       }
                       placeholder="0000 0000 0000 0000"
-                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -162,7 +162,7 @@ const PayForm = () => {
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="mb-2 font-medium"
+                          className="mb-2 font-medium dark:text-dark-primary"
                         >
                           Expires
                         </Typography>
@@ -172,7 +172,7 @@ const PayForm = () => {
                           onChange={(e) => setCardExpires(e.target.value)}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="00/00"
-                          className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -183,7 +183,7 @@ const PayForm = () => {
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="mb-2 font-medium"
+                          className="mb-2 font-medium dark:text-dark-primary"
                         >
                           CVC
                         </Typography>
@@ -191,7 +191,7 @@ const PayForm = () => {
                           maxLength={4}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="000"
-                          className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -202,13 +202,13 @@ const PayForm = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mb-2 font-medium"
+                      className="mb-2 font-medium dark:text-dark-primary"
                     >
                       Holder Name
                     </Typography>
                     <Input
                       placeholder="John Doe"
-                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -223,7 +223,7 @@ const PayForm = () => {
                     Pay Now
                   </Button>
                   <Dialog
-                    className="rounded-3xl p-8 text-center bg-gradient-to-r from-blue-50 to-orange-50"
+                    className="rounded-3xl p-8 text-center bg-gradient-to-r from-blue-50 to-orange-50 dark:bg-gradient-to-r dark:from-[#1E2A47] dark:via-[#2B2C4E] dark:to-[#3C2F2F]"
                     open={open}
                     handler={handleOpen}
                     animate={{
@@ -240,11 +240,11 @@ const PayForm = () => {
                       </h1>
                     </DialogHeader>
                     <DialogBody className="flex flex-col gap-4">
-                      <h1 className="text-lg">
+                      <h1 className="text-lg dark:text-gray-400">
                         Your flight has been successfully booked. A confirmation
                         email has been sent to your inbox.
                       </h1>
-                      <section className="bg-white p-6 rounded-xl flex flex-col gap-6">
+                      <section className="bg-white p-6 rounded-xl flex flex-col gap-6 dark:bg-dark-muted dark:text-gray-400">
                         <h1>Booking Reference</h1>
                         <h1 className="font-semibold text-2xl text-gradient-violet">
                           SKYO93EMT
@@ -294,14 +294,14 @@ const PayForm = () => {
                     <Typography
                       variant="paragraph"
                       color="blue-gray"
-                      className="mb-4 font-medium"
+                      className="mb-4 font-medium dark:text-dark-primary"
                     >
                       Personal Details
                     </Typography>
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mb-2 font-medium"
+                      className="mb-2 font-medium dark:text-dark-primary"
                     >
                       Your Email
                     </Typography>
@@ -319,28 +319,28 @@ const PayForm = () => {
                     <Typography
                       variant="paragraph"
                       color="blue-gray"
-                      className="mb-4 font-medium"
+                      className="mb-4 font-medium dark:text-dark-primary"
                     >
                       Billing Address
                     </Typography>
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mb-2 font-medium"
+                      className="mb-2 font-medium dark:text-dark-primary"
                     >
                       Country
                     </Typography>
                     <Select
                       placeholder="USA"
-                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet "
                       labelProps={{
-                        className: "before:content-none after:content-none",
+                        className: "before:content-none after:content-none ",
                       }}
-                      menuProps={{ className: "h-48" }}
+                      menuProps={{ className: "h-48 dark:bg-dark-secondary dark:text-dark-primary" }}
                     >
                       {countries.map(({ name, flags }) => (
-                        <Option key={name} value={name}>
-                          <div className="flex items-center gap-x-2">
+                        <Option key={name} value={name} className="">
+                          <div className="flex items-center gap-x-2 ">
                             <img
                               src={flags.svg}
                               alt={name}
@@ -354,13 +354,13 @@ const PayForm = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="mt-4 -mb-2 font-medium"
+                      className="mt-4 -mb-2 font-medium dark:text-dark-primary"
                     >
                       Postal Code
                     </Typography>
                     <Input
                       placeholder="0000"
-                      className="!border-t-blue-gray-200 focus:!border-t-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -368,15 +368,19 @@ const PayForm = () => {
                     />
                   </div>
 
-                  <Button size="lg" className="bg-gradient-main rounded-full" onClick={handleOpen}>
+                  <Button
+                    size="lg"
+                    className="bg-gradient-main rounded-full"
+                    onClick={handleOpen}
+                  >
                     Pay with PayPal
                   </Button>
                   <Typography
                     variant="small"
                     color="gray"
-                    className="flex items-center justify-center gap-2 font-medium opacity-60"
+                    className="flex items-center justify-center gap-2 font-medium opacity-60 "
                   >
-                    <LockClosedIcon className="-mt-0.5 h-4 w-4" /> Payments are
+                    <LockClosedIcon className="-mt-0.5 h-4 w-4 dark:text-gray-200" /> Payments are
                     secure and encrypted
                   </Typography>
                 </form>

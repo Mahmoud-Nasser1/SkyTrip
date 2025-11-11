@@ -27,14 +27,14 @@ const Dropdown = ({ label, items, onSelect }) => {
       <MenuHandler>
         <Button
           variant="outlined"
-          className="flex items-center justify-between gap-2 border-gray-600 border-2 text-gray-700 hover:border-gradient-violet focus:border-gradient-violet focus:ring-0 rounded-xl px-4 py-2 w-48"
+          className="flex items-center justify-between gap-2 border-gray-600 border-2 text-gray-700 hover:border-gradient-violet focus:border-gradient-violet focus:ring-0 rounded-xl px-4 py-2 w-48 dark:text-dark-primary"
         >
           {selected}
           <ChevronDownIcon className="h-4 w-4 text-gradient-violet" />
         </Button>
       </MenuHandler>
 
-      <MenuList className="rounded-xl shadow-lg border border-gray-100">
+      <MenuList className="rounded-xl shadow-lg border border-gray-100 dark:bg-dark-background dark:text-dark-primary">
         {items.map((item) => (
           <MenuItem
             key={item}
