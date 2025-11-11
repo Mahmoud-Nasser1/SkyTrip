@@ -6,6 +6,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiLock2Line } from "react-icons/ri";
 import { LuLock } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import StepperWithContent from "../booking/components/StepperWithContent";
 
 const Payment = () => {
   const [cvv, setCvv] = React.useState("");
@@ -17,8 +18,14 @@ const Payment = () => {
     navigate("/payment/payform");
   };
   return (
-    <main className="flex flex-col items-center py-24 dark:bg-dark-background dark:text-dark-primary">
-      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-3/4 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
+    <main className="flex flex-col gap-6   container mx-auto  p-10 py-24 dark:bg-dark-background dark:text-dark-primary">
+      <div
+        className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
+       hover:scale-[1] hover:border-gradient-violet duration-500  dark:border-white/10"
+      >
+        <StepperWithContent numPage={2} />
+      </div>
+      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
         <div className="flex flex-col bg-gradient-main rounded-t-3xl p-4 text-white gap-4">
           <section className="flex items-center gap-2 ">
             <FaLock className="font-bold text-2xl" />
