@@ -3,7 +3,7 @@ import { MdAccessTime } from 'react-icons/md';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { FiEye, FiEdit, FiTrash2 } from 'react-icons/fi';
 
-export default function FlightTable() {
+export default function FlightTable({search}) {
   const flights = [
     { id: "FL001", airline: "SkyWings", route: "New York → London", departure: "08:00", arrival: "20:00", status: "on-time", statusColor: "green-600", capacity: "180/200" },
     { id: "FL002", airline: "AeroLink", route: "Paris → Tokyo", departure: "14:30", arrival: "09:00+1", status: "Delayed", statusColor: "yellow-600", capacity: "150/180" },
@@ -12,6 +12,9 @@ export default function FlightTable() {
     { id: "FL005", airline: "JetStream", route: "Sydney → Auckland", departure: "06:00", arrival: "11:15", status: "Cancelled", statusColor: "red-600", capacity: "0/180" },
   ];
 
+    const filteredFlights = flights.filter((flight) =>
+    flight.id.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <div className="w-full overflow-x-auto">
       <div className="overflow-hidden rounded-xl border dark:border-gray-800">
@@ -29,7 +32,7 @@ export default function FlightTable() {
             </tr>
           </thead>
           <tbody>
-            {flights.map((flight) => (
+            {filteredFlights.map((flight) => (
               <tr key={flight.id} className="dark:hover:bg-[#1F2A38]">
                 <td className="px-4 py-3">{flight.id}</td>
                 <td className="px-4 py-3">{flight.airline}</td>
@@ -48,6 +51,13 @@ export default function FlightTable() {
                 </td>
               </tr>
             ))}
+            {filteredFlights.length === 0 && <>
+            <tr>
+                <td colSpan="8" className="text-center py-6 text-gray-500">
+                  No flights found.
+                </td>
+              </tr>
+            </>}
           </tbody>
         </table>
       </div>

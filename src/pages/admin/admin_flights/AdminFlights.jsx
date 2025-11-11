@@ -1,7 +1,10 @@
 
+import { useState } from "react";
 import Addflight from "./component/Addflight";
 import FlightTable from "./component/flightTable"
 export default function AdminFlights() {
+  const [search, setSearch] = useState("");
+  
   return (
     <>
       <section className="upper mt-16">
@@ -18,16 +21,12 @@ export default function AdminFlights() {
         </div>
 
         <div className="search mt-3">
-          <input
-            type="text"
-            placeholder="Search flights..."
-            className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:text-white dark:bg-[#10161E]"
-          />
+          <input type="text" placeholder="Search by flight ID..." value={search} onChange={(e)=>setSearch(e.target.value)} className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:text-white dark:bg-[#10161E]"/>
         </div>
       </section>
 
       <section className="flightTable mt-4">
-        <FlightTable/>
+        <FlightTable search={search}/>
       </section>
     </>
   );

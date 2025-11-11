@@ -1,6 +1,9 @@
+import { useState } from "react";
 import BookingTable from "./component/bookingTable";
 
 export default function AdminBookings() {
+  const [search, setSearch] = useState("");
+  
   return (
     <>
       <section className="upper  mt-16">
@@ -16,16 +19,12 @@ export default function AdminBookings() {
         </div>
 
         <div className="search mt-3">
-          <input
-            type="text"
-            placeholder="Search flights..."
-            className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:text-white dark:bg-[#10161E]"
-          />
+          <input type="text" placeholder="Search by booking ID..." value={search} onChange={(e)=>setSearch(e.target.value)} className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:text-white dark:bg-[#10161E]" />
         </div>
       </section>
 
       <section className="bookingTable mt-4">
-        <BookingTable />
+        <BookingTable  search={search}/>
       </section>
     </>
   );
