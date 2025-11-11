@@ -17,8 +17,8 @@ const Payment = () => {
     navigate("/payment/payform");
   };
   return (
-    <main className="flex flex-col items-center py-24">
-      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-3/4 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet">
+    <main className="flex flex-col items-center py-24 dark:bg-dark-background dark:text-dark-primary">
+      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-3/4 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
         <div className="flex flex-col bg-gradient-main rounded-t-3xl p-4 text-white gap-4">
           <section className="flex items-center gap-2 ">
             <FaLock className="font-bold text-2xl" />
@@ -27,7 +27,7 @@ const Payment = () => {
           <section>Your payment information is encrypted and secure</section>
         </div>
         <div className="container flex flex-col gap-8 mx-auto p-8 ">
-          <div className="flex flex-col gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-orange-50">
+          <div className="flex flex-col gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-orange-50 dark:bg-gradient-to-br dark:from-[#1E2A47] dark:via-[#2B2C4E] dark:to-[#3C2F2F]">
             <h1 className="font-semibold text-lg ">Payment Summary</h1>
             <section className="flex justify-between">
               <h2>New York (JFK) → Paris (CDG)</h2>
@@ -55,16 +55,17 @@ const Payment = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="mb-1 flex items-center gap-2 font-medium "
+                  className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
                 >
-                  <LuCreditCard className="text-xl text-gradient-violet" />
+                  <LuCreditCard className="text-xl text-gradient-violet " />
                   Cardholder Name
                 </Typography>
                 <Input
                   placeholder="e.g John Doe"
-                  className="appearance-none !border-t-blue-gray-200 placeholder:text-blue-gray-300  placeholder:opacity-100 focus:!border-t-gray-900 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
                   labelProps={{
-                    className: "before:content-none after:content-none",
+                    className: "before:content-none after:content-none ",
                   }}
                   containerProps={{
                     className: "min-w-0",
@@ -77,15 +78,16 @@ const Payment = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="mb-1 mt-4 flex items-center gap-2 font-medium"
+                  className="mb-1 mt-4 flex items-center gap-2 font-medium dark:text-dark-primary"
                 >
-                  <LuCreditCard className="text-xl text-gradient-violet" />
+                  <LuCreditCard className="text-xl text-gradient-violet " />
                   Card Number
                 </Typography>
                 <Input
                   placeholder="1234 5678 9012 3456"
                   maxLength={19}
-                  className="appearance-none !border-t-blue-gray-200 placeholder:text-blue-gray-300  placeholder:opacity-100 focus:!border-t-gray-900 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
@@ -105,16 +107,17 @@ const Payment = () => {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="mb-1 flex items-center gap-2 font-medium"
+                    className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
                   >
-                    <FaRegCalendarAlt className="text-xl text-gradient-violet" />
+                    <FaRegCalendarAlt className="text-xl text-gradient-violet " />
                     Expiration Date
                   </Typography>
                   <Input
                     placeholder="MM/YY"
                     maxLength={5}
                     pattern="\d{2}/\d{2}"
-                    className="appearance-none !border-t-blue-gray-200 placeholder:text-blue-gray-300  placeholder:opacity-100 focus:!border-t-gray-900 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                    className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
@@ -132,16 +135,17 @@ const Payment = () => {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="mb-1 flex items-center gap-2 font-medium"
+                    className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
                   >
-                    <RiLock2Line className="text-xl text-gradient-violet" />
+                    <RiLock2Line className="text-xl text-gradient-violet " />
                     CVV
                   </Typography>
                   <Input
                     placeholder="123"
                     maxLength={3}
                     pattern="\d{3}"
-                    className="appearance-none !border-t-blue-gray-200 placeholder:text-blue-gray-300  placeholder:opacity-100 focus:!border-t-gray-900 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                    className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
@@ -155,7 +159,7 @@ const Payment = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4">
+              <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4 dark:bg-blue-gray-800 dark:text-blue-300">
                 <section className="flex items-center gap-2 ">
                   <LuLock />
                   <h1> Secure Payment</h1>

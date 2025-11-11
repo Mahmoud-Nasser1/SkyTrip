@@ -37,8 +37,8 @@ const FlightSearch = ({ onFilter }) => {
   };
 
   return (
-    <Card className="mt-6 shadow-xl">
-      <CardBody className="flex flex-col gap-4">
+    <Card className="mt-6 shadow-xl  dark:bg-dark-card dark:text-dark-primary">
+      <CardBody className="flex flex-col gap-4 dark:bg-dark-card dark:text-dark-primary">
         <Typography
           variant="h5"
           color="blue-gray"
@@ -48,7 +48,7 @@ const FlightSearch = ({ onFilter }) => {
           Refine Search
         </Typography>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 ">
           <label htmlFor="slider" className="">
             Price Range
           </label>
@@ -65,44 +65,55 @@ const FlightSearch = ({ onFilter }) => {
           </div>
         </div>
 
-        <h2 className="text-gray-700 font-semibold">Departure Time</h2>
+        <h2 className="text-gray-700 font-semibold dark:text-dark-primary">
+          Departure Time
+        </h2>
         <Checkbox
           label="Morning (6AM - 12PM)"
           color="blue"
           onChange={() => timeChange("Morning")}
+          labelProps={{ className: "dark:text-dark-primary" }}
         />
         <Checkbox
           label="Afternoon (12PM - 6PM)"
           color="blue"
           onChange={() => timeChange("Afternoon")}
+          labelProps={{ className: "dark:text-dark-primary" }}
         />
         <Checkbox
           label="Evening (6PM - 12AM)"
           color="blue"
           onChange={() => timeChange("Evening")}
+          labelProps={{ className: "dark:text-dark-primary" }}
         />
 
         <div className="flex flex-col">
-          <h2 className="text-gray-700 font-semibold">Cabin Class</h2>
+          <h2 className="text-gray-700 font-semibold dark:text-dark-primary">
+            Cabin Class
+          </h2>
           <Checkbox
             label="Economy"
             color="blue"
             onChange={() => classChange("Economy")}
+            labelProps={{ className: "dark:text-dark-primary" }}
           />
           <Checkbox
             label="Premium Economy"
             color="blue"
             onChange={() => classChange("Premium Economy")}
+            labelProps={{ className: "dark:text-dark-primary" }}
           />
           <Checkbox
             label="Business"
             color="blue"
             onChange={() => classChange("Business")}
+            labelProps={{ className: "dark:text-dark-primary" }}
           />
           <Checkbox
             label="First Class"
             color="blue"
             onChange={() => classChange("First Class")}
+            labelProps={{ className: "dark:text-dark-primary" }}
           />
         </div>
       </CardBody>

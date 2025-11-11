@@ -20,7 +20,7 @@ const FlightTaps = () => {
       value: "overview",
       icon: GoInfo,
       content: (
-        <div className="p-6 flex flex-col gap-6">
+        <div className="p-6 flex flex-col gap-6 ">
           {[
             [
               "In-Flight Entertainment",
@@ -33,7 +33,7 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <IoMdCheckmarkCircleOutline className="text-2xl text-green-600" />
-                <h2 className="text-lg text-black font-semibold">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>
@@ -55,7 +55,7 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <MdOutlineLuggage className="text-2xl text-purple-600" />
-                <h2 className="text-lg text-black font-semibold">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>
@@ -80,7 +80,7 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <FaRegCircleXmark className="text-xl text-red-600" />
-                <h2 className="text-lg text-black font-semibold">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>
@@ -91,7 +91,7 @@ const FlightTaps = () => {
   ];
 
   return (
-    <div className="rounded-3xl bg-white shadow-2xl w-full mx-auto p-0 overflow-hidden">
+    <div className="rounded-3xl bg-white shadow-2xl w-full mx-auto p-0 overflow-hidden dark:bg-dark-card dark:text-dark-primary">
       <Tabs value="overview" className="w-full">
         <TabsHeader
           className="bg-gray-100 border-b border-gray-200"
@@ -109,7 +109,7 @@ const FlightTaps = () => {
             </Tab>
           ))}
         </TabsHeader>
-        <TabsBody>
+        <TabsBody className="">
           {data.map(({ value, content }) => (
             <TabPanel key={value} value={value} className="py-4">
               {content}
