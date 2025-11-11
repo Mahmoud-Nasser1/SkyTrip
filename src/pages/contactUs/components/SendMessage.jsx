@@ -9,63 +9,84 @@ const SendMessage = () => {
   return (
     <div
       className="lg:w-3/5 w-full max-w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-8 justify-center 
-rounded-3xl bg-white/80 backdrop-blur-xl shadow-lg border border-white/40 
+rounded-3xl bg-white/80 dark:bg-dark-card backdrop-blur-xl shadow-lg border border-white/40 dark:border-dark-border
 transition-all duration-300 hover:shadow-2xl hover:shadow-gradient-violet/30 
 hover:scale-[1] hover:border-gradient-violet
 "
     >
-      <h1 className="mb-2">Send Us a Message</h1>
+      <h1 className="mb-2 text-gray-900 dark:text-white">Send Us a Message</h1>
 
       <div>
-        <label htmlFor="title" className="flex  gap-2 text-gray-700 mb-2">
+        <label
+          htmlFor="title"
+          className="flex  gap-2 text-gray-700 dark:text-gray-300 mb-2"
+        >
           <CiUser className="text-xl text-gradient-violet" />
           Full Name
         </label>
         <input
           type="text"
           placeholder="John Doe"
-          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full	
+          className=" px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-600 w-full	
              focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
-               bg-white text-gray-700"
+               bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200"
         />
       </div>
+
       <div>
-        <label htmlFor="title" className="flex  gap-2 text-gray-700 mb-2">
+        <label
+          htmlFor="title"
+          className="flex  gap-2 text-gray-700 dark:text-gray-300 mb-2"
+        >
           <MdOutlineEmail className="text-xl text-gradient-violet" />
           Email Address
         </label>
         <input
           type="text"
           placeholder="JohnDoe@gmail.com"
-          className=" px-4 py-3 rounded-2xl border border-gray-200 w-full	
+          className=" px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-600 w-full	
              focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
-               bg-white text-gray-700"
+               bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200"
         />
       </div>
+
       <div>
         {" "}
-        <label htmlFor="title" className="flex  gap-2 text-gray-700 mb-2">
+        <label
+          htmlFor="title"
+          className="flex  gap-2 text-gray-700 dark:text-gray-300 mb-2"
+        >
           <MdSubject className="text-xl text-gradient-violet" />
           Subject
         </label>
         <select
           name="subject"
           defaultValue=""
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-800 text-base shadow-sm
-  focus:outline-none focus:ring-1 focus:ring-gradient-violet focus:border-transparent"
+          className="
+    w-full px-4 py-3 rounded-xl
+    border border-gray-300 dark:border-gray-600
+    bg-white dark:bg-dark-card
+    text-gray-800 dark:text-gray-200
+    text-base shadow-sm
+    focus:outline-none focus:ring-1 focus:ring-gradient-violet focus:border-transparent
+  "
         >
           <option value="" disabled hidden>
             Select a subject
           </option>
-          <option>Booking Inquiry</option>
-          <option>Flight Changes</option>
-          <option>Refund Request</option>
-          <option>Technical Support</option>
-          <option>General Question</option>
+          <option className="option-item">Booking Inquiry</option>
+          <option className="option-item">Flight Changes</option>
+          <option className="option-item">Refund Request</option>
+          <option className="option-item">Technical Support</option>
+          <option className="option-item">General Question</option>
         </select>
       </div>
+
       <div>
-        <label htmlFor="title" className="flex  gap-2 text-gray-700 mb-2">
+        <label
+          htmlFor="title"
+          className="flex  gap-2 text-gray-700 dark:text-gray-300 mb-2"
+        >
           <MdOutlineEmail className="text-xl text-gradient-violet" />
           Message
         </label>
@@ -75,7 +96,7 @@ hover:scale-[1] hover:border-gradient-violet
           cols="25"
           rows="6"
           placeholder="Write your message..."
-          className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-800 text-base shadow-sm 
+          className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-dark-input text-gray-800 dark:text-gray-200 text-base shadow-sm 
          focus:outline-none focus:ring-1 focus:ring-gradient-violet focus:border-transparent "
         ></textarea>
       </div>

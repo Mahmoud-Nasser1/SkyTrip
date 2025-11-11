@@ -1,7 +1,6 @@
-
 const CardFeaturedDestination = ({ city, country, price, image }) => {
   return (
-    <div className="group cursor-pointer rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 duration-500 ">
+    <div className="group cursor-pointer rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 duration-500 dark:bg-dark-card">
       <div className="relative">
         <img
           src={image}

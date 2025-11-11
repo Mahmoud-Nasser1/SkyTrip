@@ -24,11 +24,11 @@ import Users from "./pages/admin/admin_users/Users";
 
 const App = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 dark:bg-dark-background">
       <Header />
       <Routes>
-        <Route path="/booking" element={<Booking />} />
         <Route path="/" element={<Home />} />
+        <Route path="/booking" element={<Booking />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:flightId" element={<FlightsDetails />} />

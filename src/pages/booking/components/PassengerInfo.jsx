@@ -9,14 +9,15 @@ const PassengerInfo = () => {
     navigate("/payment");
   };
   return (
-    <div
-      className="w-full lg:w-3/4 box-border p-6 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center mx-auto transition-all duration-500 hover:shadow-2xl hover:shadow-gradient-violet/30 border border-white/40 hover:scale-[1] hover:border-gradient-violet"
-    >
-      <h1 className="mb-2">Passenger Information</h1>
+    <div className="w-full lg:w-3/4 box-border p-6 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center mx-auto transition-all duration-500 hover:shadow-2xl hover:shadow-gradient-violet/30 border border-white/40 hover:scale-[1] hover:border-gradient-violet dark:bg-dark-card  dark:border-white/10">
+      <h1 className="mb-2 dark:text-white">Passenger Information</h1>
 
       <div className="flex gap-5 flex-col md:flex-row">
         <div className="flex-1 min-w-0">
-          <label htmlFor="first-name" className="flex gap-1 text-gray-700 mb-2">
+          <label
+            htmlFor="first-name"
+            className="flex gap-1 text-gray-700 mb-2 dark:text-white"
+          >
             <CiUser
               className="text-xl text-gradient-violet font-normal"
               style={{ strokeWidth: 1.1 }}
@@ -26,14 +27,21 @@ const PassengerInfo = () => {
           <input
             type="text"
             placeholder="John"
-            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700"
+            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+dark:focus:border-gradient-violet
+dark:bg-dark-popover
+dark:text-dark-muted-foreground
+"
           />
         </div>
 
         <div className="flex-1 min-w-0">
-          <label htmlFor="last-name" className="flex gap-2 text-gray-700 mb-2">
+          <label
+            htmlFor="last-name"
+            className="flex gap-2 text-gray-700 mb-2 dark:text-white"
+          >
             <CiUser
-              className="text-xl text-gradient-violet"
+              className="text-xl text-gradient-violet "
               style={{ strokeWidth: 1.1 }}
             />
             Last Name
@@ -41,37 +49,55 @@ const PassengerInfo = () => {
           <input
             type="text"
             placeholder="Doe"
-            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700"
+            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+dark:focus:border-gradient-violet
+dark:bg-dark-popover
+dark:text-dark-muted-foreground
+"
           />
         </div>
       </div>
 
       <div className="min-w-0">
-        <label htmlFor="title" className="flex gap-2 text-gray-700 mb-2">
+        <label
+          htmlFor="title"
+          className="flex gap-2 text-gray-700 mb-2 dark:text-white"
+        >
           <MdOutlineLocalPhone className="text-xl text-gradient-violet" />
           Phone Number
         </label>
         <input
           type="text"
           placeholder="+1 234 567 890"
-          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700"
+          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+dark:focus:border-gradient-violet
+dark:bg-dark-popover
+dark:text-dark-muted-foreground
+"
         />
       </div>
 
       <div className="min-w-0">
-        <label htmlFor="title" className="flex gap-2 text-gray-700 mb-2">
-          <LuCreditCard className="text-xl text-gradient-violet" />
+        <label
+          htmlFor="title"
+          className="flex gap-2 text-gray-700 mb-2 dark:text-white"
+        >
+          <LuCreditCard className="text-xl text-gradient-violet " />
           Passport Number
         </label>
         <input
           type="text"
           placeholder="AB1234567"
-          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700"
+          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+dark:focus:border-gradient-violet
+dark:bg-dark-popover
+dark:text-dark-muted-foreground
+"
         />
       </div>
 
       <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-4">
-        <h3 className="text-sm font-semibold text-blue-800 dark:text-blue-400 mb-2">
+        <h3 className="text-sm font-semibold  text-blue-900 dark:text-blue-300 mb-2">
           Important Travel Information
         </h3>
         <ul className="list-disc list-inside text-sm text-blue-800 dark:text-blue-400 space-y-1">

@@ -5,7 +5,7 @@ import SendMessage from "./components/SendMessage";
 
 const ContactUs = () => {
   return (
-    <div className=" bg-gray-50 my-24">
+    <div className="bg-gray-50 dark:bg-dark-background my-16 ">
       <div className="flex flex-col gap-10">
         <FirstSection />
         <div className="flex lg:flex-row flex-col gap-5 container m-auto">

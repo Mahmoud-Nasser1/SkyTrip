@@ -22,14 +22,14 @@ export default function StepperWithGradientLine() {
     } else if (index < activeStep) {
       return "!bg-gradient-to-r !from-gradient-violet !to-gradient-peach !text-white";
     } else {
-      return "!bg-gray-200 !text-gray-400";
+      return "!bg-gray-200 dark:!bg-gray-700 !text-gray-400 dark:!text-gray-300";
     }
   };
 
   return (
-    <div className="w-full px-7 py-10 relative  ">
-      <div className="relative flex items-center justify-between ">
-        <div className="absolute top-1/2 left-0 w-full h-[3px] bg-gray-300 -z-10">
+    <div className="w-full px-7 py-10 relative">
+      <div className="relative flex items-center justify-between">
+        <div className="absolute top-1/2 left-0 w-full h-[3px] bg-gray-300 dark:bg-gray-700 -z-10">
           <div
             className="h-full transition-all duration-500 bg-gradient-to-r from-gradient-violet to-gradient-peach"
             style={{
@@ -45,11 +45,15 @@ export default function StepperWithGradientLine() {
             0
           )} rounded-full p-4`}
         >
-          <IoAirplane className="h-4 w-4" />
+          <IoAirplane className="h-4 w-4 text-white" />
           <div className="absolute top-12 w-max text-center">
             <Typography
               variant="h6"
-              color={activeStep === 0 ? "blue-gray" : "gray"}
+              className={
+                activeStep === 0
+                  ? "text-gray-800 dark:text-gray-200"
+                  : "text-gray-400 dark:text-gray-300"
+              }
             >
               Flight
             </Typography>
@@ -62,11 +66,15 @@ export default function StepperWithGradientLine() {
             1
           )} rounded-full p-4`}
         >
-          <CogIcon className="h-4 w-4" />
+          <CogIcon className="h-4 w-4 text-white" />
           <div className="absolute top-12 w-max text-center">
             <Typography
               variant="h6"
-              color={activeStep === 1 ? "blue-gray" : "gray"}
+              className={
+                activeStep === 1
+                  ? "text-gray-800 dark:text-gray-200"
+                  : "text-gray-400 dark:text-gray-300"
+              }
             >
               Booking
             </Typography>
@@ -79,11 +87,15 @@ export default function StepperWithGradientLine() {
             2
           )} rounded-full p-4`}
         >
-          <BuildingLibraryIcon className="h-4 w-4" />
+          <BuildingLibraryIcon className="h-4 w-4 text-white" />
           <div className="absolute top-12 w-max text-center">
             <Typography
               variant="h6"
-              color={activeStep === 2 ? "blue-gray" : "gray"}
+              className={
+                activeStep === 2
+                  ? "text-gray-800 dark:text-gray-200"
+                  : "text-gray-400 dark:text-gray-300"
+              }
             >
               Payment
             </Typography>
