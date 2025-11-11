@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Menu,
   MenuHandler,
@@ -9,8 +9,18 @@ import {
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-const Dropdown = ({ label, items }) => {
-  const [selected, setSelected] = React.useState(label);
+const Dropdown = ({ label, items, onSelect }) => {
+  const [selected, setSelected] = useState(label);
+
+  
+  useEffect(() => {
+    setSelected(label);
+  }, [label]);
+
+  const handleSelect = (item) => {
+    setSelected(item); 
+    if (onSelect) onSelect(item); 
+  };
 
   return (
     <Menu>
@@ -28,7 +38,7 @@ const Dropdown = ({ label, items }) => {
         {items.map((item) => (
           <MenuItem
             key={item}
-            onClick={() => setSelected(item)}
+            onClick={() => handleSelect(item)}
             className={`${
               selected === item ? "bg-violet-100 text-gradient-violet" : ""
             } rounded-lg`}

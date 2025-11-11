@@ -79,7 +79,7 @@ const CardFlight = ({
             <div className="flex flex-col items-center">
               <label htmlFor="">From</label>
               <h1 className="font-semibold text-2xl text-gradient-violet">
-                $599
+                ${price}
               </h1>
               <label htmlFor="">per person</label>
             </div>

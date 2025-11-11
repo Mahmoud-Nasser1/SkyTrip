@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { LuFilter } from "react-icons/lu";
 import Dropdown from "./Dropdown";
 
-const FlightFilter = () => {
+const FlightFilter = ({ onFilterList }) => {
+  const [selectedAirline, setSelectedAirline] = useState("All Airlines");
+  const [selectedStop, setSelectedStop] = useState("Any Stops");
+  const [selectedSort, setSelectedSort] = useState("Recommended");
+
+  useEffect(() => {
+    onFilterList({
+      airline: selectedAirline,
+      stop: selectedStop,
+      sort: selectedSort,
+    });
+  }, [selectedAirline, selectedStop, selectedSort]);
+
   return (
     <div className="flex lg:mx-6 flex-wrap items-center justify-between gap-4 bg-white shadow-xl p-4 rounded-2xl">
       <div className="flex items-center gap-2 text-gray-800 font-bold">
@@ -12,23 +24,32 @@ const FlightFilter = () => {
 
       <div className="flex flex-wrap gap-3 w-full sm:w-auto justify-start lg:justify-between ">
         <Dropdown
-          label="All Airlines"
-          items={["All Airlines", "SkyWings", "Global Airways"]}
+          label={selectedAirline}
+          items={[
+            "All Airlines",
+            "SkyWings Airlines",
+            "Global Airways",
+            "Pacific Express",
+            "Continental Air",
+          ]}
+          onSelect={(value) => setSelectedAirline(value)}
         />
 
         <Dropdown
-          label="Any Stops"
+          label={selectedStop}
           items={["Any Stops", "Non-stop", "1 Stop", "2+ Stops"]}
+          onSelect={(value) => setSelectedStop(value)}
         />
 
         <Dropdown
-          label="Recommended"
+          label={selectedSort}
           items={[
             "Recommended",
             "Lowest Price",
             "Shortest Duration",
             "Earliest Departure",
           ]}
+          onSelect={(value) => (setSelectedSort(value))}
         />
       </div>
     </div>
