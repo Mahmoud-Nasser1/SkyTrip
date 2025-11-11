@@ -71,7 +71,7 @@ const PayForm = () => {
   };
   return (
     <div className="w-full flex justify-center py-24 dark:bg-dark-background dark:text-dark-primary">
-      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet/30 hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
+      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
         <CardHeader
           color="gray"
           floated={false}
@@ -95,12 +95,28 @@ const PayForm = () => {
         </CardHeader>
 
         <CardBody className="dark:text-dark-primary">
-          <Tabs value={type} className="overflow-visible dark:text-dark-primary">
-            <TabsHeader className="relative z-0 dark:bg-dark-secondary dark:text-dark-primary">
-              <Tab value="card" onClick={() => setType("card")}>
+          <Tabs
+            value={type}
+            className="overflow-visible dark:text-dark-primary"
+          >
+            <TabsHeader
+              className="relative z-0 dark:bg-dark-secondary dark:text-dark-primary"
+              indicatorProps={{
+                className: "dark:bg-dark-card",
+              }}
+            >
+              <Tab
+                value="card"
+                onClick={() => setType("card")}
+                className=" dark:text-dark-primary"
+              >
                 Pay with Card
               </Tab>
-              <Tab value="paypal" onClick={() => setType("paypal")}>
+              <Tab
+                value="paypal"
+                onClick={() => setType("paypal")}
+                className=" dark:text-dark-primary"
+              >
                 Pay with PayPal
               </Tab>
             </TabsHeader>
@@ -127,7 +143,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -151,7 +167,7 @@ const PayForm = () => {
                         <CreditCardIcon className="absolute left-0 h-4 w-4 text-blue-gray-300" />
                       }
                       placeholder="0000 0000 0000 0000"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -172,7 +188,7 @@ const PayForm = () => {
                           onChange={(e) => setCardExpires(e.target.value)}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="00/00"
-                          className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -191,7 +207,7 @@ const PayForm = () => {
                           maxLength={4}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="000"
-                          className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -208,7 +224,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="John Doe"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -308,7 +324,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -332,11 +348,14 @@ const PayForm = () => {
                     </Typography>
                     <Select
                       placeholder="USA"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet "
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none ",
                       }}
-                      menuProps={{ className: "h-48 dark:bg-dark-secondary dark:text-dark-primary" }}
+                      menuProps={{
+                        className:
+                          "h-48 dark:bg-dark-secondary dark:text-dark-primary",
+                      }}
                     >
                       {countries.map(({ name, flags }) => (
                         <Option key={name} value={name} className="">
@@ -360,7 +379,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="0000"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -380,8 +399,8 @@ const PayForm = () => {
                     color="gray"
                     className="flex items-center justify-center gap-2 font-medium opacity-60 "
                   >
-                    <LockClosedIcon className="-mt-0.5 h-4 w-4 dark:text-gray-200" /> Payments are
-                    secure and encrypted
+                    <LockClosedIcon className="-mt-0.5 h-4 w-4 dark:text-gray-200" />{" "}
+                    Payments are secure and encrypted
                   </Typography>
                 </form>
               </TabPanel>

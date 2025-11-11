@@ -58,7 +58,7 @@ const FlightStepper = () => {
               }}
               className="hidden xl:inline-block "
             >
-              <GiCommercialAirplane className="text-gradient-violet relative font-extrabold text-6xl" />
+              <GiCommercialAirplane className="text-gradient-violet relative font-extrabold text-6xl " />
             </motion.div>
           </div>
           <Step

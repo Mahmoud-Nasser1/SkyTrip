@@ -50,7 +50,7 @@ const FlightCard = () => {
             Proceed to Booking
             <FaArrowRight />
           </Button>
-          <div className="flex flex-col bg-green-50 rounded-2xl p-4 text-green-800 gap-4 dark:bg-gray-800 dark:text-green-300">
+          <div className="flex flex-col bg-green-50 rounded-2xl p-4 text-green-800 gap-4  dark:bg-gradient-to-r dark:from-[#1E2A47] dark:via-[#2B2C4E] dark:to-[#3C2F2F] dark:text-green-300">
             <section className="flex items-center gap-2 ">
               <LuShield />
               <h1> Secure Booking</h1>
