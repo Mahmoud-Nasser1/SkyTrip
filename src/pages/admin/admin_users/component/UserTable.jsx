@@ -2,7 +2,7 @@ import React from 'react';
 import { FiEye, FiEdit, FiTrash2 } from 'react-icons/fi';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 
-export default function UserTable() {
+export default function UserTable({search}) {
   const users = [
     { id: "U001", name: "John Smith", email: "john@email.com", joined: "Jan 2025", totalFlights: 12, status: "Active", statusColor: "blue-600" },
     { id: "U002", name: "Emma Wilson", email: "emma@email.com", joined: "Feb 2025", totalFlights: 8, status: "Active", statusColor: "blue-600" },
@@ -10,7 +10,9 @@ export default function UserTable() {
     { id: "U004", name: "Sarah Davis", email: "sarah@email.com", joined: "Apr 2025", totalFlights: 15, status: "Active", statusColor: "blue-600" },
     { id: "U005", name: "Robert Garcia", email: "robert@email.com", joined: "May 2025", totalFlights: 3, status: "Active", statusColor: "blue-600" },
   ];
-
+const filtereduser = users.filter((user) =>
+    user.id.toLowerCase().includes(search.toLowerCase())
+  );
   return (
     <div className="w-full overflow-x-auto">
       <div className="overflow-hidden rounded-xl border border-gray-100 dark:border-gray-800">
@@ -27,7 +29,7 @@ export default function UserTable() {
             </tr>
           </thead>
           <tbody>
-            {users.map(user => (
+            {filtereduser.map(user => (
               <tr className="dark:hover:bg-[#1F2A38]  border-gray-100" key={user.id}>
                 <td className="px-4 py-3 ">{user.id}</td>
                 <td className="px-4 py-3 ">{user.name}</td>
@@ -47,6 +49,14 @@ export default function UserTable() {
                 </td>
               </tr>
             ))}
+
+            {filtereduser.length === 0 && <>
+            <tr>
+                <td colSpan="8" className="text-center py-6 text-gray-500">
+                User Not found
+                </td>
+              </tr>
+            </>}
           </tbody>
         </table>
       </div>

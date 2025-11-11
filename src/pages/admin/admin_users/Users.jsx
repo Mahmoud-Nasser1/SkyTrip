@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UserTable from './component/UserTable'
 
 export default function Users() {
+  const [search, setSearch] = useState("");
+  
   return <>
   <section className="upper  mt-16">
     <div className='flex justify-between'>
@@ -12,11 +14,11 @@ export default function Users() {
   </div>
   
   <div className="search mt-3">
-   <input type="text" placeholder="Search flights..." className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:bg-[#10161E] dark:text-white"/></div>
+   <input type="text" placeholder="Search by user ID..." value={search} onChange={(e)=>setSearch(e.target.value)} className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:bg-[#10161E] dark:text-white"/></div>
     </section>
 
     <section className='userTable mt-4'>
-          <UserTable/>
+          <UserTable search={search}/>
         </section>
   </>
 }

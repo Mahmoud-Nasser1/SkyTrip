@@ -4,7 +4,7 @@ import { AiFillCheckCircle } from 'react-icons/ai';
 
 import { AiFillCloseCircle } from 'react-icons/ai';
 
-export default function BookingTable() {
+export default function BookingTable({search}) {
 const bookings = [
   {id: "BK8821",passenger: "John Smith",flight: "FL001",date: "Nov 15, 2025",seats: 2,amount: "$1,240",status: "Confirmed",statusColor: "green-600", },
   {id: "BK8822",passenger: "Emma Wilson",flight: "FL002",date: "Nov 16, 2025",seats: 1,amount: "$980",status: "Pending",statusColor: "yellow-600", },
@@ -18,7 +18,9 @@ const statusColors = {
   Pending: "text-yellow-600",
   Cancelled: "text-red-600",
 };
-
+const filteredbooking = bookings.filter((book) =>
+    book.id.toLowerCase().includes(search.toLowerCase())
+  );
   return <>
   <div className="w-full overflow-x-auto">
    <div className="overflow-hidden rounded-xl border dark:border-gray-800">
@@ -36,7 +38,7 @@ const statusColors = {
         </tr>
         </thead>
         <tbody>
-            {bookings.map((booking)=>(<tr className=" hover:bg-gray-50 dark:hover:bg-[#1F2A38]">
+            {filteredbooking.map((booking)=>(<tr className=" hover:bg-gray-50 dark:hover:bg-[#1F2A38]">
               <td className='px-4 py-3'>{booking.id}</td>
               <td className='px-4 py-3'>{booking.passenger}</td>
               <td>{booking.flight}</td>
@@ -55,6 +57,14 @@ const statusColors = {
 </td>
 <td className='flex gap-3 py-3'><FiEye/> <FiEdit /> <FiTrash2 className='text-red-600'/></td>
 </tr>))}
+
+     { filteredbooking.length === 0 && <>
+            <tr>
+                <td colSpan="8" className="text-center py-6 text-gray-500">
+                  No Bookings found.
+                </td>
+              </tr>
+            </>}
         </tbody>
     </table>
 
