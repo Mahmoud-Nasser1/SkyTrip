@@ -92,18 +92,18 @@ const FlightTaps = () => {
 
   return (
     <div className="rounded-3xl bg-white shadow-2xl w-full mx-auto p-0 overflow-hidden dark:bg-dark-card dark:text-dark-primary">
-      <Tabs value="overview" className="w-full">
+      <Tabs value="overview" className="w-full ">
         <TabsHeader
-          className="bg-gray-100 border-b border-gray-200"
+          className="bg-gray-100 border-b overflow-auto border-gray-200 dark:bg-dark-muted "
           indicatorProps={{
-            className: "bg-gradient-main rounded-t-3xl shadow-md",
+            className: "bg-gradient-main rounded-t-3xl shadow-md ",
           }}
         >
           {data.map(({ label, value }) => (
             <Tab
               key={value}
               value={value}
-              className="py-3 px-6 text-lg  transition-all duration-300 font-bold text-gray-800"
+              className="py-3 px-6 text-lg  transition-all duration-300 font-bold text-gray-800 dark:text-dark-primary"
             >
               {label}
             </Tab>

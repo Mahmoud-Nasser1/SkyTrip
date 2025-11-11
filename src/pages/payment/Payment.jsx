@@ -63,7 +63,7 @@ const Payment = () => {
                 <Input
                   placeholder="e.g John Doe"
                   className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
                   labelProps={{
                     className: "before:content-none after:content-none ",
                   }}
@@ -87,7 +87,7 @@ const Payment = () => {
                   placeholder="1234 5678 9012 3456"
                   maxLength={19}
                   className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
@@ -117,7 +117,7 @@ const Payment = () => {
                     maxLength={5}
                     pattern="\d{2}/\d{2}"
                     className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
@@ -145,7 +145,7 @@ const Payment = () => {
                     maxLength={3}
                     pattern="\d{3}"
                     className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70"
+                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
@@ -159,7 +159,7 @@ const Payment = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4 dark:bg-blue-gray-800 dark:text-blue-300">
+              <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4 dark:bg-blue-gray-800 dark:text-green-300">
                 <section className="flex items-center gap-2 ">
                   <LuLock />
                   <h1> Secure Payment</h1>
