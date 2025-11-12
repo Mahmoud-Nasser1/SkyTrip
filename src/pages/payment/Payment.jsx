@@ -27,7 +27,7 @@ const Payment = () => {
       >
         <StepperWithContent numPage={1} />
       </div>
-      <div className="flex flex-col rounded-3xl w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
+      <div className="flex flex-col rounded-3xl w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
         <div className="flex flex-col bg-gradient-main rounded-t-3xl p-4 text-white gap-4">
           <section className="flex items-center gap-2 ">
             <FaLock className="font-bold text-2xl" />
