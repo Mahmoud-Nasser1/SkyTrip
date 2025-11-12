@@ -6,7 +6,9 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { RiLock2Line } from "react-icons/ri";
 import { LuLock } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 import StepperWithContent from "../booking/components/StepperWithContent";
+import { CiUser } from "react-icons/ci";
 
 const Payment = () => {
   const [cvv, setCvv] = React.useState("");
@@ -18,14 +20,14 @@ const Payment = () => {
     navigate("/payment/payform");
   };
   return (
-    <main className="flex flex-col gap-6   container mx-auto  p-10 py-24 dark:bg-dark-background dark:text-dark-primary">
+    <main className="flex flex-col gap-6 container mx-auto p-10 py-24 dark:bg-dark-background dark:text-dark-primary">
       <div
         className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
        hover:scale-[1] hover:border-gradient-violet duration-500  dark:border-white/10"
       >
-        <StepperWithContent numPage={2} />
+        <StepperWithContent numPage={1} />
       </div>
-      <div className="flex flex-col rounded-3xl border-2 w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
+      <div className="flex flex-col rounded-3xl w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet  dark:bg-dark-card">
         <div className="flex flex-col bg-gradient-main rounded-t-3xl p-4 text-white gap-4">
           <section className="flex items-center gap-2 ">
             <FaLock className="font-bold text-2xl" />
@@ -58,113 +60,88 @@ const Payment = () => {
           </div>
           <form action="">
             <div className="w-full flex flex-col gap-4 ">
-              <div className="flex flex-col">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
-                >
-                  <LuCreditCard className="text-xl text-gradient-violet " />
-                  Cardholder Name
-                </Typography>
-                <Input
-                  placeholder="e.g John Doe"
-                  className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
-                  labelProps={{
-                    className: "before:content-none after:content-none ",
-                  }}
-                  containerProps={{
-                    className: "min-w-0",
-                  }}
-                  value={cardholderName}
-                  onChange={(e) => setCardholderName(e.target.value)}
-                />
+              <div className="flex gap-5 flex-col md:flex-row">
+                <div className="flex-1 min-w-0">
+                  <label
+                    htmlFor="first-name"
+                    className="flex gap-1 text-gray-700 mb-2 dark:text-white"
+                  >
+                    <CiUser
+                      className="text-xl text-gradient-violet font-normal"
+                      style={{ strokeWidth: 1.1 }}
+                    />
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    value="John"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+              dark:focus:border-gradient-violet
+              dark:bg-dark-popover
+              dark:text-dark-muted-foreground
+              "
+                 disabled />
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <label
+                    htmlFor="last-name"
+                    className="flex gap-2 text-gray-700 mb-2 dark:text-white"
+                  >
+                    <CiUser
+                      className="text-xl text-gradient-violet "
+                      style={{ strokeWidth: 1.1 }}
+                    />
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    value="Doe"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+              dark:focus:border-gradient-violet
+              dark:bg-dark-popover
+              dark:text-dark-muted-foreground
+              "
+                 disabled />
+                </div>
               </div>
-              <div className="flex flex-col">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="mb-1 mt-4 flex items-center gap-2 font-medium dark:text-dark-primary"
+
+              <div className="min-w-0">
+                <label
+                  htmlFor="title"
+                  className="flex gap-2 text-gray-700 mb-2 dark:text-white"
                 >
-                  <LuCreditCard className="text-xl text-gradient-violet " />
-                  Card Number
-                </Typography>
-                <Input
-                  placeholder="1234 5678 9012 3456"
-                  maxLength={19}
-                  className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
-                  labelProps={{
-                    className: "before:content-none after:content-none",
-                  }}
-                  containerProps={{
-                    className: "min-w-0",
-                  }}
-                  value={cardNumber
-                    .replace(/\s/g, "")
-                    .replace(/(\d{4})/g, "$1 ")
-                    .trim()}
-                  onChange={(e) => setCardNumber(e.target.value)}
+                  <MdOutlineLocalPhone className="text-xl text-gradient-violet" />
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  value="+1 234 567 890"
+                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+              dark:focus:border-gradient-violet
+              dark:bg-dark-popover
+              dark:text-dark-muted-foreground
+              "disabled
                 />
               </div>
 
-              <div className="mt-4 flex">
-                <div className="mr-4 w-full md:w-8/12">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
-                  >
-                    <FaRegCalendarAlt className="text-xl text-gradient-violet " />
-                    Expiration Date
-                  </Typography>
-                  <Input
-                    placeholder="MM/YY"
-                    maxLength={5}
-                    pattern="\d{2}/\d{2}"
-                    className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
-                    labelProps={{
-                      className: "before:content-none after:content-none",
-                    }}
-                    containerProps={{
-                      className: "!min-w-0",
-                    }}
-                    value={expirationDate
-                      .replace(/[^0-9]/g, "")
-                      .replace(/(\d{2})(\d{1,2})/, "$1/$2")
-                      .substring(0, 5)}
-                    onChange={(e) => setExpirationDate(e.target.value)}
-                  />
-                </div>
-                <div className="w-full md:w-4/12">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="mb-1 flex items-center gap-2 font-medium dark:text-dark-primary"
-                  >
-                    <RiLock2Line className="text-xl text-gradient-violet " />
-                    CVV
-                  </Typography>
-                  <Input
-                    placeholder="123"
-                    maxLength={3}
-                    pattern="\d{3}"
-                    className="appearance-none placeholder:text-blue-gray-300 placeholder:opacity-100 transform transition-all duration-500
-                     focus:outline-none focus:ring-2 focus:ring-gradient-violet focus:ring-opacity-70 dark:bg-dark-muted dark:text-dark-muted-foreground"
-                    labelProps={{
-                      className: "before:content-none after:content-none",
-                    }}
-                    containerProps={{
-                      className: "!min-w-0",
-                    }}
-                    value={cvv
-                      .replace(/[^0-9]/g, "")
-                      .replace(/(\..*)\./g, "$1")}
-                    onChange={(e) => setCvv(e.target.value)}
-                  />
-                </div>
+              <div className="min-w-0">
+                <label
+                  htmlFor="title"
+                  className="flex gap-2 text-gray-700 mb-2 dark:text-white"
+                >
+                  <LuCreditCard className="text-xl text-gradient-violet " />
+                  Passport Number
+                </label>
+                <input
+                  type="text"
+                  value="AB1234567"
+                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
+              dark:focus:border-gradient-violet
+              dark:bg-dark-popover
+              dark:text-dark-muted-foreground
+              "disabled
+                />
               </div>
               <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4 dark:bg-blue-gray-800 dark:text-green-300">
                 <section className="flex items-center gap-2 ">
@@ -180,7 +157,7 @@ const Payment = () => {
                 fullWidth
                 onClick={goToForm}
               >
-                Pay Now
+                Confirm Data
               </Button>
             </div>
           </form>

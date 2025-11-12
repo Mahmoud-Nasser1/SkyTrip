@@ -3,6 +3,9 @@ import { IoAirplane } from "react-icons/io5";
 import { Stepper, Step, Typography } from "@material-tailwind/react";
 import { CogIcon, BuildingLibraryIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import Booking from './../Booking';
+
+import Payment from './../../payment/Payment';
 
 export default function StepperWithGradientLine({ numPage }) {
   const [activeStep, setActiveStep] = useState(numPage);
@@ -40,12 +43,12 @@ export default function StepperWithGradientLine({ numPage }) {
         </div>
 
         <div
-          onClick={() => handleStepClick(0, "/Flights")}
+          onClick={() => handleStepClick(0, "/Booking")}
           className={`relative flex flex-col items-center cursor-pointer z-10 ${getStepClasses(
             0
           )} rounded-full p-4`}
         >
-          <IoAirplane className="h-4 w-4 text-white" />
+          <CogIcon className="h-4 w-4 text-white" />
           <div className="absolute top-12 w-max text-center">
             <Typography
               variant="h6"
@@ -55,13 +58,13 @@ export default function StepperWithGradientLine({ numPage }) {
                   : "text-gray-400 dark:text-gray-300"
               }
             >
-              Flight
+              Booking
             </Typography>
           </div>
         </div>
 
         <div
-          onClick={() => handleStepClick(1, "/Booking")}
+          onClick={() => handleStepClick(1, "/Payment")}
           className={`relative flex flex-col items-center cursor-pointer z-10 ${getStepClasses(
             1
           )} rounded-full p-4`}
@@ -76,13 +79,13 @@ export default function StepperWithGradientLine({ numPage }) {
                   : "text-gray-400 dark:text-gray-300"
               }
             >
-              Booking
+              Confirmation
             </Typography>
           </div>
         </div>
 
         <div
-          onClick={() => handleStepClick(2, "/Payment")}
+          onClick={() => handleStepClick(2, "/payment/payform")}
           className={`relative flex flex-col items-center cursor-pointer z-10 ${getStepClasses(
             2
           )} rounded-full p-4`}
