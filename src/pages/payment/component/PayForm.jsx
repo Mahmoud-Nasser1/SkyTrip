@@ -29,6 +29,7 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import StepperWithContent from "../../booking/components/StepperWithContent";
 
 function formatCardNumber(value) {
   const val = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -70,8 +71,14 @@ const PayForm = () => {
     navigate("/");
   };
   return (
-    <div className="w-full flex justify-center py-24 dark:bg-dark-background dark:text-dark-primary">
-      <Card className="w-11/12 sm:w-1/2 transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
+    <div className="w-3/5 container mx-auto p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
+      <div
+        className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
+             hover:scale-[1] hover:border-gradient-violet duration-500  dark:border-white/10"
+      >
+        <StepperWithContent numPage={2} />
+      </div>
+      <Card className="w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
         <CardHeader
           color="gray"
           floated={false}
@@ -143,7 +150,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -167,7 +174,7 @@ const PayForm = () => {
                         <CreditCardIcon className="absolute left-0 h-4 w-4 text-blue-gray-300" />
                       }
                       placeholder="0000 0000 0000 0000"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -188,7 +195,7 @@ const PayForm = () => {
                           onChange={(e) => setCardExpires(e.target.value)}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="00/00"
-                          className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -207,7 +214,7 @@ const PayForm = () => {
                           maxLength={4}
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="000"
-                          className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                          className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                           labelProps={{
                             className: "before:content-none after:content-none",
                           }}
@@ -224,7 +231,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="John Doe"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -324,7 +331,7 @@ const PayForm = () => {
                     <Input
                       type="email"
                       placeholder="name@mail.com"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
@@ -348,7 +355,7 @@ const PayForm = () => {
                     </Typography>
                     <Select
                       placeholder="USA"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none ",
                       }}
@@ -379,7 +386,7 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="0000"
-                      className="!border-t-blue-gray-200 focus:!border-gradient-violet dark:bg-dark-muted dark:text-dark-muted-foreground"
+                      className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
                       }}
