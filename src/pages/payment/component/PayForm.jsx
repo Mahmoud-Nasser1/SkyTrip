@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { useCountries } from "use-react-countries";
 import {
@@ -15,6 +15,7 @@ import {
   TabPanel,
   Select,
   Option,
+  Alert,
 } from "@material-tailwind/react";
 import {
   BanknotesIcon,
@@ -59,12 +60,98 @@ function formatExpires(value) {
 
 const PayForm = () => {
   const { countries } = useCountries();
-  const [type, setType] = React.useState("card");
-  const [cardNumber, setCardNumber] = React.useState("");
-  const [cardExpires, setCardExpires] = React.useState("");
+  const [type, setType] = useState("card");
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
+  const [error, setError] = useState("");
+  const [cardData, setCardData] = useState({
+    userEmail: "",
+    cardholderName: "",
+    cardNumber: "",
+    expirationDate: "",
+    cvv: "",
+  });
+  const [paypalData, setPayPalData] = useState({
+    userEmail: "",
+    country: "",
+    postalCode: "",
+  });
+
+  const payNow = () => {
+    const { userEmail, cardholderName, cardNumber, expirationDate, cvv } =
+      cardData;
+
+    if (
+      !userEmail.trim() ||
+      !cardholderName.trim() ||
+      !cardNumber.trim() ||
+      !expirationDate.trim() ||
+      !cvv.trim()
+    ) {
+      return setError("Please fill in all fields");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+      return setError("Please enter a valid email address");
+    }
+
+    const cardNumberRegex = /^\d{16}$/;
+    if (!cardNumberRegex.test(cardNumber.replace(/\s/g, ""))) {
+      return setError("Card number must be 16 digits");
+    }
+
+    const cvvRegex = /^\d{3}$/;
+    if (!cvvRegex.test(cvv)) {
+      return setError("CVV must be 3 digits");
+    }
+
+    const expRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!expRegex.test(expirationDate)) {
+      return setError("Expiration date must be MM/YY");
+    }
+
+    const nameRegex = /^[A-Za-z\s]{3,40}$/;
+    if (!nameRegex.test(cardholderName)) {
+      return setError("Cardholder name must contain only letters");
+    }
+
+    setError("");
+
+    setCardData({
+      userEmail: "",
+      cardholderName: "",
+      cardNumber: "",
+      expirationDate: "",
+      cvv: "",
+    });
+    setOpen(true);
+  };
+
+  const paypalPayNow = () => {
+    const { userEmail, country, postalCode } = paypalData;
+
+    if (!userEmail.trim() || !country || !postalCode.trim()) {
+      return setError("Please fill in all fields");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+      return setError("Please enter a valid email address");
+    }
+
+    const postalRegex = /^\d{4,10}$/;
+    if (!postalRegex.test(postalCode)) {
+      return setError("Postal code must contain 4–10 digits");
+    }
+
+    setError("");
+
+    setPayPalData({ userEmail: "", country: "", postalCode: "" });
+
+    setOpen(true);
+  };
 
   const navigate = useNavigate();
   const goHome = () => {
@@ -139,6 +226,7 @@ const PayForm = () => {
               {/* Card Tab */}
               <TabPanel value="card" className="p-0">
                 <form className="mt-12 flex flex-col gap-4">
+                  {error && <Alert color="red">{error}</Alert>}
                   <div>
                     <Typography
                       variant="small"
@@ -149,6 +237,13 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       type="email"
+                      value={cardData.userEmail}
+                      onChange={(e) =>
+                        setCardData({
+                          ...cardData,
+                          userEmail: e.target.value,
+                        })
+                      }
                       placeholder="name@mail.com"
                       className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
@@ -168,8 +263,10 @@ const PayForm = () => {
 
                     <Input
                       maxLength={19}
-                      value={formatCardNumber(cardNumber)}
-                      onChange={(e) => setCardNumber(e.target.value)}
+                      value={formatCardNumber(cardData.cardNumber)}
+                      onChange={(e) =>
+                        setCardData({ ...cardData, cardNumber: e.target.value })
+                      }
                       icon={
                         <CreditCardIcon className="absolute left-0 h-4 w-4 text-blue-gray-300" />
                       }
@@ -191,8 +288,13 @@ const PayForm = () => {
                         </Typography>
                         <Input
                           maxLength={5}
-                          value={formatExpires(cardExpires)}
-                          onChange={(e) => setCardExpires(e.target.value)}
+                          value={formatExpires(cardData.expirationDate)}
+                          onChange={(e) =>
+                            setCardData({
+                              ...cardData,
+                              expirationDate: e.target.value,
+                            })
+                          }
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="00/00"
                           className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
@@ -208,10 +310,14 @@ const PayForm = () => {
                           color="blue-gray"
                           className="mb-2 font-medium dark:text-dark-primary"
                         >
-                          CVC
+                          CVV
                         </Typography>
                         <Input
                           maxLength={4}
+                          value={cardData.cvv}
+                          onChange={(e) =>
+                            setCardData({ ...cardData, cvv: e.target.value })
+                          }
                           containerProps={{ className: "min-w-[72px]" }}
                           placeholder="000"
                           className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
@@ -227,10 +333,17 @@ const PayForm = () => {
                       color="blue-gray"
                       className="mb-2 font-medium dark:text-dark-primary"
                     >
-                      Holder Name
+                      Cardholder Name
                     </Typography>
                     <Input
                       placeholder="John Doe"
+                      value={cardData.cardholderName}
+                      onChange={(e) =>
+                        setCardData({
+                          ...cardData,
+                          cardholderName: e.target.value,
+                        })
+                      }
                       className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
@@ -241,7 +354,7 @@ const PayForm = () => {
                   <Button
                     size="lg"
                     className="bg-gradient-main rounded-full"
-                    onClick={handleOpen}
+                    onClick={payNow}
                   >
                     Pay Now
                   </Button>
@@ -313,6 +426,7 @@ const PayForm = () => {
               {/* PayPal Tab */}
               <TabPanel value="paypal" className="p-0">
                 <form className="mt-12 flex flex-col gap-4">
+                  {error && <Alert color="red">{error}</Alert>}
                   <div>
                     <Typography
                       variant="paragraph"
@@ -330,6 +444,13 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       type="email"
+                      value={paypalData.userEmail}
+                      onChange={(e) =>
+                        setPayPalData({
+                          ...paypalData,
+                          userEmail: e.target.value,
+                        })
+                      }
                       placeholder="name@mail.com"
                       className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
@@ -355,6 +476,13 @@ const PayForm = () => {
                     </Typography>
                     <Select
                       placeholder="USA"
+                      value={paypalData.country}
+                      onChange={(val) =>
+                        setPayPalData({
+                          ...paypalData,
+                          country: val,
+                        })
+                      }
                       className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none ",
@@ -386,6 +514,13 @@ const PayForm = () => {
                     </Typography>
                     <Input
                       placeholder="0000"
+                      value={paypalData.postalCode}
+                      onChange={(e) =>
+                        setPayPalData({
+                          ...paypalData,
+                          postalCode: e.target.value,
+                        })
+                      }
                       className="!border-t-blue-gray-200 focus:!border-gradient-violet  dark:text-dark-muted-foreground"
                       labelProps={{
                         className: "before:content-none after:content-none",
@@ -397,7 +532,7 @@ const PayForm = () => {
                   <Button
                     size="lg"
                     className="bg-gradient-main rounded-full"
-                    onClick={handleOpen}
+                    onClick={paypalPayNow}
                   >
                     Pay with PayPal
                   </Button>
