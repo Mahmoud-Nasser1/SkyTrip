@@ -21,6 +21,7 @@ import AdminFlights from "./pages/admin/admin_flights/AdminFlights";
 import AdminLayout from "./pages/admin/admin_layout/AdminLayout";
 import Payments from "./pages/admin/admin_payments/Payments";
 import Users from "./pages/admin/admin_users/Users";
+import FeaturedDestinationsDetails from "./pages/FeaturedDestinationsDetails/FeaturedDestinationsDetails";
 
 const App = () => {
   return (
@@ -30,6 +31,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route
+          path="/featured-destinations-details/:cityId"
+          element={<FeaturedDestinationsDetails />}
+        />
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:flightId" element={<FlightsDetails />} />
         <Route path="/contact-us" element={<ContactUs />} />
