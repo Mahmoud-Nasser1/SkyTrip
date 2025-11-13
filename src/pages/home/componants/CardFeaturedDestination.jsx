@@ -1,6 +1,8 @@
-const CardFeaturedDestination = ({ city, country, price, image }) => {
+import { Link } from "react-router-dom";
+
+const CardFeaturedDestination = ({ city, country, price, image, id }) => {
   return (
-    <div className="group cursor-pointer rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 duration-500 dark:bg-dark-card">
+    <div className="group cursor-pointer rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 duration-500 dark:bg-dark-card hover:shadow-gradient-violet/30">
       <div className="relative">
         <img
           src={image}
@@ -24,9 +26,12 @@ const CardFeaturedDestination = ({ city, country, price, image }) => {
           </span>
         </div>
 
-        <button className="w-full border border-gradient-violet text-gradient-violet py-2 rounded-full hover:bg-gradient-to-r hover:from-gradient-violet hover:to-gradient-peach hover:text-white transition-all duration-300">
-          View Deals
-        </button>
+        <Link
+          to={`/featured-destinations-details/${id}`}
+          className="w-full border border-gradient-violet text-gradient-violet py-2 rounded-full hover:bg-gradient-to-r hover:from-gradient-violet hover:to-gradient-peach hover:text-white transition-all duration-300 inline-block text-center"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );

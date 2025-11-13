@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [flights, setflights] = useState([]);
-  const [flightsError, setFlightsError] = useState(null);
-  const [flightsLoading, setFlightsLoading] = useState(true);
+  const [items, setitems] = useState([]);
+  const [itemsError, setitemsError] = useState(null);
+  const [itemsLoading, setitemsLoading] = useState(true);
 
-  const getFlights = () => {
+  const getitems = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setFlightsLoading(false);
-        setflights(data);
+        setitemsLoading(false);
+        setitems(data);
       })
       .catch((e) => {
-        setFlightsLoading(false);
-        setFlightsError(e.message);
+        setitemsLoading(false);
+        setitemsError(e.message);
       });
   };
 
   useEffect(() => {
-    setFlightsLoading(true);
-    getFlights();
+    setitemsLoading(true);
+    getitems();
   }, [url]);
 
-  return { flights, flightsLoading, flightsError };
+  return { items, itemsLoading, itemsError };
 };
 
 export default useFetch;
