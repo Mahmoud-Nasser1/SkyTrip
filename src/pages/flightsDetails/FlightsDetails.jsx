@@ -3,10 +3,17 @@ import FlightCard from "./components/FlightCard";
 import FlightSummery from "./components/FlightSummery";
 import FlightTaps from "./components/FlightTaps";
 import { useParams } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { useState } from "react";
 
 const FlightsDetails = () => {
   const { flightId } = useParams();
   console.log(flightId);
+  const [saved, setSaved] = useState(false);
+  const saveFlight = () => {
+    setSaved(!saved);
+  };
 
   return (
     <div className="dark:bg-dark-background dark:text-dark-primary">
@@ -14,6 +21,22 @@ const FlightsDetails = () => {
         <div className="w-full lg:w-3/4 flex flex-col gap-6">
           <FlightStepper />
           <FlightSummery />
+          <Button
+            onClick={saveFlight}
+            className="bg-gradient-violet py-4 text-base rounded-3xl flex justify-center items-center gap-4"
+          >
+            {saved ? (
+              <>
+                <FaBookmark />
+                Flight saved
+              </>
+            ) : (
+              <>
+                <FaRegBookmark />
+                Save Flight
+              </>
+            )}
+          </Button>
           <FlightTaps />
         </div>
 
