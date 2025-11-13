@@ -3,11 +3,7 @@ import Hero from "./components/Hero";
 import AboutCity from "./components/AboutCity";
 import TopAttractions from "./components/TopAttractions";
 import PopularExperiences from "./components/PopularExperiences";
-import { FaBowlFood } from "react-icons/fa6";
-import { IoFastFoodSharp } from "react-icons/io5";
-import { FaCamera } from "react-icons/fa";
 import BestTime from "./components/BestTime";
-import { RiFlowerLine } from "react-icons/ri";
 
 const FeaturedDestinationsDetails = () => {
   const { id } = useParams();
@@ -72,25 +68,26 @@ const FeaturedDestinationsDetails = () => {
       popularExperiences: [
         {
           title: "French Pastry Workshop",
-          icon: <FaBowlFood />,
+          icon: "🍰",
           description:
             "Learn to bake authentic croissants and macarons with local chefs.",
         },
         {
           title: "Evening Wine Tasting",
-          icon: <IoFastFoodSharp />,
+          icon: "🍷",
           description:
             "Savor fine French wines in a cozy Parisian wine cellar.",
         },
         {
           title: "Photography Tour",
-          icon: <FaCamera />,
+          icon: "📸",
           description:
             "Capture the city’s beauty through guided photography sessions.",
         },
+
         {
           title: "Evening Wine Tasting",
-          icon: <IoFastFoodSharp />,
+          icon: "🍷",
           description:
             "Savor fine French wines in a cozy Parisian wine cellar.",
         },
