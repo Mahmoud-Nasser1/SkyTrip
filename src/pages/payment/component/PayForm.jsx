@@ -158,14 +158,14 @@ const PayForm = () => {
     navigate("/");
   };
   return (
-    <div className="w-3/5 container mx-auto p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
+    <div className="md:w-3/5 md:container md:mx-auto mx-0 w-full p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
       <div
         className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
              hover:scale-[1] hover:border-gradient-violet duration-500  dark:border-white/10"
       >
         <StepperWithContent numPage={2} />
       </div>
-      <Card className="w-11/12 sm:w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
+      <Card className=" w-full transform transition-all duration-500  hover:shadow-2xl hover:shadow-gradient-violet hover:border-gradient-violet dark:bg-dark-card dark:text-dark-primary">
         <CardHeader
           color="gray"
           floated={false}
