@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const NotFound = () => {
+  const navigate = useNavigate();
+  const backHome = () => {
+    navigate("/");
+  };
   return (
     <section className="relative min-h-screen bg-white overflow-hidden flex items-center justify-center mb-16 p-6">
       <div className="absolute inset-0 opacity-20">
@@ -30,7 +36,7 @@ const NotFound = () => {
         </p>
 
         <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-bold rounded-lg overflow-hidden group">
-          <span className="relative z-10">Return to Safety</span>
+          <span className="relative z-10" onClick={backHome}>Return to Safety</span>
           <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
         </button>
       </div>
