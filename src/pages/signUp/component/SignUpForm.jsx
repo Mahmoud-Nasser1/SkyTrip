@@ -71,7 +71,6 @@ const SignUpForm = () => {
     };
 
     setError(newErrors);
-
     if (Object.values(newErrors).every((err) => err === "")) {
       const dbUser = {
         firstName: user.firstName,
@@ -330,14 +329,16 @@ const SignUpForm = () => {
                 className: "-ml-2.5 rounded",
               }}
             />
+            {!agreed && (
+              <p className="text-red-500 text-sm mt-1 ml-1">
+                You must agree to the terms and conditions.
+              </p>
+            )}
             <Button
               className="mt-6 rounded-full  bg-gradient-to-br from-gradient-violet to-gradient-peach p-5 
 transition-transform duration-300 hover:scale-105"
               fullWidth
               type="submit"
-              disabled={
-                !agreed || Object.values(error).some((err) => err !== "")
-              }
             >
               Create Account
             </Button>
