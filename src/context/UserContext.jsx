@@ -28,11 +28,20 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (token, userData) => {
+  const login = (token) => {
     localStorage.setItem("token", token);
-    setUser(userData);
+    const decoded = jwtDecode(token);
+    setUser({
+      id: decoded.id,
+      role: decoded.role,
+      firstName: decoded.firstName,
+      lastName: decoded.lastName,
+      email: decoded.email,
+      phoneNumber: decoded.phoneNumber,
+    });
     setIsLogged(true);
   };
+
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);

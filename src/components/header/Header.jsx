@@ -8,6 +8,8 @@ import { CiSun } from "react-icons/ci";
 import useDarkMode from "../../hooks/darkMode";
 import { useUser } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { CgLogOut } from "react-icons/cg";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,29 +120,41 @@ export default function Header() {
                 <FiMoon className="text-xl text-gradient-violet dark:text-gray-200" />
               )}
             </button>
-
             {isLogged ? (
               <div className="relative group">
                 <button className="py-2 px-4 md:px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white font-semibold shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
-                  Welcome, {user?.firstName || "User"}
+                  Welcome, {user?.firstName || ""}
                 </button>
 
-                <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+                <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-dark-card shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2">
                     {user?.role === "admin" ? (
-                      <Link to="/admin">Dashboard</Link>
+                      <Link to="/admin" className="flex items-center gap-2">
+                        <FaUserCircle className="w-5 h-5 text-gradient-violet" />
+                        <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                          Dashboard
+                        </span>
+                      </Link>
                     ) : (
-                      <Link to="/profile">Profile</Link>
+                      <Link to="/profile" className="flex items-center gap-2">
+                        <FaUserCircle className="w-5 h-5 text-gradient-violet" />
+                        <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                          Profile
+                        </span>
+                      </Link>
                     )}
                   </li>
                   <li
-                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
                     onClick={() => {
                       logout();
                       navigate("/login");
                     }}
                   >
-                    Logout
+                    <CgLogOut className="w-5 h-5 text-gradient-violet" />
+                    <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                      Logout
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -227,30 +241,47 @@ export default function Header() {
           {isLogged ? (
             <li className="relative group">
               <button className="py-2 px-4 md:px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white font-semibold shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
-                Welcome,{user?.firstName || "User"}
+                Welcome, {user?.firstName || ""}
               </button>
 
-              <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+              <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-dark-card shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2">
                   {user?.role === "admin" ? (
-                    <Link to="/admin" onClick={() => setIsOpen(false)}>
-                      Dashboard
+                    <Link
+                      to="/admin"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-2"
+                    >
+                      <FaUserCircle className="w-5 h-5 text-gradient-violet" />
+                      <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                        Dashboard
+                      </span>
                     </Link>
                   ) : (
-                    <Link to="/profile" onClick={() => setIsOpen(false)}>
-                      Profile
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-2"
+                    >
+                      <FaUserCircle className="w-5 h-5 text-gradient-violet" />
+                      <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                        Profile
+                      </span>
                     </Link>
                   )}
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
                   onClick={() => {
                     logout();
                     setIsOpen(false);
                     navigate("/login");
                   }}
                 >
-                  Logout
+                  <CgLogOut className="w-5 h-5 text-gradient-violet" />
+                  <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                    Logout
+                  </span>
                 </li>
               </ul>
             </li>
