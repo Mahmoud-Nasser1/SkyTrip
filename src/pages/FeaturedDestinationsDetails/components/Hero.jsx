@@ -2,6 +2,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { CiStar } from "react-icons/ci";
 import { LuPlane } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const Hero = ({ city, ccountry, price, rating, reviews, image }) => {
   return (
@@ -15,7 +16,8 @@ const Hero = ({ city, ccountry, price, rating, reviews, image }) => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
         <button className="absolute top-24 left-4 md:left-8 backdrop-blur-xl bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-full border border-white/30 transition-all flex items-center gap-2">
-          <IoIosArrowRoundBack className="text-2xl" /> Back
+          <IoIosArrowRoundBack className="text-2xl" />
+          <Link to="/">Back</Link>
         </button>
         <div className="absolute bottom-0 left-0 right-0 p-8">
           <div className="max-w-7xl mx-auto">
