@@ -91,7 +91,6 @@ const Flights = () => {
       sort: newListFilters.sort,
     }));
   };
-  console.log("Filters:", filters);
 
   const filteredFlights = flights
     .filter((flight) => {
