@@ -157,10 +157,13 @@ const PayForm = () => {
   const goHome = () => {
     navigate("/");
   };
+  const goUserTrips = () => {
+    navigate("/profile/trips");
+  };
   return (
     <div className="md:w-3/5 md:container md:mx-auto mx-0 w-full p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
       <div
-        className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
+        className="flex justify-center backdrop-blur-xl bg-white/80  rounded-3xl p-4 md:p-9 shadow-lg border border-white/40 hover:shadow-2xl hover:shadow-gradient-violet/30 dark:bg-dark-card 
              hover:scale-[1] hover:border-gradient-violet duration-500  dark:border-white/10"
       >
         <StepperWithContent numPage={2} />
@@ -394,17 +397,20 @@ const PayForm = () => {
                       <Button
                         variant="text"
                         color="red"
-                        onClick={handleOpen}
+                        onClick={() => {
+                          handleOpen();
+                          goHome();
+                        }}
                         className="mr-1"
                       >
-                        <span>Cancel</span>
+                        <span>Back to Home</span>
                       </Button>
                       <Button
                         variant="gradient"
                         color="green"
                         onClick={() => {
                           handleOpen();
-                          goHome();
+                          goUserTrips();
                         }}
                       >
                         <span>Confirm</span>
