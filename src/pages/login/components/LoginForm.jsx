@@ -13,7 +13,6 @@ import { useUser } from "../../../context/UserContext";
 const LoginForm = () => {
   const { login } = useUser();
   const [showPassword, setShowPassword] = useState(false);
-
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [error, setError] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -39,7 +38,7 @@ const LoginForm = () => {
         if (!res.ok) {
           setError({ email: "", password: data.message });
         } else {
-          login(data.data.token, data.data.user);
+          login(data.data.token);
           navigate("/");
         }
       } catch (err) {
