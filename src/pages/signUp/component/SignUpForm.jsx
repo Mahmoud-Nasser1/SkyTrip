@@ -13,8 +13,9 @@ import { useState } from "react";
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const [agreed, setAgreed] = useState(false);
   const navigate = useNavigate();
+  const [serverError, setServerError] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState({
     firstName: "",
@@ -40,6 +41,7 @@ const SignUpForm = () => {
 
   const handleValidation = (e) => {
     e.preventDefault();
+    setServerError("");
     const newErrors = {
       firstName:
         user.firstName.length < 3 ||
@@ -71,24 +73,33 @@ const SignUpForm = () => {
     setError(newErrors);
 
     if (Object.values(newErrors).every((err) => err === "")) {
-      setSuccess(true);
+      const dbUser = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        password: user.password,
+      };
 
-      //   const dbUser = {
-      //     firstName: user.firstName,
-      //     lastName: user.lastName,
-      //     email: user.email,
-      //     phoneNumber: user.phoneNumber,
-      //     password: user.password,
-      //   };
-      //    fetch("", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(dataToSend),
-      // })
-      //   .then((res) => res.json())
-      //   .catch((err) => console.error(err));
+      fetch("https://sky-trip-back-end.vercel.app/api/v1/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dbUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message === "User registered successfully") {
+            setSuccess(true);
+          } else {
+            setServerError(data.message);
+            setSuccess(false);
+          }
+        })
+        .catch((err) => {
+          setServerError(err.message);
+        });
     }
   };
 
@@ -295,6 +306,10 @@ const SignUpForm = () => {
               </span>
             </div>
             <Checkbox
+              checked={agreed}
+              onChange={(e) => {
+                setAgreed(e.target.checked);
+              }}
               className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
               label={
                 <Typography
@@ -320,9 +335,15 @@ const SignUpForm = () => {
 transition-transform duration-300 hover:scale-105"
               fullWidth
               type="submit"
+              disabled={
+                !agreed || Object.values(error).some((err) => err !== "")
+              }
             >
               Create Account
             </Button>
+            {serverError && (
+              <p className="text-red-500 text-sm mt-2 mx-5 ">{serverError}</p>
+            )}
             <p className="text-center my-3   text-light-muted-foreground dark:text-dark-muted-foreground">
               Or sign up with
             </p>
@@ -389,12 +410,6 @@ transition-transform duration-300 hover:scale-105"
       {success && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg max-w-md w-full relative">
-            <button
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-900"
-              onClick={() => setSuccess(false)}
-            >
-              ✖
-            </button>
             <div className="text-center">
               <Typography color="green" variant="h5" className="mb-4">
                 ✔️ Account Created!

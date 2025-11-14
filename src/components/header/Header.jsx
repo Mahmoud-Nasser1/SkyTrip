@@ -6,10 +6,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { CiSun } from "react-icons/ci";
 import useDarkMode from "../../hooks/darkMode";
+import { useUser } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useDarkMode();
+  const { user, isLogged, logout } = useUser();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -40,7 +44,15 @@ export default function Header() {
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
             >
-              {isOpen ?  <><IoClose className="text-3xl" /></> : <><RxHamburgerMenu className="text-2xl" /></>}
+              {isOpen ? (
+                <>
+                  <IoClose className="text-3xl" />
+                </>
+              ) : (
+                <>
+                  <RxHamburgerMenu className="text-2xl" />
+                </>
+              )}
             </button>
           </div>
 
@@ -107,12 +119,39 @@ export default function Header() {
               )}
             </button>
 
-            <Link
-              to={"/login"}
-              className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow"
-            >
-              Login
-            </Link>
+            {isLogged ? (
+              <div className="relative group">
+                <button className="py-2 px-4 md:px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white font-semibold shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
+                  Welcome, {user?.firstName || "User"}
+                </button>
+
+                <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+                    {user?.role === "admin" ? (
+                      <Link to="/admin">Dashboard</Link>
+                    ) : (
+                      <Link to="/profile">Profile</Link>
+                    )}
+                  </li>
+                  <li
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                    onClick={() => {
+                      logout();
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to={"/login"}
+                className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>
@@ -184,15 +223,48 @@ export default function Header() {
               Contact
             </NavLink>
           </li>
-          <li>
-            <Link
-              onClick={() => setIsOpen(false)}
-              to={"/login"}
-              className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow"
-            >
-              Login
-            </Link>
-          </li>
+
+          {isLogged ? (
+            <li className="relative group">
+              <button className="py-2 px-4 md:px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white font-semibold shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
+                Welcome,{user?.firstName || "User"}
+              </button>
+
+              <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+                  {user?.role === "admin" ? (
+                    <Link to="/admin" onClick={() => setIsOpen(false)}>
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link to="/profile" onClick={() => setIsOpen(false)}>
+                      Profile
+                    </Link>
+                  )}
+                </li>
+                <li
+                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                  onClick={() => {
+                    logout();
+                    setIsOpen(false);
+                    navigate("/login");
+                  }}
+                >
+                  Logout
+                </li>
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <Link
+                onClick={() => setIsOpen(false)}
+                to={"/login"}
+                className="py-2 px-6 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-lg transition-shadow"
+              >
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </>

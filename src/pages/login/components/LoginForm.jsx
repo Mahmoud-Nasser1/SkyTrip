@@ -8,25 +8,43 @@ import {
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext";
 
 const LoginForm = () => {
+  const { login } = useUser();
   const [showPassword, setShowPassword] = useState(false);
 
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [error, setError] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     let newErrors = {};
-
     if (!loginData.email) newErrors.email = "Email is required.";
     if (!loginData.password) newErrors.password = "Password is required.";
-
     setError(newErrors);
+    if (Object.keys(newErrors).length == 0) {
+      try {
+        const res = await fetch(
+          "https://sky-trip-back-end.vercel.app/api/v1/auth/login",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData),
+          }
+        );
+        const data = await res.json();
 
-    if (Object.keys(newErrors).length === 0) {
-      navigate("/");
-      localStorage.setItem("isLoggedIn", "true");
+        if (!res.ok) {
+          setError({ email: "", password: data.message });
+        } else {
+          login(data.data.token, data.data.user);
+          navigate("/");
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -66,7 +84,9 @@ const LoginForm = () => {
                 }
               />
               {error.email && (
-                <p className="text-light-destructive text-sm">{error.email}</p>
+                <p className="text-light-destructive text-sm mx-5">
+                  {error.email}
+                </p>
               )}
             </div>
             <div className="mb-4 flex flex-col gap-2 relative group">
@@ -88,7 +108,7 @@ const LoginForm = () => {
                 }
               />
               {error.password && (
-                <p className="text-light-destructive text-sm">
+                <p className="text-light-destructive text-sm mx-5">
                   {error.password}
                 </p>
               )}
