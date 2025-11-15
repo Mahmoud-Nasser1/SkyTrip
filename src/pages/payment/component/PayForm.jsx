@@ -31,6 +31,7 @@ import {
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import StepperWithContent from "../../booking/components/StepperWithContent";
+import Swal from "sweetalert2";
 
 function formatCardNumber(value) {
   const val = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -119,14 +120,51 @@ const PayForm = () => {
 
     setError("");
 
-    setCardData({
-      userEmail: "",
-      cardholderName: "",
-      cardNumber: "",
-      expirationDate: "",
-      cvv: "",
+    Swal.fire({
+      title: "Confirm Payment?",
+      text: "Are you sure you want to proceed with the payment?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Pay Now",
+      cancelButtonText: "Cancel",
+
+      reverseButtons: true,
+      focusConfirm: false,
+      focusCancel: false,
+      returnFocus: false,
+
+      confirmButtonColor: "#10B981",
+      cancelButtonColor: "#F43F5E",
+
+      color: "#fff",
+
+      background: window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
+        : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
+
+      backdrop: `
+      rgba(0,0,0,0.45)
+      blur(6px)
+  `,
+
+      customClass: {
+        popup: "rounded-3xl",
+        confirmButton: "rounded-full px-6 py-2",
+        cancelButton: "rounded-full px-6 py-2",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setOpen(true);
+
+        setCardData({
+          userEmail: "",
+          cardholderName: "",
+          cardNumber: "",
+          expirationDate: "",
+          cvv: "",
+        });
+      }
     });
-    setOpen(true);
   };
 
   const paypalPayNow = () => {
@@ -148,9 +186,49 @@ const PayForm = () => {
 
     setError("");
 
-    setPayPalData({ userEmail: "", country: "", postalCode: "" });
+    Swal.fire({
+      title: "Confirm PayPal Payment?",
+      text: "Do you want to complete this payment via PayPal?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Pay Now",
+      cancelButtonText: "Cancel",
 
-    setOpen(true);
+      reverseButtons: true,
+      focusConfirm: false,
+      focusCancel: false,
+      returnFocus: false,
+
+      confirmButtonColor: "#10B981",
+      cancelButtonColor: "#F43F5E",
+
+      color: "#fff",
+
+      background: window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
+        : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
+
+      backdrop: `
+      rgba(0,0,0,0.45)
+      blur(6px)
+    `,
+
+      customClass: {
+        popup: "rounded-3xl",
+        confirmButton: "rounded-full px-6 py-2",
+        cancelButton: "rounded-full px-6 py-2",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setOpen(true);
+
+        setPayPalData({
+          userEmail: "",
+          country: "",
+          postalCode: "",
+        });
+      }
+    });
   };
 
   const navigate = useNavigate();
