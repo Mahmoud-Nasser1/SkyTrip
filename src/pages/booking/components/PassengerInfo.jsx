@@ -1,5 +1,5 @@
 import { CiUser } from "react-icons/ci";
-import {MdOutlineLocalPhone } from "react-icons/md";
+import { MdOutlineLocalPhone } from "react-icons/md";
 import { LuCreditCard } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -11,7 +11,7 @@ const PassengerInfo = () => {
     firstName: "Jane",
     lastName: "Doe",
     email: "mahmoudnasser80@gmail.com",
-    phoneNumber: "+1 234 567 890",
+    phoneNumber: "01142070488",
     password: "Password@123",
   };
 
@@ -19,7 +19,7 @@ const PassengerInfo = () => {
     firstName: dbUser.firstName,
     lastName: dbUser.lastName,
     phoneNumber: dbUser.phoneNumber,
-    passportNumber: "",
+    passportNumber: "A123456",
   });
 
   const [errors, setErrors] = useState({
@@ -91,15 +91,11 @@ const PassengerInfo = () => {
             onChange={(e) => {
               setUserInfo({ ...userInfo, firstName: e.target.value });
             }}
-            className={` ${
+            className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
               errors.firstName
-                ? "border-light-destructive"
-                : "border-gray-200 dark:border-dark-accent"
-            } w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
-          dark:focus:border-gradient-violet
-          dark:bg-dark-popover
-          dark:text-dark-muted-foreground
-          `}
+                ? "border-light-destructive dark:border-light-destructive"
+                : "border-gray-200 dark:border-gray-600"
+            }`}
           />
           {errors.firstName && (
             <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
@@ -123,16 +119,11 @@ const PassengerInfo = () => {
             onChange={(e) => {
               setUserInfo({ ...userInfo, lastName: e.target.value });
             }}
-            className={`w-full px-4 py-3 rounded-2xl border 
-                ${
-                  errors.lastName
-                    ? "border-light-destructive"
-                    : "border-gray-200 dark:border-dark-accent"
-                }
-                focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none 
-                bg-white text-gray-700 
-                dark:bg-dark-popover dark:text-dark-muted-foreground
-              `}
+            className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+              errors.lastName
+                ? "border-light-destructive dark:border-light-destructive"
+                : "border-gray-200 dark:border-gray-600"
+            }`}
           />
           {errors.lastName && (
             <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
@@ -154,17 +145,11 @@ const PassengerInfo = () => {
           onChange={(e) => {
             setUserInfo({ ...userInfo, phoneNumber: e.target.value });
           }}
-          className={`
-              w-full px-4 py-3 rounded-2xl border
-              ${
-                errors.phoneNumber
-                  ? "border-light-destructive"
-                  : "border-gray-200 dark:border-dark-accent"
-              }
-              focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none
-              bg-white text-gray-700 
-              dark:bg-dark-popover dark:text-dark-muted-foreground
-            `}
+          className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+            errors.phoneNumber
+              ? "border-light-destructive dark:border-light-destructive"
+              : "border-gray-200 dark:border-gray-600"
+          }`}
         />
         {errors.phoneNumber && (
           <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>
@@ -185,20 +170,11 @@ const PassengerInfo = () => {
           onChange={(e) => {
             setUserInfo({ ...userInfo, passportNumber: e.target.value });
           }}
-          className={`
-                w-full px-4 py-3 rounded-2xl border
-                ${
-                  errors.passportNumber
-                    ? "border-light-destructive"
-                    : "border-gray-200 dark:border-dark-secondary"
-                }
-                focus:!border-gradient-violet focus:ring-0 focus:border-2
-                outline-none
-                bg-white text-gray-700
-                dark:focus:border-gradient-violet
-                dark:bg-dark-popover
-                dark:text-dark-muted-foreground
-              `}
+          className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+            errors.passportNumber
+              ? "border-light-destructive dark:border-light-destructive"
+              : "border-gray-200 dark:border-gray-600"
+          }`}
         />
         {errors.passportNumber && (
           <p className="text-red-500 text-sm mt-1">{errors.passportNumber}</p>
