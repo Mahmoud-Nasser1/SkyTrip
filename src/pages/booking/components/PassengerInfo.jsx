@@ -57,7 +57,6 @@ const PassengerInfo = () => {
     };
 
     setErrors(newErrors);
-    console.log(newErrors);
 
     if (
       !newErrors.firstName &&

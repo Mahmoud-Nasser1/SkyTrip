@@ -1,14 +1,14 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Sidebar from '../sidebar/Sidebar'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../sidebar/Sidebar";
 
-export default function adminLayout() {
+export default function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-slate-900 text-white">
-      <Sidebar/>
+      <Sidebar />
       <main className="flex-1 p-6 overflow-y-auto dark:bg-[#10161E]">
         <Outlet />
       </main>
     </div>
-  )
+  );
 }

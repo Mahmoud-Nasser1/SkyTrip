@@ -50,6 +50,7 @@ const SendMessage = () => {
           : "",
     };
     setErrors(newErrors);
+    
   };
 
   return (
