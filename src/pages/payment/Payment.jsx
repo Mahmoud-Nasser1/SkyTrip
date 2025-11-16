@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 import StepperWithContent from "../booking/components/StepperWithContent";
 import { CiUser } from "react-icons/ci";
+import { useUser } from "../../context/UserContext";
 
 const Payment = () => {
   const [cvv, setCvv] = React.useState("");
@@ -16,8 +17,11 @@ const Payment = () => {
   const [expirationDate, setExpirationDate] = React.useState("");
   const [cardholderName, setCardholderName] = React.useState("");
   const navigate = useNavigate();
+  const { user } = useUser();
   const goToForm = () => {
-    navigate("/payment/payform");
+    user.role !== "user"
+      ? navigate("/admin/payment/payform")
+      : navigate("/payment/payform");
   };
   return (
     <main className="flex flex-col gap-6 container mx-auto p-10 py-24 dark:bg-dark-background dark:text-dark-primary">
@@ -80,7 +84,8 @@ const Payment = () => {
               dark:bg-dark-popover
               dark:text-dark-muted-foreground
               "
-                 disabled />
+                    disabled
+                  />
                 </div>
 
                 <div className="flex-1 min-w-0">
@@ -102,7 +107,8 @@ const Payment = () => {
               dark:bg-dark-popover
               dark:text-dark-muted-foreground
               "
-                 disabled />
+                    disabled
+                  />
                 </div>
               </div>
 
@@ -121,7 +127,8 @@ const Payment = () => {
               dark:focus:border-gradient-violet
               dark:bg-dark-popover
               dark:text-dark-muted-foreground
-              "disabled
+              "
+                  disabled
                 />
               </div>
 
@@ -140,7 +147,8 @@ const Payment = () => {
               dark:focus:border-gradient-violet
               dark:bg-dark-popover
               dark:text-dark-muted-foreground
-              "disabled
+              "
+                  disabled
                 />
               </div>
               <div className="flex flex-col bg-blue-50 rounded-2xl p-4 text-blue-800 gap-4 dark:bg-blue-gray-800 dark:text-green-300">
