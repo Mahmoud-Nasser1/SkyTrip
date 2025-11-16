@@ -1,9 +1,9 @@
-import React from "react";
 import { GiCommercialAirplane } from "react-icons/gi";
-
+import { MdDateRange } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { LuShield } from "react-icons/lu";
 import { IoTimeOutline } from "react-icons/io5";
+import { FaUserFriends } from "react-icons/fa";
 
 const FlightSummery = () => {
   return (
@@ -62,6 +62,24 @@ const FlightSummery = () => {
           <section>
             <h1 className="text-gray-600 dark:text-gray-500">Class</h1>
             <h1>Economy</h1>
+          </section>
+        </div>
+        <div className="flex items-center gap-4">
+          <section>
+            <MdDateRange className="text-3xl text-gradient-violet" />
+          </section>
+          <section>
+            <h1 className="text-gray-600 dark:text-gray-500">Flight Date</h1>
+            <h1>24 Nov 2025</h1>
+          </section>
+        </div>
+        <div className="flex items-center gap-4">
+          <section>
+            <FaUserFriends className="text-3xl text-gradient-violet" />
+          </section>
+          <section>
+            <h1 className="text-gray-600 dark:text-gray-500">Seats Left</h1>
+            <h1>28 seats</h1>
           </section>
         </div>
       </div>
