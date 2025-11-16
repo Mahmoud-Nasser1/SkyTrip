@@ -9,11 +9,17 @@ import {
 import { FaArrowRight } from "react-icons/fa";
 import { LuShield } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext";
 
 const FlightCard = () => {
   const navigate = useNavigate();
+  const { user } = useUser();
   const goBooking = () => {
-    navigate("/booking");
+    if (user.role !== "user") {
+      navigate("/admin/booking");
+    } else {
+      navigate("/booking");
+    }
   };
   return (
     <div className="flex justify-stretch lg:justify-center ">

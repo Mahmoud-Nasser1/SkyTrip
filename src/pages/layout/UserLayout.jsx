@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { UserProvider } from "../../context/UserContext";
+import { useUser } from "../../context/UserContext";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
@@ -16,34 +16,64 @@ import PayForm from "./../payment/component/PayForm";
 import SignUp from "./../signUp/SignUp";
 import NotFound from "../notFound/NotFound";
 import FeaturedDestinationsDetails from "./../FeaturedDestinationsDetails/FeaturedDestinationsDetails";
+import ProtectRoute from "../../context/ProtectRoute";
 
 const UserLayout = () => {
-  return (
-    <UserProvider>
-      <div className="bg-gray-50 dark:bg-dark-background">
-        <Header />
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="booking" element={<Booking />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route
-            path="featured-destinations-details/:cityId"
-            element={<FeaturedDestinationsDetails />}
-          />
-          <Route path="flights" element={<Flights />} />
-          <Route path="flights/:flightId" element={<FlightsDetails />} />
-          <Route path="contact-us" element={<ContactUs />} />
-          <Route path="login" element={<Login />} />
-          <Route path="profile/:tabId?" element={<Profile />} />
-          <Route path="payment" element={<Payment />} />
-          <Route path="payment/payform" element={<PayForm />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+  const { isLogged } = useUser();
 
-        <Footer />
-      </div>
-    </UserProvider>
+  return (
+    <div className="bg-gray-50 dark:bg-dark-background">
+      <Header />
+      <Routes>
+        <Route index element={<Home />} />
+
+        <Route
+          path="booking"
+          element={
+            <ProtectRoute allowedRole="user">
+              <Booking />
+            </ProtectRoute>
+          }
+        />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route
+          path="featured-destinations-details/:cityId"
+          element={<FeaturedDestinationsDetails />}
+        />
+        <Route path="flights" element={<Flights />} />
+        <Route path="flights/:flightId" element={<FlightsDetails />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="login" element={!isLogged ? <Login /> : <NotFound />} />
+        <Route
+          path="profile/:tabId?"
+          element={
+            <ProtectRoute allowedRole="user">
+              <Profile />
+            </ProtectRoute>
+          }
+        />
+        <Route
+          path="payment"
+          element={
+            <ProtectRoute allowedRole="user">
+              <Payment />
+            </ProtectRoute>
+          }
+        />
+        <Route
+          path="payment/payform"
+          element={
+            <ProtectRoute allowedRole="user">
+              <PayForm />
+            </ProtectRoute>
+          }
+        />
+        <Route path="signup" element={!isLogged ? <SignUp /> : <NotFound />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      <Footer />
+    </div>
   );
 };
 
