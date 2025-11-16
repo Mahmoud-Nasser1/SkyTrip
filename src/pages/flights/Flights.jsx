@@ -17,7 +17,6 @@ const Flights = () => {
       departureTime: "08:00 AM",
       departureCity: "New York (JFK)",
       duration: "8h 30m",
-      stops: "Non-stop",
       arrivalTime: "10:30 PM",
       arrivalCity: "Paris (CDG)",
       cabinClass: "Economy",
@@ -30,7 +29,6 @@ const Flights = () => {
       departureTime: "11:00 AM",
       departureCity: "New York (JFK)",
       duration: "9h 45m",
-      stops: "1 Stop",
       arrivalTime: "01:45 AM+1",
       arrivalCity: "Paris (CDG)",
       cabinClass: "Economy",
@@ -43,7 +41,6 @@ const Flights = () => {
       departureTime: "03:00 PM",
       departureCity: "New York (JFK)",
       duration: "8h 30m",
-      stops: "Non-stop",
       arrivalTime: "05:30 AM+1",
       arrivalCity: "Paris (CDG)",
       cabinClass: "Economy",
@@ -56,7 +53,6 @@ const Flights = () => {
       departureTime: "06:30 PM",
       departureCity: "New York (JFK)",
       duration: "8h 30m",
-      stops: "Non-stop",
       arrivalTime: "09:00 AM+1",
       arrivalCity: "Paris (CDG)",
       cabinClass: "Business",
@@ -128,7 +124,7 @@ const Flights = () => {
         flight.airline.toLowerCase().includes(filters.airline.toLowerCase());
 
       const matchStops =
-        filters.stop === "Any Stops" || flight.stops === filters.stop;
+        filters.stop === "Any Stops" || flight.flightType === filters.stop;
 
       return (
         matchPrice && macthtime && matchCalss && matchAirline && matchStops
