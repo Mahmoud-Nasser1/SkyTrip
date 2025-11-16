@@ -32,6 +32,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import StepperWithContent from "../../booking/components/StepperWithContent";
 import Swal from "sweetalert2";
+import { useUser } from "../../../context/UserContext";
 
 function formatCardNumber(value) {
   const val = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -60,6 +61,7 @@ function formatExpires(value) {
 }
 
 const PayForm = () => {
+  const { user } = useUser();
   const { countries } = useCountries();
   const [type, setType] = useState("card");
 
@@ -236,7 +238,9 @@ const PayForm = () => {
     navigate("/");
   };
   const goUserTrips = () => {
-    navigate("/profile/trips");
+    user.role !== "user"
+      ? navigate("/admin/adminnn/bookings")
+      : navigate("/profile/trips");
   };
   return (
     <div className="md:w-3/5 md:container md:mx-auto mx-0 w-full p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
