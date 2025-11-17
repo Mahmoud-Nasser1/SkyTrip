@@ -20,8 +20,8 @@ const Profile = () => {
   );
 
   useEffect(() => {
-    if (data?.data) {
-      updateUser(data.data);
+    if (data) {
+      updateUser(data);
     }
   }, [data]);
 
