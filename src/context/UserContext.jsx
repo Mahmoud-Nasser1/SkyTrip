@@ -6,6 +6,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -21,6 +22,7 @@ export const UserProvider = ({ children }) => {
           phoneNumber: decoded.phoneNumber,
         });
         setIsLogged(true);
+        setToken(token);
       } catch (err) {
         console.error("Invalid token");
         localStorage.removeItem("token");
@@ -28,19 +30,44 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (token, userData) => {
+  const login = (token) => {
     localStorage.setItem("token", token);
-    setUser(userData);
+    const decoded = jwtDecode(token);
+    setUser({
+      id: decoded.id,
+      role: decoded.role,
+      firstName: decoded.firstName,
+      lastName: decoded.lastName,
+      email: decoded.email,
+      phoneNumber: decoded.phoneNumber,
+    });
     setIsLogged(true);
+    setToken(token);
   };
+
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
     setIsLogged(false);
+    setToken(null);
+  };
+
+  const updateUser = (newUserData) => {
+    const updatedUser = { ...user, ...newUserData };
+    setUser(updatedUser);
   };
 
   return (
-    <UserContext.Provider value={{ user, isLogged, login, logout }}>
+    <UserContext.Provider
+      value={{
+        user,
+        isLogged,
+        login,
+        logout,
+        updateUser,
+        token,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

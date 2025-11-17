@@ -39,7 +39,7 @@ const LoginForm = () => {
         if (!res.ok) {
           setError({ email: "", password: data.message });
         } else {
-          login(data.data.token, data.data.user);
+          login(data.data.token);
           navigate("/");
         }
       } catch (err) {

@@ -130,7 +130,7 @@ export default function Header() {
                     {user?.role === "admin" ? (
                       <Link to="/admin">Dashboard</Link>
                     ) : (
-                      <Link to="/profile">Profile</Link>
+                      <Link to="/profile/info">Profile</Link>
                     )}
                   </li>
                   <li
@@ -237,7 +237,7 @@ export default function Header() {
                       Dashboard
                     </Link>
                   ) : (
-                    <Link to="/profile" onClick={() => setIsOpen(false)}>
+                    <Link to="/profile/info" onClick={() => setIsOpen(false)}>
                       Profile
                     </Link>
                   )}

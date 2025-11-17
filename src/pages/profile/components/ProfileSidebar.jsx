@@ -5,10 +5,41 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import MyTrips from "./MyTrips";
+import ProfileInfo from "./ProfileInfo";
+import SavedFlights from "./SavedFlights";
+import AddPayment from "./AddPayment";
 
-const ProfileSidebar = ({ activeTab, tabsData }) => {
+const ProfileSidebar = () => {
   const navigate = useNavigate();
+  const { tabId } = useParams();
+
+  const tabsData = [
+    {
+      label: "Profile Info",
+      tabId: "info",
+      content: <ProfileInfo />,
+    },
+    {
+      label: "My Trips",
+      tabId: "trips",
+      content: <MyTrips />,
+    },
+    {
+      label: "Saved Flights",
+      tabId: "flights",
+      content: <SavedFlights />,
+    },
+    {
+      label: "Payments",
+      tabId: "payments",
+      content: <AddPayment />,
+    },
+  ];
+
+  const activeTab = tabId || "info";
+
   return (
     <Tabs
       value={activeTab}

@@ -20,10 +20,6 @@ const myTripsData = [
 
 const MyTrips = () => {
   const navigate = useNavigate();
-  const goFlightDetails = () => {
-    navigate("/flightdetails");
-  };
-
   return (
     <div>
       <h1 className="mb-4 text-gray-800 dark:text-white">My Trips</h1>
@@ -50,7 +46,7 @@ const MyTrips = () => {
                     size="md"
                     variant="outlined"
                     className=" capitalize  rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-gradient-main  dark:bg-gradient-main dark:text-white"
-                    onClick={goFlightDetails}
+                    onClick={() => navigate(`/flights/${id}`)}
                   >
                     View Details
                   </Button>
