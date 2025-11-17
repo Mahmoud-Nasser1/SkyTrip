@@ -1,13 +1,75 @@
 import { CiUser } from "react-icons/ci";
-import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
+import { MdOutlineLocalPhone } from "react-icons/md";
 import { LuCreditCard } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useUser } from "../../../context/UserContext";
 
 const PassengerInfo = () => {
   const navigate = useNavigate();
-  const goPayment = () => {
-    navigate("/payment");
+  const { user } = useUser();
+
+  const dbUser = {
+    firstName: "Jane",
+    lastName: "Doe",
+    email: "mahmoudnasser80@gmail.com",
+    phoneNumber: "01142070488",
+    password: "Password@123",
   };
+
+  const [userInfo, setUserInfo] = useState({
+    firstName: dbUser.firstName,
+    lastName: dbUser.lastName,
+    phoneNumber: dbUser.phoneNumber,
+    passportNumber: "A123456",
+  });
+
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    passportNumber: "",
+  });
+
+  let phoneCheck = /^(?:\+20|0020)?01[0125][0-9]{8}$/;
+  let passportCheck = /^[A-Z0-9]{6,9}$/;
+
+  const validateInputs = () => {
+    const newErrors = {
+      firstName:
+        userInfo.firstName.length < 3 ||
+        userInfo.firstName[0] !== userInfo.firstName[0].toUpperCase() ||
+        userInfo.firstName.includes(" ")
+          ? "First name must be at least 3 letters, start with a capital letter, and contain no spaces."
+          : "",
+
+      lastName:
+        userInfo.lastName.length < 3 ||
+        userInfo.lastName[0] !== userInfo.lastName[0].toUpperCase() ||
+        userInfo.lastName.includes(" ")
+          ? "Last name must be at least 3 letters, start with a capital letter, and contain no spaces."
+          : "",
+
+      phoneNumber: !phoneCheck.test(userInfo.phoneNumber)
+        ? "Please enter a valid phone number."
+        : "",
+      passportNumber: !passportCheck.test(userInfo.passportNumber)
+        ? "Please enter a valid passport number."
+        : "",
+    };
+
+    setErrors(newErrors);
+
+    if (
+      !newErrors.firstName &&
+      !newErrors.lastName &&
+      !newErrors.phoneNumber &&
+      !newErrors.passportNumber
+    ) {
+      user.role !== "user" ? navigate("/admin/payment") : navigate("/payment");
+    }
+  };
+
   return (
     <div className="w-full lg:w-3/4 box-border p-6 flex flex-col gap-6 bg-white rounded-2xl shadow-lg justify-center mx-auto transition-all duration-500 hover:shadow-2xl hover:shadow-gradient-violet/30 border border-white/40 hover:scale-[1] hover:border-gradient-violet dark:bg-dark-card  dark:border-white/10">
       <h1 className="mb-2 dark:text-white">Passenger Information</h1>
@@ -19,20 +81,26 @@ const PassengerInfo = () => {
             className="flex gap-1 text-gray-700 mb-2 dark:text-white"
           >
             <CiUser
-              className="text-xl text-gradient-violet font-normal"
+              className="text-xl text-gradient-violet font-normal "
               style={{ strokeWidth: 1.1 }}
             />
             First Name
           </label>
           <input
             type="text"
-            placeholder="John"
-            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
-dark:focus:border-gradient-violet
-dark:bg-dark-popover
-dark:text-dark-muted-foreground
-"
+            value={userInfo.firstName}
+            onChange={(e) => {
+              setUserInfo({ ...userInfo, firstName: e.target.value });
+            }}
+            className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+              errors.firstName
+                ? "border-light-destructive dark:border-light-destructive"
+                : "border-gray-200 dark:border-gray-600"
+            }`}
           />
+          {errors.firstName && (
+            <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+          )}
         </div>
 
         <div className="flex-1 min-w-0">
@@ -48,13 +116,19 @@ dark:text-dark-muted-foreground
           </label>
           <input
             type="text"
-            placeholder="Doe"
-            className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
-dark:focus:border-gradient-violet
-dark:bg-dark-popover
-dark:text-dark-muted-foreground
-"
+            value={userInfo.lastName}
+            onChange={(e) => {
+              setUserInfo({ ...userInfo, lastName: e.target.value });
+            }}
+            className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+              errors.lastName
+                ? "border-light-destructive dark:border-light-destructive"
+                : "border-gray-200 dark:border-gray-600"
+            }`}
           />
+          {errors.lastName && (
+            <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+          )}
         </div>
       </div>
 
@@ -68,13 +142,19 @@ dark:text-dark-muted-foreground
         </label>
         <input
           type="text"
-          placeholder="+1 234 567 890"
-          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
-dark:focus:border-gradient-violet
-dark:bg-dark-popover
-dark:text-dark-muted-foreground
-"
+          value={userInfo.phoneNumber}
+          onChange={(e) => {
+            setUserInfo({ ...userInfo, phoneNumber: e.target.value });
+          }}
+          className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+            errors.phoneNumber
+              ? "border-light-destructive dark:border-light-destructive"
+              : "border-gray-200 dark:border-gray-600"
+          }`}
         />
+        {errors.phoneNumber && (
+          <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>
+        )}
       </div>
 
       <div className="min-w-0">
@@ -87,13 +167,19 @@ dark:text-dark-muted-foreground
         </label>
         <input
           type="text"
-          placeholder="AB1234567"
-          className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
-dark:focus:border-gradient-violet
-dark:bg-dark-popover
-dark:text-dark-muted-foreground
-"
+          value={userInfo.passportNumber}
+          onChange={(e) => {
+            setUserInfo({ ...userInfo, passportNumber: e.target.value });
+          }}
+          className={`px-4 py-3 rounded-2xl border w-full focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white dark:bg-dark-input text-gray-700 dark:text-gray-200 ${
+            errors.passportNumber
+              ? "border-light-destructive dark:border-light-destructive"
+              : "border-gray-200 dark:border-gray-600"
+          }`}
         />
+        {errors.passportNumber && (
+          <p className="text-red-500 text-sm mt-1">{errors.passportNumber}</p>
+        )}
       </div>
 
       <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-4">
@@ -108,11 +194,11 @@ dark:text-dark-muted-foreground
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3">
-        <button className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-gradient-violet text-gradient-violet hover:bg-gradient-violet hover:text-white transition-all duration-400">
+        <button className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-gradient-violet text-gradient-violet hover:bg-gradient-violet hover:text-white transition-all duration-400" onClick={()=>{navigate(-1)}}>
           Back
         </button>
         <button
-          onClick={goPayment}
+          onClick={validateInputs}
           className="w-full sm:flex-1 px-8 py-3 rounded-full bg-gradient-to-r from-gradient-violet to-gradient-peach text-white hover:shadow-2xl transition-all"
         >
           Continue to payment

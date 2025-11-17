@@ -3,16 +3,21 @@ import { IoAirplane } from "react-icons/io5";
 import { Stepper, Step, Typography } from "@material-tailwind/react";
 import { CogIcon, BuildingLibraryIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-import Booking from './../Booking';
-
-import Payment from './../../payment/Payment';
+import { useUser } from "../../../context/UserContext";
 
 export default function StepperWithGradientLine({ numPage }) {
   const [activeStep, setActiveStep] = useState(numPage);
+
+  const { user } = useUser();
+
   const navigate = useNavigate();
 
   const handleStepClick = (index, route) => {
     setActiveStep(index);
+
+    if (user.role !== "user") {
+      route = "/admin" + route;
+    }
     navigate(route);
   };
 

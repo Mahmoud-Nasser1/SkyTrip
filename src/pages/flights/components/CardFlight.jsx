@@ -12,7 +12,6 @@ const CardFlight = ({
     departureTime,
     departureCity,
     duration,
-    stops,
     arrivalTime,
     arrivalCity,
     cabinClass,
@@ -32,7 +31,7 @@ const CardFlight = ({
             <GiCommercialAirplane />
           </div>
           <div className="w-full flex flex-col gap-3">
-            <h1 className="text-md font-bold text-gradient-sky ps-3 flex justify-start">
+            <h1 className="text-md font-bold text-gradient-sky ps-3 flex justify-center lg:justify-start">
               {airline}
             </h1>
             <div className="w-full flex">
@@ -50,7 +49,7 @@ const CardFlight = ({
                     <IoMdTime />
                     {duration}
                   </span>
-                  {stops}
+                  {flightType}
                 </label>
 
                 <hr className="flex-grow h-1 border-0 rounded-full bg-gradient-to-r from-orange-400 via-pink-500 to-gradient-violet shadow-md" />
@@ -69,7 +68,7 @@ const CardFlight = ({
                 className="px-3 py-1 text-sm bg-blue-100  text-purple-300 rounded-full normal-case font-normal"
               />
               <Chip
-                value={stops}
+                value={flightType}
                 className="px-3 py-1 text-sm bg-orange-100 text-purple-300 rounded-full normal-case font-normal"
               />
             </div>
