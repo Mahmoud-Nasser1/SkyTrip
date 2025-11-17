@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
   const navigate = useNavigate();
   const [serverError, setServerError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -41,6 +42,9 @@ const SignUpForm = () => {
 
   const handleValidation = (e) => {
     e.preventDefault();
+    if (!agreed) {
+      setAgreeError(true);
+    }
     setServerError("");
     const newErrors = {
       firstName:
@@ -308,6 +312,7 @@ const SignUpForm = () => {
               checked={agreed}
               onChange={(e) => {
                 setAgreed(e.target.checked);
+                setAgreeError(false);
               }}
               className="checked:bg-gradient-violet checked:border-gradient-violet checked:before:bg-gradient-violet"
               label={
@@ -329,7 +334,7 @@ const SignUpForm = () => {
                 className: "-ml-2.5 rounded",
               }}
             />
-            {!agreed && (
+            {agreeError && (
               <p className="text-red-500 text-sm mt-1 ml-1">
                 You must agree to the terms and conditions.
               </p>
