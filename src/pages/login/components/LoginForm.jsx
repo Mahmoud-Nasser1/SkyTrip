@@ -14,36 +14,35 @@ const LoginForm = () => {
   const { login } = useUser();
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [error, setError] = useState({ email: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    let newErrors = {};
-    if (!loginData.email) newErrors.email = "Email is required.";
-    if (!loginData.password) newErrors.password = "Password is required.";
-    setError(newErrors);
-    if (Object.keys(newErrors).length == 0) {
-      try {
-        const res = await fetch(
-          "https://sky-trip-back-end.vercel.app/api/v1/auth/login",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(loginData),
-          }
-        );
-        const data = await res.json();
-
-        if (!res.ok) {
-          setError({ email: "", password: data.message });
-        } else {
-          login(data.data.token);
-          navigate("/");
+    setLoading(true);
+    setErrorMessage("");
+    try {
+      const res = await fetch(
+        "https://sky-trip-back-end.vercel.app/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loginData),
         }
-      } catch (err) {
-        console.log(err);
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMessage(data.message);
+        setLoading(false);
+      } else {
+        login(data.data.token);
+        navigate("/");
       }
+    } catch (err) {
+      setErrorMessage("Something went wrong");
+      setLoading(false);
     }
   };
 
@@ -82,11 +81,10 @@ const LoginForm = () => {
                   setLoginData({ ...loginData, email: e.target.value })
                 }
               />
-              {error.email && (
-                <p className="text-light-destructive text-sm mx-5">
-                  {error.email}
-                </p>
-              )}
+
+              <p className="text-light-destructive text-sm mx-5">
+                {errorMessage}
+              </p>
             </div>
             <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
@@ -106,11 +104,11 @@ const LoginForm = () => {
                   setLoginData({ ...loginData, password: e.target.value })
                 }
               />
-              {error.password && (
-                <p className="text-light-destructive text-sm mx-5">
-                  {error.password}
-                </p>
-              )}
+
+              <p className="text-light-destructive text-sm mx-5">
+                {errorMessage}
+              </p>
+
               <span
                 className="absolute right-4 top-12 cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
@@ -149,7 +147,14 @@ transition-transform duration-300 hover:scale-105"
               fullWidth
               type="submit"
             >
-              Sign IN
+              {loading ? (
+                <div className="flex justify-center items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Loading...
+                </div>
+              ) : (
+                "Sign In"
+              )}{" "}
             </Button>
             <p className="text-center my-3  text-light-muted-foreground dark:text-dark-muted-foreground">
               Or sign up with
