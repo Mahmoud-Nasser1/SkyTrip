@@ -139,7 +139,7 @@ export default function Header() {
                         </span>
                       </Link>
                     ) : (
-                      <Link to="/profile" className="flex items-center gap-2">
+                      <Link to="/profile/info" className="flex items-center gap-2">
                         <FaUserCircle className="w-5 h-5 text-gradient-violet" />
                         <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
                           Profile
@@ -262,7 +262,7 @@ export default function Header() {
                     </Link>
                   ) : (
                     <Link
-                      to="/profile"
+                      to="/profile/info"
                       onClick={() => setIsOpen(false)}
                       className="flex items-center gap-2"
                     >

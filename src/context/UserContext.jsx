@@ -6,6 +6,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
+  const [token, setToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const UserProvider = ({ children }) => {
           phoneNumber: decoded.phoneNumber,
         });
         setIsLogged(true);
+        setToken(token);
       } catch (err) {
         console.error("Invalid token");
         localStorage.removeItem("token");
@@ -42,16 +44,33 @@ export const UserProvider = ({ children }) => {
       phoneNumber: decoded.phoneNumber,
     });
     setIsLogged(true);
+    setToken(token);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
     setUser(null);
     setIsLogged(false);
+    setToken(null);
+  };
+
+  const updateUser = (newUserData) => {
+    const updatedUser = { ...user, ...newUserData };
+    setUser(updatedUser);
   };
 
   return (
-    <UserContext.Provider value={{ user, isLogged, isLoading, login, logout }}>
+    <UserContext.Provider
+      value={{
+        user,
+        isLogged,
+    isLoading,
+        login,
+        logout,
+        updateUser,
+        token,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
