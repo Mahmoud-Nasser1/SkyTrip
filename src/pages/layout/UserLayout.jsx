@@ -45,7 +45,7 @@ const UserLayout = () => {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="login" element={!isLogged ? <Login /> : <NotFound />} />
         <Route
-          path="profile/:tabId?"
+          path="profile/:tabId"
           element={
             <ProtectRoute allowedRole="user">
               <Profile />

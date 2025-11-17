@@ -38,7 +38,7 @@ const AdminnLayout = () => {
         <Route path="flights/:flightId" element={<FlightsDetails />} />
         <Route path="contact-us" element={<ContactUs />} />
         {/* <Route path="login" element={<Login />} /> */}
-        <Route path="profile/:tabId?" element={<Profile />} />
+        <Route path="profile/:tabId" element={<Profile />} />
         <Route path="payment" element={<Payment />} />
         <Route path="payment/payform" element={<PayForm />} />
         {/* <Route path="signup" element={<SignUp />} /> */}

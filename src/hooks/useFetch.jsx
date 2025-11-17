@@ -10,7 +10,7 @@ const useFetch = (url) => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        setData(data);
+        setData(data.data);
       })
       .catch((e) => {
         setLoading(false);
