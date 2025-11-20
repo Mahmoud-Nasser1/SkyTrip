@@ -81,10 +81,6 @@ const LoginForm = () => {
                   setLoginData({ ...loginData, email: e.target.value })
                 }
               />
-
-              <p className="text-light-destructive text-sm mx-5">
-                {errorMessage}
-              </p>
             </div>
             <div className="mb-4 flex flex-col gap-2 relative group">
               <Typography className="ml-2 text-light-muted-foreground dark:text-dark-muted-foreground">
@@ -154,7 +150,7 @@ transition-transform duration-300 hover:scale-105"
                 </div>
               ) : (
                 "Sign In"
-              )}{" "}
+              )}
             </Button>
             <p className="text-center my-3  text-light-muted-foreground dark:text-dark-muted-foreground">
               Or sign up with
