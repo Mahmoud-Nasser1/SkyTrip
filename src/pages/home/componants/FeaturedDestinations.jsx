@@ -85,7 +85,7 @@ const FeaturedDestinations = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:7000/api/v1/featured")
+    fetch("https://sky-trip-back-end.vercel.app/api/v1/featured")
       .then((res) => {
         return res.json();
       })
