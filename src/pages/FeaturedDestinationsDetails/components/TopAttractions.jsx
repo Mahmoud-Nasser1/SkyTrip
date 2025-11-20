@@ -1,7 +1,6 @@
 import TopAttractionsCard from "./TopAttractionsCard";
 
 const TopAttractions = ({ topAttractions }) => {
-  console.log(topAttractions);
 
   return (
     <div className="container m-auto">
