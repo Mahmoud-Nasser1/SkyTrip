@@ -8,11 +8,11 @@ export default function FlightContextProvider({ children }) {
   const [flights, setFlights] = useState([]);
   const [flight, setFlight] = useState({});
   const [loading, setLoading] = useState(true);
-  const url = "http://localhost:7000";
+  const url = "https://sky-trip-back-end.vercel.app/";
 
   async function getAllFlights(count) {
     try {
-      const res = await axios.get(`${url}/api/v1/flights?limit=${count}`);
+      const res = await axios.get(`${url}api/v1/flights?limit=${count}`);
       setFlights(res.data.data);
       console.log(res.data.message);
     } catch (error) {
@@ -23,7 +23,7 @@ export default function FlightContextProvider({ children }) {
 
   const getOneFlight = async (id) => {
     try {
-      const res = await axios.get(`${url}/api/v1/flights/${id}`);
+      const res = await axios.get(`${url}api/v1/flights/${id}`);
       setFlight(res.data.data);
       return res.data.data;
     } catch (err) {
@@ -39,7 +39,7 @@ export default function FlightContextProvider({ children }) {
 
   const addFlight = async (flightData) => {
     try {
-      const res = await axios.post(`${url}/api/v1/flights`, flightData);
+      const res = await axios.post(`${url}api/v1/flights`, flightData);
       setFlights((prev) => [...prev, res.data.data]);
       toast.success("Flight added successfully");
       return res.data;
@@ -55,7 +55,7 @@ export default function FlightContextProvider({ children }) {
 
   const updateFlight = async (id, updatedData) => {
     try {
-      const res = await axios.put(`${url}/api/v1/flights/${id}`, updatedData);
+      const res = await axios.put(`${url}api/v1/flights/${id}`, updatedData);
       setFlights((prev) => prev.map((f) => (f._id === id ? res.data.data : f)));
       toast.success("Flight updated successfully");
       return res.data;
@@ -71,7 +71,7 @@ export default function FlightContextProvider({ children }) {
 
   const deleteFlight = async (id) => {
     try {
-      await axios.delete(`${url}/api/v1/flights/${id}`);
+      await axios.delete(`${url}api/v1/flights/${id}`);
       setFlights((prev) => prev.filter((f) => f._id !== id));
       toast.success("Flight deleted successfully");
     } catch (err) {
