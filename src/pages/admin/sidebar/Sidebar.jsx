@@ -4,6 +4,7 @@ import { LuUsers } from 'react-icons/lu'
 import { MdOutlineDashboard, MdOutlinePayment } from 'react-icons/md'
 import { PiAirplaneTiltLight } from 'react-icons/pi'
 import { NavLink } from 'react-router-dom'
+import FeaturedDestinations from './../../home/componants/FeaturedDestinations';
 
 export default function Sidebar() {
     return <>
@@ -17,7 +18,7 @@ export default function Sidebar() {
     <NavLink to={"/admin/adminnn/adminflights"} className={({ isActive }) => `w-full px-4 py-3 rounded-2xl flex items-center gap-3 transition-all hover:shadow-gray-300 ${isActive ? 'bg-gradient-to-r from-gradient-violet to-gradient-peach text-white shadow-lg' : 'text-gray-700'}`}><PiAirplaneTiltLight  className='text-xl' /> Flights</NavLink>    
     <NavLink to={"/admin/adminnn/bookings"} className={({ isActive }) => `w-full px-4 py-3 rounded-2xl flex items-center gap-3 transition-all hover:shadow-gray-300 ${isActive ? 'bg-gradient-to-r from-gradient-violet to-gradient-peach text-white shadow-lg' : 'text-gray-700'}`}><CiCalendar className='text-xl' /> Bookings</NavLink>    
     <NavLink to={"/admin/adminnn/users"} className={({ isActive }) => `w-full px-4 py-3 rounded-2xl flex items-center gap-3 transition-all hover:shadow-gray-300 ${isActive ? 'bg-gradient-to-r from-gradient-violet to-gradient-peach text-white shadow-lg' : 'text-gray-700'}`}><LuUsers  className='text-xl' /> Users</NavLink>    
-    <NavLink to={"/admin/adminnn/payments"} className={({ isActive }) => `w-full px-4 py-3 rounded-2xl flex items-center gap-3 transition-all hover:shadow-gray-300 ${isActive ? 'bg-gradient-to-r from-gradient-violet to-gradient-peach text-white shadow-lg' : 'text-gray-700'}`}><MdOutlinePayment  className='text-xl' /> Payments</NavLink>    
+    <NavLink to={"/admin/adminnn/payments"} className={({ isActive }) => `w-full px-4 py-3 rounded-2xl flex items-center gap-3 transition-all hover:shadow-gray-300 ${isActive ? 'bg-gradient-to-r from-gradient-violet to-gradient-peach text-white shadow-lg' : 'text-gray-700'}`}><MdOutlinePayment  className='text-xl' /> Featured Destinations</NavLink>    
     
     </div>
     </div>
