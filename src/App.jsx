@@ -3,9 +3,11 @@ import UserLayout from "./pages/layout/UserLayout";
 import ProtectRoute from "./context/ProtectRoute";
 import AdminnLayout from "./pages/layout/AdminnLayout";
 import { UserProvider } from "./context/UserContext";
+import FlightContextProvider from "./context/FlightContext";
 
 const App = () => {
   return (
+  <FlightContextProvider>
     <UserProvider>
       <Routes>
         <Route
@@ -20,6 +22,7 @@ const App = () => {
         <Route path="/*" element={<UserLayout />} />
       </Routes>
     </UserProvider>
+   </FlightContextProvider>
   );
 };
 
