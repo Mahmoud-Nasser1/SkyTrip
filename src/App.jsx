@@ -4,25 +4,28 @@ import ProtectRoute from "./context/ProtectRoute";
 import AdminnLayout from "./pages/layout/AdminnLayout";
 import { UserProvider } from "./context/UserContext";
 import FlightContextProvider from "./context/FlightContext";
+import SavedFlightsProvider from "./context/userFlights";
 
 const App = () => {
   return (
-  <FlightContextProvider>
     <UserProvider>
-      <Routes>
-        <Route
-          path="/admin/*"
-          element={
-            <ProtectRoute allowedRole="admin">
-              <AdminnLayout />
-            </ProtectRoute>
-          }
-        />
+      <FlightContextProvider>
+        <SavedFlightsProvider>
+          <Routes>
+            <Route
+              path="/admin/*"
+              element={
+                <ProtectRoute allowedRole="admin">
+                  <AdminnLayout />
+                </ProtectRoute>
+              }
+            />
 
-        <Route path="/*" element={<UserLayout />} />
-      </Routes>
+            <Route path="/*" element={<UserLayout />} />
+          </Routes>
+        </SavedFlightsProvider>
+      </FlightContextProvider>
     </UserProvider>
-   </FlightContextProvider>
   );
 };
 
