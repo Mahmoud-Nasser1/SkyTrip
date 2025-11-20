@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
+// import { FlightContext } from '../../../../context/FlightContext';
 
 export default function Addflight() {
   const [isOpen, setIsOpen] = useState(false);
-
+  // const {addFlight} = useContext(FlightContext)
   return (
     <>
       <div className="flex justify-center">
@@ -24,18 +25,10 @@ export default function Addflight() {
 
               <form className="space-y-3 sm:space-y-4">
                 <div>
-                  <label
-                    htmlFor="flightId"
-                    className="text-sm font-medium text-black"
-                  >
+                  <label htmlFor="flightId" className="text-sm font-medium text-black">
                     Flight ID
                   </label>
-                  <input
-                    id="flightId"
-                    type="text"
-                    placeholder="FL006"
-                    className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-sm sm:text-base"
-                  />
+                  <input id="flightId" type="text" placeholder="FL006" className="w-full mt-1 p-2 border text-black dark:text-white border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-sm sm:text-base"/>
                 </div>
 
                 <div>
@@ -75,11 +68,9 @@ export default function Addflight() {
                     >
                       To
                     </label>
-                    <input
-                      id="to"
-                      type="text"
+                    <input id="to" type="text"
                       placeholder="London"
-                      className="w-full text-black mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-peach text-sm sm:text-base"
+                      className="w-full text-black dark:text-white mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-peach text-sm sm:text-base"
                     />
                   </div>
                 </div>
@@ -95,7 +86,7 @@ export default function Addflight() {
                     <input
                       id="departure"
                       type="time"
-                      className="w-full text-black mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-sm sm:text-base"
+                      className="w-full text-black mt-1 p-2 border dark:text-white border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-sm sm:text-base"
                     />
                   </div>
                   <div>
@@ -108,7 +99,7 @@ export default function Addflight() {
                     <input
                       id="arrival"
                       type="time"
-                      className="w-full text-black mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-peach text-sm sm:text-base"
+                      className="w-full text-black mt-1 p-2 border dark:text-white border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-peach text-sm sm:text-base"
                     />
                   </div>
                 </div>
@@ -125,7 +116,7 @@ export default function Addflight() {
                     type="number"
                     placeholder="200"
                     min="0"
-                    className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"
+                    className="w-full mt-1 p-2  dark:text-white border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"
                   />
                 </div>
 
@@ -137,9 +128,7 @@ export default function Addflight() {
                   >
                     Cancel
                   </button>
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-gradient-violet to-gradient-peach text-white px-3 sm:px-4 py-2 rounded-xl shadow-md hover:opacity-90 transition text-sm sm:text-base"
+                  <button  type="submit" className="bg-gradient-to-r from-gradient-violet to-gradient-peach text-white px-3 sm:px-4 py-2 rounded-xl shadow-md hover:opacity-90 transition text-sm sm:text-base"
                   >
                     Add Flight
                   </button>
