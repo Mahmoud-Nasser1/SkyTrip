@@ -83,7 +83,7 @@ export default function Payments() {
   ];
 
   useEffect(() => {
-    fetch("http://localhost:7000/api/v1/featured")
+    fetch("https://sky-trip-back-end.vercel.app/api/v1/featured")
       .then((res) => res.json())
       .then((data) => setSelected(data.featured))
       .catch((err) => console.log(err));
@@ -98,7 +98,7 @@ export default function Payments() {
   };
 
   const handleSave = () => {
-    fetch("http://localhost:7000/api/v1/featured", {
+    fetch("https://sky-trip-back-end.vercel.app/api/v1/featured", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
