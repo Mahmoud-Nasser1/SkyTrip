@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const CardFlight = ({
   flight: {
-    id,
+    _id,
     airline,
     departureTime,
     departureCity,
@@ -20,8 +20,8 @@ const CardFlight = ({
   },
 }) => {
   const navigate = useNavigate();
-  const goFlightDetails = (id) => {
-    navigate(`/flights/${id}`);
+  const goFlightDetails = (_id) => {
+    navigate(`/flights/${_id}`);
   };
   return (
     <Card className="cursor-pointer mt-6 overflow-visible rounded-xl shadow-lg transition-transform duration-500 hover:scale-105 hover:shadow-xl dark:bg-dark-card dark:text-dark-primary">
@@ -85,7 +85,7 @@ const CardFlight = ({
             <button
               type="button"
               className="rounded-full lg:min-w-max bg-gradient-main p-4 px-5 flex justify-center items-center text-sm text-white gap-2 hover:shadow-xl"
-              onClick={() => goFlightDetails(id)}
+              onClick={() => goFlightDetails(_id)}
             >
               View Details <IoIosArrowDropright />
             </button>

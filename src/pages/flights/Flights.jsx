@@ -1,7 +1,8 @@
 import FlightSearch from "./components/FlightSearch";
 import FlightFilter from "./components/FlightFilter";
 import CardFlight from "./components/CardFlight";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { FlightContext } from "../../context/FlightContext";
 import {
   Collapse,
   Button,
@@ -9,57 +10,10 @@ import {
   Typography,
   CardBody,
 } from "@material-tailwind/react";
+
 const Flights = () => {
-  const [flights, setflights] = useState([
-    {
-      id: 1,
-      airline: "SkyWings Airlines",
-      departureTime: "08:00 AM",
-      departureCity: "New York (JFK)",
-      duration: "8h 30m",
-      arrivalTime: "10:30 PM",
-      arrivalCity: "Paris (CDG)",
-      cabinClass: "Economy",
-      flightType: "Non-stop",
-      price: 598,
-    },
-    {
-      id: 2,
-      airline: "Global Airways",
-      departureTime: "11:00 AM",
-      departureCity: "New York (JFK)",
-      duration: "9h 45m",
-      arrivalTime: "01:45 AM+1",
-      arrivalCity: "Paris (CDG)",
-      cabinClass: "Economy",
-      flightType: "1 Stop",
-      price: 449,
-    },
-    {
-      id: 3,
-      airline: "Pacific Express",
-      departureTime: "03:00 PM",
-      departureCity: "New York (JFK)",
-      duration: "8h 30m",
-      arrivalTime: "05:30 AM+1",
-      arrivalCity: "Paris (CDG)",
-      cabinClass: "Economy",
-      flightType: "Non-stop",
-      price: 679,
-    },
-    {
-      id: 4,
-      airline: "Continental Air",
-      departureTime: "06:30 PM",
-      departureCity: "New York (JFK)",
-      duration: "8h 30m",
-      arrivalTime: "09:00 AM+1",
-      arrivalCity: "Paris (CDG)",
-      cabinClass: "Business",
-      flightType: "Non-stop",
-      price: 729,
-    },
-  ]);
+  const { flights } = useContext(FlightContext);
+  console.log(flights);
 
   const [filters, setFilters] = useState({
     price: 1000,
@@ -166,9 +120,9 @@ const Flights = () => {
             </div>
           </div>
           <div className="w-full lg:w-2/3 flex flex-col gap-6">
-            {filteredFlights.length > 0 ? (
+            {filteredFlights.length >= 0 ? (
               filteredFlights.map((flight) => (
-                <CardFlight key={flight.id} flight={flight} />
+                <CardFlight key={flight._id} flight={flight} />
               ))
             ) : (
               <p className="text-center text-gray-600">
@@ -190,7 +144,7 @@ const Flights = () => {
                 <div className="w-full flex flex-col gap-6">
                   {filteredFlights.length > 0 &&
                     filteredFlights.map((flight) => (
-                      <CardFlight key={flight.id} flight={flight} />
+                      <CardFlight key={flight._id} flight={flight} />
                     ))}
                 </div>
               </Collapse>
