@@ -6,12 +6,12 @@ export const SavedFlightsContext = createContext();
 
 export default function SavedFlightsProvider({ children }) {
   const [savedFlights, setSavedFlights] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loadingSavedFlights , setloadingSavedFlights ] = useState(true);
   const url = "https://sky-trip-back-end.vercel.app/";
 
   const getSavedFlights = async (userId) => {
     try {
-      setLoading(true);
+      setloadingSavedFlights (true);
       const res = await axios.get(`${url}api/v1/users/${userId}/savedflights`);
       setSavedFlights(res.data.data.savedFlights || []);
       return res.data.data;
@@ -23,7 +23,7 @@ export default function SavedFlightsProvider({ children }) {
       toast.error(err.response?.data?.message || "Failed to get saved flights");
       return [];
     } finally {
-      setLoading(false);
+      setloadingSavedFlights (false);
     }
   };
 
@@ -69,7 +69,7 @@ export default function SavedFlightsProvider({ children }) {
     <SavedFlightsContext.Provider
       value={{
         savedFlights,
-        loading,
+        loadingSavedFlights ,
         getSavedFlights,
         saveFlight,
         unsaveFlight,
