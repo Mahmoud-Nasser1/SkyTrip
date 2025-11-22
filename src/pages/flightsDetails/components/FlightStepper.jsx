@@ -13,9 +13,10 @@ const FlightStepper = () => {
   const arrivalCity = flight?.arrivalCity || "";
 
   const fromCity = departureCity.split(" (")[0];
-  const fromCode = departureCity.split("(")[1].replace(")", "");
+  const fromCode = departureCity.split("(")[1]?.replace(")", "") || "";
+
   const toCity = arrivalCity.split(" (")[0];
-  const toCode = arrivalCity.split("(")[1].replace(")", "");
+  const toCode = arrivalCity.split("(")[1]?.replace(")", "") || "";
 
   return (
     <div className="flex flex-col gap-4 justify-center p-8 shadow-xl rounded-xl dark:bg-dark-card dark:text-dark-primary">
