@@ -1,17 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useUser } from "./UserContext";
 
 export const SavedFlightsContext = createContext();
 
 export default function SavedFlightsProvider({ children }) {
   const [savedFlights, setSavedFlights] = useState([]);
-  const [loadingSavedFlights , setloadingSavedFlights ] = useState(true);
+  const [loadingSavedFlights, setloadingSavedFlights] = useState(true);
   const url = "https://sky-trip-back-end.vercel.app/";
+  const { user } = useUser();
 
   const getSavedFlights = async (userId) => {
     try {
-      setloadingSavedFlights (true);
+      setloadingSavedFlights(true);
       const res = await axios.get(`${url}api/v1/users/${userId}/savedflights`);
       setSavedFlights(res.data.data.savedFlights || []);
       return res.data.data;
@@ -23,7 +25,7 @@ export default function SavedFlightsProvider({ children }) {
       toast.error(err.response?.data?.message || "Failed to get saved flights");
       return [];
     } finally {
-      setloadingSavedFlights (false);
+      setloadingSavedFlights(false);
     }
   };
 
@@ -65,11 +67,17 @@ export default function SavedFlightsProvider({ children }) {
     }
   };
 
+  useEffect(() => {
+    if (user?.id) {
+      getSavedFlights(user.id);
+    }
+  }, [user]);
+
   return (
     <SavedFlightsContext.Provider
       value={{
         savedFlights,
-        loadingSavedFlights ,
+        loadingSavedFlights,
         getSavedFlights,
         saveFlight,
         unsaveFlight,
