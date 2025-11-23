@@ -42,14 +42,7 @@ const FlightsDetails = () => {
 
   useEffect(() => {
     setCheckingSaved(true);
-    setSaved(false);
   }, [flightId]);
-
-  useEffect(() => {
-    if (user) {
-      getSavedFlights(user.id);
-    }
-  }, [user]);
 
   useEffect(() => {
     getOneFlight(flightId);
