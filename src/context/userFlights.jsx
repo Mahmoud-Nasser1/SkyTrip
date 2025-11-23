@@ -15,7 +15,7 @@ export default function SavedFlightsProvider({ children }) {
     try {
       setloadingSavedFlights(true);
       const res = await axios.get(`${url}api/v1/users/${userId}/savedflights`);
-      setSavedFlights(res.data.data.savedFlights || []);
+      setSavedFlights(res.data.data || []);
       return res.data.data;
     } catch (err) {
       console.error(
