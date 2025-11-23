@@ -14,7 +14,7 @@ export default function Users() {
   </div>
   
   <div className="search mt-3">
-   <input type="text" placeholder="Search by user ID..." value={search} onChange={(e)=>setSearch(e.target.value)} className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:bg-[#10161E] dark:text-white"/></div>
+   <input type="text" placeholder="Search by user ID or Email..." value={search} onChange={(e)=>setSearch(e.target.value)} className="w-full p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black dark:bg-[#10161E] dark:text-white"/></div>
     </section>
 
     <section className='userTable mt-4'>
