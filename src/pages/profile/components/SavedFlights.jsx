@@ -1,37 +1,78 @@
 import { Button, Card } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-
-const savedFlightsData = [
-  {
-    id: 1,
-    startCity: "New York",
-    endCity: "London",
-    flightClass: "Economy Class",
-    price: "$549",
-  },
-  {
-    id: 2,
-    startCity: "Los Angeles",
-    endCity: "Sydney",
-    flightClass: "Economy Class",
-    price: "$1299",
-  },
-];
+import { useUser } from "../../../context/UserContext";
+import { useState, useEffect } from "react";
+import Loading from "../../../components/loading/Loading";
 
 const SavedFlights = () => {
+  const [savedFlights, setSavedFlights] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { user } = useUser();
   const navigate = useNavigate();
-  const goBooking = () => {
-    navigate("/booking");
+
+  const userId = user?.id;
+
+  useEffect(() => {
+    fetch(
+      `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}/savedflights`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setSavedFlights(data.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const removeFlight = async (flightId) => {
+    try {
+      const res = await fetch(
+        `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}/unsaveflight/${flightId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      setSavedFlights((prev) => prev.filter((f) => f._id !== flightId));
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  if (!userId || isLoading) return <Loading />;
+  if (savedFlights.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-gray-600 dark:text-gray-300">
+        <div className="text-6xl mb-4">✈️</div>
+
+        <h2 className="text-2xl font-semibold mb-2">No Saved Flights</h2>
+
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          You haven’t added any flights to your saved list yet.
+        </p>
+
+        <Button
+          size="md"
+          className="rounded-full px-8 bg-gradient-main text-white shadow-md hover:shadow-lg duration-300"
+          onClick={() => navigate("/flights")}
+        >
+          Browse Flights
+        </Button>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h1 className="mb-4 text-gray-800 dark:text-white">Saved Flights</h1>
 
       <div className="space-y-6">
-        {savedFlightsData.map(
-          ({ id, startCity, endCity, flightClass, price }) => (
+        {savedFlights.map(
+          ({ _id, departureCity, arrivalCity, cabinClass, price }) => (
             <Card
-              key={id}
+              key={_id}
               className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30 
   hover:scale-[1.01] hover:border-gradient-violet duration-500 dark:bg-dark-muted dark:border-dark-border"
             >
@@ -39,17 +80,17 @@ const SavedFlights = () => {
                 <div className="flex flex-col gap-4 ">
                   <div className="space-y-2">
                     <p className="text-base font-bold text-gray-900 dark:text-white">
-                      {startCity} → {endCity}
+                      {departureCity} → {arrivalCity}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-white">
-                      {flightClass}
+                      {cabinClass}
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     <Button
                       size="md"
                       className="rounded-full px-6 bg-gradient-main hover:shadow-blue-gray-100"
-                      onClick={goBooking}
+                      onClick={() => navigate("/booking")}
                     >
                       Book Now
                     </Button>
@@ -57,6 +98,7 @@ const SavedFlights = () => {
                       size="md"
                       variant="outlined"
                       className="rounded-full px-6 border-gray-300 text-gray-700 hover:text-red-800 hover:border-red-900 dark:bg-dark-destructive dark:text-white "
+                      onClick={() => removeFlight(_id)}
                     >
                       Remove
                     </Button>
@@ -65,7 +107,7 @@ const SavedFlights = () => {
 
                 <div className="flex justify-end md:justify-start">
                   <p className="text-xl  text-purple-400 dark:text-white">
-                    {price}
+                    ${price}
                   </p>
                 </div>
               </div>
