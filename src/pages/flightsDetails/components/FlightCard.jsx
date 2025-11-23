@@ -30,7 +30,7 @@ const FlightCard = () => {
   const serviceCharge = Number((baseFare * 0.05).toFixed(2));
   const total = Number((baseFare + taxes + serviceCharge).toFixed(2));
   const prices = { taxes, serviceCharge, total };
-  console.log(prices);
+  
 
   return (
     <div className="flex justify-stretch lg:justify-center ">

@@ -107,14 +107,14 @@ const FeaturedDestinations = () => {
   if (error)
     return (
       <div className="p-10">
-        <h2 className="text-center text-red-500">Error {error}</h2>
+        <h2 className="text-center text-red-500 ">Error {error}</h2>
       </div>
     );
 
   if (!featuredDestinations.length)
     return (
       <div className="p-10">
-        <h2 className="text-center">
+        <h2 className="text-center dark:text-white ">
           There are no outstanding destinations at the moment.
         </h2>
       </div>

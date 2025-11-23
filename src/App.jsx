@@ -4,27 +4,33 @@ import ProtectRoute from "./context/ProtectRoute";
 import AdminnLayout from "./pages/layout/AdminnLayout";
 import { UserProvider } from "./context/UserContext";
 import FlightContextProvider from "./context/FlightContext";
+import SavedFlightsProvider from "./context/userFlights";
 import BookingContextProvider from "./context/BookingContext";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
-  <BookingContextProvider>
-    <FlightContextProvider>
-    <Toaster position="bottom-left" reverseOrder={false}/>
+<BookingContextProvider>
     <UserProvider>
-      <Routes>
-        <Route path="/admin/*" element={
-            <ProtectRoute allowedRole="admin">
-              <AdminnLayout />
-            </ProtectRoute>
-          }
-        />
-        <Route path="/*" element={<UserLayout />} />
-      </Routes>
+      <FlightContextProvider>
+ <Toaster position="bottom-left" reverseOrder={false}/>
+        <SavedFlightsProvider>
+          <Routes>
+            <Route
+              path="/admin/*"
+              element={
+                <ProtectRoute allowedRole="admin">
+                  <AdminnLayout />
+                </ProtectRoute>
+              }
+            />
+
+            <Route path="/*" element={<UserLayout />} />
+          </Routes>
+        </SavedFlightsProvider>
+      </FlightContextProvider>
+</BookingContextProvider>
     </UserProvider>
-  </FlightContextProvider>
-  </BookingContextProvider>
   );
 };
 
