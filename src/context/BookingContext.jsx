@@ -8,7 +8,7 @@ export default function BookingContextProvider({ children }) {
   const [bookings, setBookings] = useState([]);
   const [booking, setBooking] = useState({});
   const [loading, setLoading] = useState(true);
-  const url = "http://localhost:7000/api/v1/booking";
+  const url = "https://sky-trip-back-end.vercel.app/";
 
 
   const getUserBookings = async () => {
