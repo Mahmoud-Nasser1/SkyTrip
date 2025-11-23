@@ -41,7 +41,6 @@ export default function FlightContextProvider({ children }) {
     try {
       const res = await axios.post(`${url}/api/v1/flights`, flightData);
       setFlights((prev) => [...prev, res.data.data]);
-      toast.success("Flight added successfully");
       return res.data;
     } catch (err) {
       console.error(
@@ -57,7 +56,6 @@ export default function FlightContextProvider({ children }) {
     try {
       const res = await axios.put(`${url}/api/v1/flights/${id}`, updatedData);
       setFlights((prev) => prev.map((f) => (f._id === id ? res.data.data : f)));
-      toast.success("Flight updated successfully");
       return res.data;
     } catch (err) {
       console.error(
@@ -79,8 +77,8 @@ export default function FlightContextProvider({ children }) {
         "Error deleting flight:",
         err.response?.data?.message || err.message
       );
-      toast.error(err.response?.data?.message || "Failed to delete flight");
-      return { error: err.response?.data?.message || "Something went wrong" };
+      toast.error(err.response.data.message || "Failed to delete flight");
+      return { error: err.response.data.message || "Something went wrong" };
     }
   };
 
