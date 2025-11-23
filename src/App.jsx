@@ -29,8 +29,8 @@ const App = () => {
           </Routes>
         </SavedFlightsProvider>
       </FlightContextProvider>
-</BookingContextProvider>
     </UserProvider>
+</BookingContextProvider>
   );
 };
 
