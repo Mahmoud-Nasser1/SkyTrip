@@ -1,47 +1,25 @@
 import { Button, Card } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../context/UserContext";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Loading from "../../../components/loading/Loading";
+import { SavedFlightsContext } from "../../../context/userFlights";
 
 const SavedFlights = () => {
-  const [savedFlights, setSavedFlights] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const { user } = useUser();
+  const { savedFlights, loadingSavedFlights, getSavedFlights, unsaveFlight } =
+    useContext(SavedFlightsContext);
   const navigate = useNavigate();
 
   const userId = user?.id;
 
   useEffect(() => {
-    fetch(
-      `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}/savedflights`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setSavedFlights(data.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false);
-      });
+    if (userId) {
+      getSavedFlights(userId);
+    }
   }, []);
 
-  const removeFlight = async (flightId) => {
-    try {
-      const res = await fetch(
-        `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}/unsaveflight/${flightId}`,
-        {
-          method: "DELETE",
-        }
-      );
-      setSavedFlights((prev) => prev.filter((f) => f._id !== flightId));
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  if (!userId || isLoading) return <Loading />;
+  if (loadingSavedFlights) return <Loading />;
   if (savedFlights.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-gray-600 dark:text-gray-300">
@@ -98,7 +76,7 @@ const SavedFlights = () => {
                       size="md"
                       variant="outlined"
                       className="rounded-full px-6 border-gray-300 text-gray-700 hover:text-red-800 hover:border-red-900 dark:bg-dark-destructive dark:text-white "
-                      onClick={() => removeFlight(_id)}
+                      onClick={() => unsaveFlight(userId, _id)}
                     >
                       Remove
                     </Button>
