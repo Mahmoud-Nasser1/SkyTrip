@@ -7,13 +7,15 @@ import FlightContextProvider from "./context/FlightContext";
 import SavedFlightsProvider from "./context/userFlights";
 import BookingContextProvider from "./context/BookingContext";
 import { Toaster } from "react-hot-toast";
+import PersonContextProvider from "./context/PersonContext";
 
 const App = () => {
   return (
-<BookingContextProvider>
-    <UserProvider>
+  <PersonContextProvider>
+      <BookingContextProvider>
+      <UserProvider>
       <FlightContextProvider>
- <Toaster position="bottom-left" reverseOrder={false}/>
+      <Toaster position="bottom-left" reverseOrder={false}/>
         <SavedFlightsProvider>
           <Routes>
             <Route
@@ -31,6 +33,7 @@ const App = () => {
       </FlightContextProvider>
     </UserProvider>
 </BookingContextProvider>
+</PersonContextProvider>
   );
 };
 
