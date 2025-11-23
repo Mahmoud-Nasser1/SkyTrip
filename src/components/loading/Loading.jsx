@@ -3,7 +3,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-dark-background">
       <div className="relative w-24 h-24">
         <div
           className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#38bdf8] border-r-[#8b5cf6] animate-spin"

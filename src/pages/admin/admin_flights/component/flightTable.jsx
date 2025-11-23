@@ -6,10 +6,9 @@ import { FlightContext } from "../../../../context/FlightContext";
 export default function FlightTable({ search }) {
   const { flights } = useContext(FlightContext);
 
-
   const filteredFlights = flights.filter((flight) =>
-  flight._id.toLowerCase().includes(search.toLowerCase())
-);
+    flight.flightNumber.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="w-full">
@@ -29,27 +28,25 @@ export default function FlightTable({ search }) {
             </thead>
 
             <tbody>
-              
               {filteredFlights.map((flight) => (
                 <tr
                   key={flight._id}
                   className="hover:bg-gray-100 dark:hover:bg-[#1F2A38] transition"
                 >
-                  <td className="px-4 py-3">{flight._id}</td>
+                  <td className="px-4 py-3">{flight.flightNumber}</td>
                   <td className="px-4 py-3">{flight.airline}</td>
 
                   {/* Route */}
                   <td className="px-4 py-3">
-                    {flight.from} → {flight.to}
+                    {flight.departureCity} → {flight.arrivalCity}
                   </td>
 
                   {/* Departure */}
                   <td className="px-4 py-3 flex items-center gap-2">
-                    <MdAccessTime /> {flight.departure || flight.date}
+                    <MdAccessTime /> {flight.departureTime || flight.date}
                   </td>
 
-                  <td className="px-4 py-3">{flight.arrival}</td>
-
+                  <td className="px-4 py-3">{flight.arrivalTime}</td>
 
                   <td className="px-4 py-3">{flight.passenger}</td>
 
@@ -76,12 +73,12 @@ export default function FlightTable({ search }) {
       <div className="md:hidden space-y-4">
         {filteredFlights.map((flight) => (
           <div
-            key={flight._id}
+            key={flight.flightNumber}
             className="bg-white dark:bg-[#10161E] border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-md"
           >
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-lg font-semibold">
-                {flight._id} - {flight.airline}
+                {flight.flightNumber} - {flight.airline}
               </h3>
 
               <div className="flex gap-3 text-lg">
@@ -98,7 +95,6 @@ export default function FlightTable({ search }) {
             <p className="text-sm flex items-center gap-2">
               <MdAccessTime /> {flight.date}
             </p>
-
 
             <p className="text-sm">
               <strong>Capacity:</strong> {flight.passenger}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Card,
   CardBody,
@@ -10,6 +10,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { LuShield } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../context/UserContext";
+import { FlightContext } from "../../../context/FlightContext";
 
 const FlightCard = () => {
   const navigate = useNavigate();
@@ -21,6 +22,16 @@ const FlightCard = () => {
       navigate("/booking");
     }
   };
+  const {
+    flight: { price },
+  } = useContext(FlightContext);
+  const baseFare = price;
+  const taxes = Number((baseFare * 0.12).toFixed(2));
+  const serviceCharge = Number((baseFare * 0.05).toFixed(2));
+  const total = Number((baseFare + taxes + serviceCharge).toFixed(2));
+  const prices = { taxes, serviceCharge, total };
+  
+
   return (
     <div className="flex justify-stretch lg:justify-center ">
       <Card className="mt-6 w-full lg:w-96 shadow-xl dark:bg-dark-card dark:text-dark-primary">
@@ -29,22 +40,22 @@ const FlightCard = () => {
             <h1 className="font-semibold text-lg ">Price Breakdown</h1>
             <section className="flex justify-between">
               <h2>Base Fare</h2>
-              <h4>$599</h4>
+              <h4>${baseFare}</h4>
             </section>
             <section className="flex justify-between">
               <h2>Taxes & Fees</h2>
-              <h4>$90</h4>
+              <h4>${taxes}</h4>
             </section>
             <section className="flex justify-between">
               <h2>Service Charge</h2>
-              <h4>$25</h4>
+              <h4>${serviceCharge}</h4>
             </section>
 
             <hr className="my-3 border-t border-gray-500" />
 
             <section className="flex justify-between text-lg font-semibold">
               <h2>Total </h2>
-              <h4 className="text-gradient-violet">$714</h4>
+              <h4 className="text-gradient-violet">${total}</h4>
             </section>
           </div>
         </CardBody>

@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Stepper, Step, Typography } from "@material-tailwind/react";
 import { CiLocationOn } from "react-icons/ci";
 import { IoAirplane } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { GiCommercialAirplane } from "react-icons/gi";
+import { FlightContext } from "../../../context/FlightContext";
 
 const FlightStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const { flight } = useContext(FlightContext);
+const departureCity = flight?.departureCity || "";
+const arrivalCity = flight?.arrivalCity || "";
+
+const fromCity = departureCity.split(" (")[0];
+const fromCode = departureCity.split("(")[1]?.replace(")", "") || "";
+
+const toCity = arrivalCity.split(" (")[0];
+const toCode = arrivalCity.split("(")[1]?.replace(")", "") || "";
 
   return (
     <div className="flex flex-col gap-4 justify-center p-8 shadow-xl rounded-xl dark:bg-dark-card dark:text-dark-primary">
@@ -27,13 +37,13 @@ const FlightStepper = () => {
                 color={activeStep === 1 ? "blue-gray" : "gray"}
                 className="dark:text-dark-primary"
               >
-                New
+                {fromCity}
               </Typography>
               <Typography
                 color={activeStep === 1 ? "blue-gray" : "gray"}
                 className="font-normal dark:text-dark-primary"
               >
-                JFK
+                {fromCode}
               </Typography>
             </div>
           </Step>
@@ -68,17 +78,17 @@ const FlightStepper = () => {
             <CiLocationOn className="h-8 w-8 text-xl text-gray-50" />
             <div className="absolute -bottom-[4.5rem] w-max text-center ">
               <Typography
-              className="dark:text-dark-primary"
+                className="dark:text-dark-primary"
                 variant="h6"
                 color={activeStep === 1 ? "blue-gray" : "gray"}
               >
-                Paris
+                {toCity}
               </Typography>
               <Typography
                 color={activeStep === 1 ? "blue-gray" : "gray"}
                 className="font-normal dark:text-dark-primary"
               >
-                CDG
+                {toCode}
               </Typography>
             </div>
           </Step>

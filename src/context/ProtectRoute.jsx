@@ -12,6 +12,12 @@ const ProtectRoute = ({ children, allowedRole }) => {
     console.log(isLogged);
     return <Navigate to="/login" replace />;
   }
+
+
+
+
+
+  
   if (user?.role !== allowedRole) {
     return <NotFound />;
   }
