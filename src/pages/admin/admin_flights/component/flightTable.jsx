@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { MdAccessTime } from "react-icons/md";
 import { FiEye, FiEdit, FiTrash2 } from "react-icons/fi";
 import { FlightContext } from "../../../../context/FlightContext";
+import timeConverter from "../../../../hooks/timeConverter"
+import EditFlight from "./editFlight.jsx";
 
 export default function FlightTable({ search }) {
-  const { flights } = useContext(FlightContext);
+  const { flights, deleteFlight } = useContext(FlightContext);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [selectedFlight, setSelectedFlight] = useState(null);
+
 
   const filteredFlights = flights.filter((flight) =>
     flight.flightNumber.toLowerCase().includes(search.toLowerCase())
@@ -36,24 +41,22 @@ export default function FlightTable({ search }) {
                   <td className="px-4 py-3">{flight.flightNumber}</td>
                   <td className="px-4 py-3">{flight.airline}</td>
 
-                  {/* Route */}
                   <td className="px-4 py-3">
                     {flight.departureCity} → {flight.arrivalCity}
                   </td>
 
-                  {/* Departure */}
                   <td className="px-4 py-3 flex items-center gap-2">
-                    <MdAccessTime /> {flight.departureTime || flight.date}
+                    <MdAccessTime /> {timeConverter(flight.departureTime)}
                   </td>
 
-                  <td className="px-4 py-3">{flight.arrivalTime}</td>
+                  <td className="px-4 py-3">{timeConverter(flight.arrivalTime)}</td>
 
-                  <td className="px-4 py-3">{flight.passenger}</td>
+                  <td className="px-9 py-3">{flight.passenger}</td>
 
                   <td className="px-4 py-3 text-lg flex gap-4">
                     <FiEye className="cursor-pointer text-blue-500" />
-                    <FiEdit className="cursor-pointer text-yellow-500" />
-                    <FiTrash2 className="cursor-pointer text-red-600" />
+                    <FiEdit className="cursor-pointer text-yellow-500"  onClick={() => { setSelectedFlight(flight);  setIsEditOpen(true); }}/>
+                    <FiTrash2 className="cursor-pointer text-red-600"  onClick={()=>deleteFlight(flight._id)} />
                   </td>
                 </tr>
               ))}
@@ -70,38 +73,46 @@ export default function FlightTable({ search }) {
         </div>
       </div>
 
-      <div className="md:hidden space-y-4">
-        {filteredFlights.map((flight) => (
-          <div
-            key={flight.flightNumber}
-            className="bg-white dark:bg-[#10161E] border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-md"
-          >
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold">
-                {flight.flightNumber} - {flight.airline}
-              </h3>
+    <div className="md:hidden space-y-4">
+  {filteredFlights.map((flight) => (
+    <div key={flight.flightNumber} className="bg-white dark:bg-[#10161E] border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-md">
+      
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-lg font-semibold">
+          {flight.flightNumber} - {flight.airline}
+        </h3>
 
-              <div className="flex gap-3 text-lg">
-                <FiEye className="cursor-pointer text-blue-500" />
-                <FiEdit className="cursor-pointer text-yellow-500" />
-                <FiTrash2 className="cursor-pointer text-red-600" />
-              </div>
-            </div>
-
-            <p className="text-sm">
-              <strong>Route:</strong> {flight.from} → {flight.to}
-            </p>
-
-            <p className="text-sm flex items-center gap-2">
-              <MdAccessTime /> {flight.date}
-            </p>
-
-            <p className="text-sm">
-              <strong>Capacity:</strong> {flight.passenger}
-            </p>
-          </div>
-        ))}
+        <div className="flex gap-3 text-lg">
+          <FiEye className="cursor-pointer text-blue-500" />
+          <FiEdit className="cursor-pointer text-yellow-500"  onClick={() => { setSelectedFlight(flight);  setIsEditOpen(true); }}/>
+          <FiTrash2 className="cursor-pointer text-red-600" onClick={() => deleteFlight(flight._id)} />
+        </div>
       </div>
+
+
+      <p className="text-sm mb-1">
+        <strong>Route:</strong> {flight.departureCity} → {flight.arrivalCity}
+      </p>
+      <p className="text-sm flex items-center gap-2 mb-1">
+        <MdAccessTime /> <strong>Departure:</strong> {timeConverter(flight.departureTime)}
+      </p>
+      <p className="text-sm flex items-center gap-2 mb-1">
+        <MdAccessTime /> <strong>Arrival:</strong> {timeConverter(flight.arrivalTime)}
+      </p>
+
+      <p className="text-sm">
+        <strong>Capacity:</strong> {flight.passenger}
+      </p>
+    </div>
+  ))}
+</div>
+{isEditOpen && selectedFlight && (
+    <EditFlight
+    isOpen={isEditOpen}
+    setIsOpen={setIsEditOpen}
+    flight={selectedFlight}
+    />
+  )}
     </div>
   );
 }

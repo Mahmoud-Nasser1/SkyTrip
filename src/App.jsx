@@ -5,11 +5,15 @@ import AdminnLayout from "./pages/layout/AdminnLayout";
 import { UserProvider } from "./context/UserContext";
 import FlightContextProvider from "./context/FlightContext";
 import SavedFlightsProvider from "./context/userFlights";
+import BookingContextProvider from "./context/BookingContext";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
+<BookingContextProvider>
     <UserProvider>
       <FlightContextProvider>
+ <Toaster position="bottom-left" reverseOrder={false}/>
         <SavedFlightsProvider>
           <Routes>
             <Route
@@ -25,6 +29,7 @@ const App = () => {
           </Routes>
         </SavedFlightsProvider>
       </FlightContextProvider>
+</BookingContextProvider>
     </UserProvider>
   );
 };
