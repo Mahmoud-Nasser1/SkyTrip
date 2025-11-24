@@ -49,7 +49,12 @@ export default function FlightTable({ search }) {
                     <MdAccessTime /> {timeConverter(flight.departureTime)}
                   </td>
 
-                  <td className="px-4 py-3">{timeConverter(flight.arrivalTime)}</td>
+                  <td className="px-4 py-3">
+  <div className="flex items-center gap-1 whitespace-nowrap">
+    <MdAccessTime className="text-gray-600" />
+    {timeConverter(flight.arrivalTime)}
+  </div>
+</td>
 
                   <td className="px-9 py-3">{flight.passenger}</td>
 
