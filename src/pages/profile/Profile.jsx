@@ -25,7 +25,7 @@ const Profile = () => {
     }
   }, [data]);
 
-  const validTabs = ["info", "trips", "flights", "payments"];
+  const validTabs = ["info", "trips", "flights"];
 
   if (loading) return <Loading />;
   if (tabId && !validTabs.includes(tabId)) {

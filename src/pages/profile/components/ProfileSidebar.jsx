@@ -9,7 +9,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import MyTrips from "./MyTrips";
 import ProfileInfo from "./ProfileInfo";
 import SavedFlights from "./SavedFlights";
-import AddPayment from "./AddPayment";
 
 const ProfileSidebar = () => {
   const navigate = useNavigate();
@@ -30,11 +29,6 @@ const ProfileSidebar = () => {
       label: "Saved Flights",
       tabId: "flights",
       content: <SavedFlights />,
-    },
-    {
-      label: "Payments",
-      tabId: "payments",
-      content: <AddPayment />,
     },
   ];
 

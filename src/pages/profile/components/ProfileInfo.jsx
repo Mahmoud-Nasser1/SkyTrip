@@ -17,8 +17,8 @@ const ProfileInfo = () => {
     password: "",
   });
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
-
+  const [error, setError] = useState({});
+  
   useEffect(() => {
     if (user) {
       setFormData({
@@ -31,9 +31,52 @@ const ProfileInfo = () => {
     }
   }, [user]);
 
+  const phoneCheck = /^(?:\+20|0020)?01[0125][0-9]{8}$/;
+  const passwordCheck =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
+  const handleValidation = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required.";
+    } else if (
+      formData.firstName.length < 3 ||
+      formData.firstName.includes(" ")
+    ) {
+      newErrors.firstName =
+        "First name must be at least 3 letters, and contain no spaces.";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required.";
+    } else if (
+      formData.lastName.length < 3 ||
+      formData.lastName.includes(" ")
+    ) {
+      newErrors.lastName =
+        "Last name must be at least 3 letters, and contain no spaces.";
+    }
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = "Phone number is required.";
+    } else if (!phoneCheck.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Please enter a valid phone number.";
+    }
+
+    if (formData.password && !passwordCheck.test(formData.password)) {
+      newErrors.password =
+        "Password must be at least 8 characters, include uppercase, lowercase, number, and special character.";
+    }
+
+    setError(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+
   const handleSave = async () => {
+  if (handleValidation()){
     setSaving(true);
-    setError("");
+    setError({});
     try {
       const res = await fetch(
         "https://sky-trip-back-end.vercel.app/api/v1/users/me",
@@ -50,10 +93,10 @@ const ProfileInfo = () => {
 
       updateUser(data.data);
     } catch (err) {
-      setError("Failed to save ");
+      setError({ fetchError: err.message});
     }
-    setSaving(false);
-  };
+      setSaving(false); 
+  }};
 
   if (!user) return <Loading />;
 
@@ -157,18 +200,16 @@ const ProfileInfo = () => {
         />
       </div>
 
-      {error && (
-        <div className="flex items-center gap-2 p-3 my-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-500/10">
-          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
-          <Typography
-            color="red"
-            className="font-open-sans font-medium dark:text-red-400"
-          >
-            {error}
-          </Typography>
-        </div>
-      )}
-
+       {error && Object.keys(error).length > 0 && (
+  <div className="flex flex-col gap-2 p-3 my-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-500/10">
+    {Object.values(error).map((message, index) => (
+      <div key={index} className="flex items-center gap-2">
+        <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+        <Typography color="red">{message}</Typography>
+      </div>
+    ))}
+  </div>
+)}
       <div>
         <Button
           size="lg"
