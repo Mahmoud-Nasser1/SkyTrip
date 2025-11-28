@@ -10,10 +10,16 @@ export default function FlightContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const url = "https://sky-trip-back-end.vercel.app/";
 
-  async function getAllFlights(count) {
+  async function getAllFlights(page, limit) {
     try {
-      const res = await axios.get(`${url}api/v1/flights?limit=${count}`);
-      setFlights(res.data.data);
+      const res = await axios.get(
+        `${url}api/v1/flights?page=${page}&limit=${limit}`
+      );
+      if (page === 1) {
+        setFlights(res.data.data);
+      } else {
+        setFlights((prev) => [...prev, ...res.data.data]);
+      }
       console.log(res.data.message);
     } catch (error) {
       console.log(error.message);
@@ -83,7 +89,7 @@ export default function FlightContextProvider({ children }) {
   };
 
   useEffect(() => {
-    getAllFlights(1000);
+    getAllFlights(1, 5);
   }, []);
 
   return (

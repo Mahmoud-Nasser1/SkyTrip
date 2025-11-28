@@ -24,7 +24,7 @@ export default function BookingContextProvider({ children }) {
     }
   };
 
- const getAllBookingsAdmin = async () => {
+  const getAllBookingsAdmin = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("Admin token not found!");
@@ -39,13 +39,15 @@ export default function BookingContextProvider({ children }) {
       setBookings(res.data.data);
       console.log("Bookings fetched:", res.data.message);
     } catch (err) {
-      console.error("Error fetching all bookings:", err.response?.data || err.message);
+      console.error(
+        "Error fetching all bookings:",
+        err.response?.data || err.message
+      );
       toast.error(err.response?.data?.message || "Failed to get all bookings");
     } finally {
       setLoading(false);
     }
   };
-
 
   const getOneBooking = async (id) => {
     try {
@@ -65,7 +67,13 @@ export default function BookingContextProvider({ children }) {
   const addBooking = async (bookingData) => {
     try {
       setLoading(true);
-      const res = await axios.post(`${url}`, bookingData);
+
+      const token = localStorage.getItem("token");
+
+      const res = await axios.post(`${url}`, bookingData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
       setBookings((prev) => [...prev, res.data.data]);
       toast.success("Booking created successfully");
       return res.data.data;
@@ -95,10 +103,8 @@ export default function BookingContextProvider({ children }) {
     }
   };
 
-
-
   useEffect(() => {
-    getAllBookingsAdmin(); 
+    getAllBookingsAdmin();
   }, []);
 
   return (

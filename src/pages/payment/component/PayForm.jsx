@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { useCountries } from "use-react-countries";
 import {
@@ -33,6 +33,7 @@ import { useNavigate } from "react-router-dom";
 import StepperWithContent from "../../booking/components/StepperWithContent";
 import Swal from "sweetalert2";
 import { useUser } from "../../../context/UserContext";
+import { BookingContext } from "../../../context/BookingContext";
 
 function formatCardNumber(value) {
   const val = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -80,6 +81,26 @@ const PayForm = () => {
     country: "",
     postalCode: "",
   });
+  const { addBooking } = useContext(BookingContext);
+  
+  const formData = {
+    firstName: "Ahmed",
+    lastName: "Hussein",
+    phoneNumber: "010000000",
+    passportNumber: "A1234567",
+    flightIds: ["69189d136a35986e798958d5"],
+    numberOfPassengers: 1,
+  };
+
+  const handleBook = async () => {
+    const result = await addBooking(formData);
+
+    if (!result.error) {
+      console.log("Booking Done:", result);
+    }
+  };
+
+  const theme = localStorage.getItem("theme") || "light";
 
   const payNow = () => {
     const { userEmail, cardholderName, cardNumber, expirationDate, cvv } =
@@ -138,11 +159,12 @@ const PayForm = () => {
       confirmButtonColor: "#10B981",
       cancelButtonColor: "#F43F5E",
 
-      color: "#fff",
+      color: theme === "dark" ? "#fff" : "#333",
 
-      background: window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
-        : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
+      background:
+        theme === "dark"
+          ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
+          : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
 
       backdrop: `
       rgba(0,0,0,0.45)
@@ -157,6 +179,7 @@ const PayForm = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setOpen(true);
+        handleBook();
 
         setCardData({
           userEmail: "",
@@ -204,11 +227,12 @@ const PayForm = () => {
       confirmButtonColor: "#10B981",
       cancelButtonColor: "#F43F5E",
 
-      color: "#fff",
+      color: theme === "dark" ? "#fff" : "#333",
 
-      background: window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
-        : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
+      background:
+        theme === "dark"
+          ? "linear-gradient(to right, #1E2A47, #2B2C4E, #3C2F2F)"
+          : "linear-gradient(to right, #EFF6FF, #FFE8D6)",
 
       backdrop: `
       rgba(0,0,0,0.45)
@@ -223,6 +247,7 @@ const PayForm = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setOpen(true);
+        handleBook();
 
         setPayPalData({
           userEmail: "",
