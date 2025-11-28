@@ -3,17 +3,11 @@ import FlightFilter from "./components/FlightFilter";
 import CardFlight from "./components/CardFlight";
 import { useContext, useState } from "react";
 import { FlightContext } from "../../context/FlightContext";
-import {
-  Collapse,
-  Button,
-  Card,
-  Typography,
-  CardBody,
-} from "@material-tailwind/react";
+import { Collapse, Button } from "@material-tailwind/react";
 
 const Flights = () => {
-  const { flights } = useContext(FlightContext);
-  console.log(flights);
+  const { flights, getAllFlights } = useContext(FlightContext);
+  const [page, setPage] = useState(1);
 
   const [filters, setFilters] = useState({
     price: 1000,
@@ -105,9 +99,11 @@ const Flights = () => {
       return 0;
     });
 
-  const [open, setOpen] = useState(false);
-
-  const toggleOpen = () => setOpen((cur) => !cur);
+  const loadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    getAllFlights(nextPage, 5);
+  };
 
   return (
     <div className="dark:bg-dark-background dark:text-dark-primary">
@@ -131,23 +127,12 @@ const Flights = () => {
             )}
             <div className="flex w-full justify-center pt-8">
               <Button
-                onClick={toggleOpen}
+                onClick={loadMore}
                 variant="outlined"
                 className="rounded-full border-gradient-violet text-gradient-violet shadow-xl"
               >
                 Load More Flights
               </Button>
-            </div>
-
-            <div>
-              <Collapse open={open} className={open ? "overflow-visible" : ""}>
-                <div className="w-full flex flex-col gap-6">
-                  {filteredFlights.length > 0 &&
-                    filteredFlights.map((flight) => (
-                      <CardFlight key={flight._id} flight={flight} />
-                    ))}
-                </div>
-              </Collapse>
             </div>
           </div>
         </div>
