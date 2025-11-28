@@ -1,5 +1,4 @@
 import { Navigate, useNavigate } from "react-router-dom";
-import Login from "../pages/login/Login";
 import NotFound from "../pages/notFound/NotFound";
 import { useUser } from "./UserContext";
 
