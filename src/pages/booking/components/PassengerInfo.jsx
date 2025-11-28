@@ -2,19 +2,19 @@ import { CiUser } from "react-icons/ci";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { use, useState } from "react";
 import { useUser } from "../../../context/UserContext";
 
 const PassengerInfo = () => {
   const navigate = useNavigate();
   const { user } = useUser();
+  // console.log(user);
 
   const dbUser = {
-    firstName: "Jane",
-    lastName: "Doe",
-    email: "mahmoudnasser80@gmail.com",
-    phoneNumber: "01142070488",
-    password: "Password@123",
+    firstName: user?.firstName || "Mahmoud",
+    lastName: user?.lastName || "Nasser",
+    email: user?.email || "mahmoudnasser80m@gmail.com",
+    phoneNumber: user?.phoneNumber || "01012345678",
   };
 
   const [userInfo, setUserInfo] = useState({
@@ -66,7 +66,7 @@ const PassengerInfo = () => {
       !newErrors.phoneNumber &&
       !newErrors.passportNumber
     ) {
-      user.role !== "user" ? navigate("/admin/payment") : navigate("/payment");
+      user?.role !== "user" ? navigate("/admin/payment") : navigate("/payment");
     }
   };
 
@@ -194,7 +194,12 @@ const PassengerInfo = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3">
-        <button className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-gradient-violet text-gradient-violet hover:bg-gradient-violet hover:text-white transition-all duration-400" onClick={()=>{navigate(-1)}}>
+        <button
+          className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-gradient-violet text-gradient-violet hover:bg-gradient-violet hover:text-white transition-all duration-400"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
           Back
         </button>
         <button
