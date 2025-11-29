@@ -13,9 +13,10 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../context/UserContext";
 import { FlightContext } from "../../../context/FlightContext";
 import { usePassenger } from "../../../context/UsePassenger";
+import { useEffect } from "react";
 
 const FlightCard = () => {
-  // const { setPrices } = usePassenger();
+  const { setPrices } = usePassenger();
   const navigate = useNavigate();
   const { user } = useUser();
   const goBooking = () => {
@@ -33,8 +34,9 @@ const FlightCard = () => {
   const serviceCharge = Number((baseFare * 0.05).toFixed(2));
   const total = Number((baseFare + taxes + serviceCharge).toFixed(2));
   const prices = { taxes, serviceCharge, total };
-  // setPrices(prices);
-  
+  useEffect(() => {
+    setPrices(prices);
+  }, [price, setPrices]);
 
   return (
     <div className="flex justify-stretch lg:justify-center ">

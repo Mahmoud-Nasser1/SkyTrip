@@ -10,9 +10,11 @@ import { FlightContext } from "../../context/FlightContext";
 import Loading from "../../components/loading/Loading";
 import { useUser } from "../../context/UserContext";
 import { SavedFlightsContext } from "../../context/userFlights";
+import { usePassenger } from "./../../context/UsePassenger";
 
 const FlightsDetails = () => {
   const { flightId } = useParams();
+  const { setFlightId } = usePassenger();
   const { user } = useUser();
   const {
     savedFlights,
@@ -46,6 +48,7 @@ const FlightsDetails = () => {
 
   useEffect(() => {
     getOneFlight(flightId);
+    setFlightId(flightId);
   }, [flightId]);
 
   useEffect(() => {

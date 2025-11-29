@@ -34,6 +34,7 @@ import StepperWithContent from "../../booking/components/StepperWithContent";
 import Swal from "sweetalert2";
 import { useUser } from "../../../context/UserContext";
 import { BookingContext } from "../../../context/BookingContext";
+import { usePassenger } from "../../../context/UsePassenger";
 
 function formatCardNumber(value) {
   const val = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -70,25 +71,28 @@ const PayForm = () => {
   const handleOpen = () => setOpen(!open);
   const [error, setError] = useState("");
   const [cardData, setCardData] = useState({
-    userEmail: "",
+    userEmail: user.email,
     cardholderName: "",
     cardNumber: "",
     expirationDate: "",
     cvv: "",
   });
   const [paypalData, setPayPalData] = useState({
-    userEmail: "",
+    userEmail: user.email,
     country: "",
     postalCode: "",
   });
   const { addBooking } = useContext(BookingContext);
-  
+  const {
+    passenger: { firstName, lastName, phoneNumber, passportNumber },
+    flightId,
+  } = usePassenger();
   const formData = {
-    firstName: "Ahmed",
-    lastName: "Hussein",
-    phoneNumber: "010000000",
-    passportNumber: "A1234567",
-    flightIds: ["69189d136a35986e798958d5"],
+    firstName,
+    lastName,
+    phoneNumber,
+    passportNumber,
+    flightIds: [flightId],
     numberOfPassengers: 1,
   };
 
