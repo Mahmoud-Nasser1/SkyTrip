@@ -4,9 +4,11 @@ import { LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import { use, useState } from "react";
 import { useUser } from "../../../context/UserContext";
+import { usePassenger } from "../../../context/UsePassenger";
 
 const PassengerInfo = () => {
   const navigate = useNavigate();
+  const { setPassenger } = usePassenger();
   const { user } = useUser();
   // console.log(user);
 
@@ -66,6 +68,8 @@ const PassengerInfo = () => {
       !newErrors.phoneNumber &&
       !newErrors.passportNumber
     ) {
+      setPassenger(userInfo);
+      console.log("Passenger Info:", userInfo);
       user?.role !== "user" ? navigate("/admin/payment") : navigate("/payment");
     }
   };
