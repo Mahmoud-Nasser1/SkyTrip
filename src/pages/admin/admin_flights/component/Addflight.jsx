@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 export default function Addflight() {
   const [isOpen, setIsOpen] = useState(false);
   const { addFlight } = useContext(FlightContext);
-
+  
   const flightSchema = Yup.object().shape({
     flightId: Yup.string().required("Flight ID is required"),
     airline: Yup.string().required("Airline is required"),
@@ -16,6 +16,9 @@ export default function Addflight() {
     to: Yup.string().required("To city is required"),
     departure: Yup.string().required("Departure time is required"),
     arrival: Yup.string().required("Arrival time is required"),
+    duration: Yup.string().required("Duration is required"),     
+    cabinClass: Yup.string().required("Cabin class is required"), 
+    flightType: Yup.string().required("Flight type is required"), 
     capacity: Yup.number().required("Capacity is required").min(1, "Capacity must be at least 1"),
     flightDate: Yup.date().required("Flight Date is required"),
     price: Yup.number().required("Price is required").min(0, "Price must be at least 0")
@@ -23,15 +26,18 @@ export default function Addflight() {
 
   const formik = useFormik({
     initialValues: {
-      flightId: "",
-      airline: "",
-      from: "",
-      to: "",
-      departure: "",
-      arrival: "",
-      capacity: "",
-      flightDate: "",
-      price: "",
+  flightId: "",
+  airline: "",
+  from: "",
+  to: "",
+  departure: "",
+  arrival: "",
+  duration: "",
+  capacity: "",
+  flightDate: "",
+  price: "",
+  cabinClass: "",
+  flightType: "",
     },
     validationSchema: flightSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -40,8 +46,9 @@ const payload = {
   airline: values.airline,
   departureCity: values.from,
   arrivalCity: values.to,
-  departureTime: values.departure, 
-  arrivalTime: values.arrival,     
+  departureTime: values.departure,
+  arrivalTime: values.arrival,
+  duration: values.duration,
   passenger: values.capacity,
   cabinClass: values.cabinClass,
   flightType: values.flightType,
@@ -59,7 +66,7 @@ const payload = {
       }
     },
   });
-
+  
   return (
     <div className="flex justify-center">
       <button onClick={() => setIsOpen(true)} className="bg-gradient-to-r from-gradient-violet to-gradient-peach text-white px-4 sm:px-5 py-2 rounded-full shadow-md hover:opacity-90 transition-all text-sm sm:text-base">+ Add New Flight</button>
@@ -148,7 +155,7 @@ const payload = {
               </div>
 
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
-               <div>
+              <div>
                 <label htmlFor="capacity" className="text-sm font-medium text-black dark:text-white">Capacity</label>
                 <input id="capacity" name="capacity" type="number" placeholder="200" min="1" value={formik.values.capacity} onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"/>
                 {formik.touched.capacity && formik.errors.capacity && <div className="text-red-500 text-sm">{formik.errors.capacity}</div>}
@@ -164,22 +171,20 @@ const payload = {
             </div>
 
 
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
+            
             <div>
   <label htmlFor="price" className="text-sm font-medium text-black dark:text-white">Price</label>
-  <input
-    id="price"
-    name="price"
-    type="number"
-    min="0"
-    placeholder="100"
-    value={formik.values.price}
-    onChange={formik.handleChange}
-    onBlur={formik.handleBlur}
-    className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"
-  />
-  {formik.touched.price && formik.errors.price && (
-    <div className="text-red-500 text-sm">{formik.errors.price}</div>
-  )}
+  <input id="price" name="price" type="number" min="0" placeholder="100" value={formik.values.price} onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"/>
+  {formik.touched.price && formik.errors.price && (<div className="text-red-500 text-sm">{formik.errors.price}</div>)}
+            </div>
+
+            <div>
+  <label htmlFor="duration" className='text-sm font-medium text-black dark:text-white'>Duration</label>
+  <input id="duration" name="duration" type="text" placeholder="5h 20m" value={formik.values.duration} onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full mt-1 p-2 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-gradient-violet text-black text-sm sm:text-base"/>
+  {formik.touched.duration && formik.errors.duration && (<div className="text-red-500 text-sm">{formik.errors.duration}</div>)}
+</div>
+
             </div>
             
               <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4">

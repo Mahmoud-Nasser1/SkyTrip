@@ -56,6 +56,7 @@ export default function FlightContextProvider({ children }) {
     try {
       const res = await axios.post(`${url}api/v1/flights`, flightData);
       setFlights((prev) => [...prev, res.data.data]);
+      toast.success("Flight Updated successfully")
       return res.data;
     } catch (err) {
       console.error(
@@ -71,6 +72,8 @@ export default function FlightContextProvider({ children }) {
     try {
       const res = await axios.put(`${url}api/v1/flights/${id}`, updatedData);
       setFlights((prev) => prev.map((f) => (f._id === id ? res.data.data : f)));
+      setAdminFlights((prev) =>prev.map((f) => (f._id === id ? res.data.data : f)));
+      toast.success("Flight Updated successfully")
       return res.data;
     } catch (err) {
       console.error(
