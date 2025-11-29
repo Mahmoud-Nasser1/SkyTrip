@@ -13,9 +13,6 @@ const ProtectRoute = ({ children, allowedRole }) => {
   }
 
 
-
-
-
   
   if (user?.role !== allowedRole) {
     return <NotFound />;

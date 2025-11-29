@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import {
   Card,
   CardBody,
@@ -11,8 +12,10 @@ import { LuShield } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../context/UserContext";
 import { FlightContext } from "../../../context/FlightContext";
+import { usePassenger } from "../../../context/UsePassenger";
 
 const FlightCard = () => {
+  // const { setPrices } = usePassenger();
   const navigate = useNavigate();
   const { user } = useUser();
   const goBooking = () => {
@@ -30,6 +33,7 @@ const FlightCard = () => {
   const serviceCharge = Number((baseFare * 0.05).toFixed(2));
   const total = Number((baseFare + taxes + serviceCharge).toFixed(2));
   const prices = { taxes, serviceCharge, total };
+  // setPrices(prices);
   
 
   return (
