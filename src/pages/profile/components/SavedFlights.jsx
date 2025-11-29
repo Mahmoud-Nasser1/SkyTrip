@@ -7,12 +7,17 @@ import { SavedFlightsContext } from "../../../context/userFlights";
 
 const SavedFlights = () => {
   const { user } = useUser();
-  const { savedFlights, loadingSavedFlights, unsaveFlight } =
+  const { savedFlights, loadingSavedFlights,getSavedFlights, unsaveFlight } =
     useContext(SavedFlightsContext);
   const navigate = useNavigate();
 
   const userId = user?.id;
 
+ useEffect(() => {
+    if (userId) {
+      getSavedFlights(userId);
+    }
+  }, []);
 
   if (loadingSavedFlights) return <Loading />;
   if (savedFlights.length === 0) {
