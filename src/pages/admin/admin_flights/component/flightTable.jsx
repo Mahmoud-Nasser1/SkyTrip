@@ -4,11 +4,13 @@ import { FiEye, FiEdit, FiTrash2 } from "react-icons/fi";
 import { FlightContext } from "../../../../context/FlightContext";
 import timeConverter from "../../../../hooks/timeConverter";
 import EditFlight from "./editFlight.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function FlightTable({ search }) {
   const { adminFlights, deleteFlight } = useContext(FlightContext);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [selectedFlight, setSelectedFlight] = useState(null);
+  const navigate = useNavigate();
 
   const filteredFlights = adminFlights.filter((flight) =>
     flight.flightNumber.toLowerCase().includes(search.toLowerCase())
@@ -58,7 +60,7 @@ export default function FlightTable({ search }) {
                   <td className="px-9 py-3">{flight.passenger}</td>
 
                   <td className="px-4 py-3 text-lg flex gap-4">
-                    <FiEye className="cursor-pointer text-blue-500" />
+                    <FiEye className="cursor-pointer text-blue-500" onClick={() => navigate(`/flights/${flight._id}`)}/>
                     <FiEdit
                       className="cursor-pointer text-yellow-500"
                       onClick={() => {
@@ -98,7 +100,7 @@ export default function FlightTable({ search }) {
               </h3>
 
               <div className="flex gap-3 text-lg">
-                <FiEye className="cursor-pointer text-blue-500" />
+                <FiEye className="cursor-pointer text-blue-500" onClick={() => navigate(`/flights/${flight._id}`)} />
                 <FiEdit
                   className="cursor-pointer text-yellow-500"
                   onClick={() => {
