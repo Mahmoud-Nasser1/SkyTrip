@@ -10,12 +10,27 @@ import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 import StepperWithContent from "../booking/components/StepperWithContent";
 import { CiUser } from "react-icons/ci";
 import { useUser } from "../../context/UserContext";
+import { usePassenger } from "./../../context/UsePassenger";
+import { useContext } from "react";
+import { FlightContext } from "../../context/FlightContext";
 
 const Payment = () => {
-  const [cvv, setCvv] = React.useState("");
-  const [cardNumber, setCardNumber] = React.useState("");
-  const [expirationDate, setExpirationDate] = React.useState("");
-  const [cardholderName, setCardholderName] = React.useState("");
+  const {
+    passenger: { firstName, lastName, phoneNumber, passportNumber },
+    prices: { taxes, serviceCharge, total },
+  } = usePassenger();
+  const {
+    flight: {
+      departureTime,
+      departureCity,
+      duration,
+      arrivalTime,
+      arrivalCity,
+      cabinClass,
+      flightDate,
+      price,
+    },
+  } = useContext(FlightContext);
   const navigate = useNavigate();
   const { user } = useUser();
   const goToForm = () => {
@@ -43,23 +58,23 @@ const Payment = () => {
           <div className="flex flex-col gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-orange-50 dark:bg-gradient-to-br dark:from-[#1E2A47] dark:via-[#2B2C4E] dark:to-[#3C2F2F]">
             <h1 className="font-semibold text-lg ">Payment Summary</h1>
             <section className="flex justify-between">
-              <h2>New York (JFK) → Paris (CDG)</h2>
-              <h4>$599</h4>
+              <h2>{departureCity} → {arrivalCity}</h2>
+              <h4>${price}</h4>
             </section>
             <section className="flex justify-between">
               <h2>Taxes & Fees</h2>
-              <h4>$90</h4>
+              <h4>${taxes}</h4>
             </section>
             <section className="flex justify-between">
               <h2>Service Charge</h2>
-              <h4>$25</h4>
+              <h4>${serviceCharge}</h4>
             </section>
 
             <hr className="my-3 border-t border-gray-500" />
 
             <section className="flex justify-between text-lg font-medium">
               <h2>Total Amount</h2>
-              <h4 className="text-gradient-violet">$714</h4>
+              <h4 className="text-gradient-violet">${total}</h4>
             </section>
           </div>
           <form action="">
@@ -78,7 +93,7 @@ const Payment = () => {
                   </label>
                   <input
                     type="text"
-                    value="John"
+                    value={firstName}
                     className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
               dark:focus:border-gradient-violet
               dark:bg-dark-popover
@@ -101,7 +116,7 @@ const Payment = () => {
                   </label>
                   <input
                     type="text"
-                    value="Doe"
+                    value={lastName}
                     className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
               dark:focus:border-gradient-violet
               dark:bg-dark-popover
@@ -122,7 +137,7 @@ const Payment = () => {
                 </label>
                 <input
                   type="text"
-                  value="+1 234 567 890"
+                  value={phoneNumber}
                   className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
               dark:focus:border-gradient-violet
               dark:bg-dark-popover
@@ -142,7 +157,7 @@ const Payment = () => {
                 </label>
                 <input
                   type="text"
-                  value="AB1234567"
+                  value={passportNumber}
                   className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:!border-gradient-violet focus:ring-0 focus:border-2 outline-none bg-white text-gray-700 dark:border-dark-secondary
               dark:focus:border-gradient-violet
               dark:bg-dark-popover

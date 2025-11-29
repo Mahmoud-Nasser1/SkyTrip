@@ -2,7 +2,7 @@ import { CiUser } from "react-icons/ci";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { LuCreditCard } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useUser } from "../../../context/UserContext";
 import { usePassenger } from "../../../context/UsePassenger";
 
@@ -10,13 +10,12 @@ const PassengerInfo = () => {
   const navigate = useNavigate();
   const { setPassenger } = usePassenger();
   const { user } = useUser();
-  // console.log(user);
 
   const dbUser = {
-    firstName: user?.firstName || "Mahmoud",
-    lastName: user?.lastName || "Nasser",
-    email: user?.email || "mahmoudnasser80m@gmail.com",
-    phoneNumber: user?.phoneNumber || "01012345678",
+    firstName: user?.firstName || "",
+    lastName: user?.lastName || "",
+    email: user?.email || "",
+    phoneNumber: user?.phoneNumber || "",
   };
 
   const [userInfo, setUserInfo] = useState({
@@ -32,6 +31,17 @@ const PassengerInfo = () => {
     phoneNumber: "",
     passportNumber: "",
   });
+
+  useEffect(() => {
+    if (user) {
+      setUserInfo({
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        phoneNumber: user.phoneNumber || "",
+        passportNumber: "A123456",
+      });
+    }
+  }, [user]);
 
   let phoneCheck = /^(?:\+20|0020)?01[0125][0-9]{8}$/;
   let passportCheck = /^[A-Z0-9]{6,9}$/;

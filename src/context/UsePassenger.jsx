@@ -5,7 +5,12 @@ const PassengerContext = createContext();
 export const usePassenger = () => useContext(PassengerContext);
 
 export default function PassengerProvider({ children }) {
-  const [passenger, setPassenger] = useState({});
+  const [passenger, setPassenger] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    passportNumber: "",
+  });
   const [prices, setPrices] = useState({});
   const [flightId, setFlightId] = useState("");
 
