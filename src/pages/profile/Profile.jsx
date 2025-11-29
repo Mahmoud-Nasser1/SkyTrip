@@ -13,11 +13,7 @@ const Profile = () => {
 
   const userId = user?.id;
 
-  const { data, loading } = useFetch(
-    userId
-      ? `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}`
-      : null
-  );
+  const { data, loading } = useFetch( `https://sky-trip-back-end.vercel.app/api/v1/users/${userId}` );
 
   useEffect(() => {
     if (data) {
