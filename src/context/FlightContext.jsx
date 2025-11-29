@@ -89,6 +89,7 @@ export default function FlightContextProvider({ children }) {
     try {
       await axios.delete(`${url}api/v1/flights/${id}`);
       setFlights((prev) => prev.filter((f) => f._id !== id));
+      setAdminFlights((prev) => prev.filter((f) => f._id !== id));
       toast.success("Flight deleted successfully");
     } catch (err) {
       console.error(
