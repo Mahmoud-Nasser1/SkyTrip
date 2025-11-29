@@ -67,11 +67,6 @@ export default function SavedFlightsProvider({ children }) {
     }
   };
 
-  useEffect(() => {
-    if (user?.id) {
-      getSavedFlights(user.id);
-    }
-  }, [user]);
 
   return (
     <SavedFlightsContext.Provider
