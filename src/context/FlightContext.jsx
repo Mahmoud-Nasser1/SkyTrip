@@ -6,6 +6,7 @@ export const FlightContext = createContext();
 
 export default function FlightContextProvider({ children }) {
   const [flights, setFlights] = useState([]);
+  const [adminFlights, setAdminFlights] = useState([]);
   const [flight, setFlight] = useState({});
   const [loading, setLoading] = useState(true);
   const url = "https://sky-trip-back-end.vercel.app/";
@@ -24,7 +25,15 @@ export default function FlightContextProvider({ children }) {
     } catch (error) {
       console.log(error.message);
     }
-    setLoading(false);
+  }
+
+  async function getAllFlightsAdmin() {
+    try {
+      const res = await axios.get(`${url}api/v1/flights?all=true`);
+      setAdminFlights(res.data.data);
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   const getOneFlight = async (id) => {
@@ -89,16 +98,26 @@ export default function FlightContextProvider({ children }) {
   };
 
   useEffect(() => {
-    getAllFlights(1, 5);
+    async function fetchData() {
+      await getAllFlightsAdmin();
+      await getAllFlights(1, 5);
+      console.log(adminFlights,flights);
+      
+      setLoading(false);
+    }
+
+    fetchData();
   }, []);
 
   return (
     <FlightContext.Provider
       value={{
         flights,
+        adminFlights,
         flight,
         loading,
         getAllFlights,
+        getAllFlightsAdmin,
         getOneFlight,
         addFlight,
         updateFlight,
