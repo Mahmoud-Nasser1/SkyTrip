@@ -5,7 +5,6 @@ import ProtectRoute from "./context/ProtectRoute";
 import PersonContextProvider from "./context/PersonContext";
 import { UserProvider } from "./context/UserContext";
 import { Toaster } from "react-hot-toast";
-import PassengerContextProvider from "./context/UsePassenger";
 import PassengerProvider from "./context/UsePassenger";
 
 const FlightContextProvider = lazy(() => import("./context/FlightContext"));
@@ -19,39 +18,35 @@ const App = () => {
     <PersonContextProvider>
       <UserProvider>
         <Suspense fallback={<Loading />}>
-          <BookingContextProvider>
-            <Suspense fallback={<Loading />}>
-              <FlightContextProvider>
-                <PassengerProvider>
-                  <Suspense fallback={<Loading />}>
-                    <SavedFlightsProvider>
-                      <Toaster position="bottom-left" reverseOrder={false} />
-                      <Routes>
-                        <Route
-                          path="/admin/*"
-                          element={
-                            <ProtectRoute allowedRole="admin">
-                              <Suspense fallback={<Loading />}>
-                                <AdminnLayout />
-                              </Suspense>
-                            </ProtectRoute>
-                          }
-                        />
-                        <Route
-                          path="/*"
-                          element={
-                            <Suspense fallback={<Loading />}>
-                              <UserLayout />
-                            </Suspense>
-                          }
-                        />
-                      </Routes>
-                    </SavedFlightsProvider>
-                  </Suspense>
-                </PassengerProvider>
-              </FlightContextProvider>
-            </Suspense>
-          </BookingContextProvider>
+          <FlightContextProvider>
+            <PassengerProvider>
+              <SavedFlightsProvider>
+                <BookingContextProvider>
+                  <Toaster position="bottom-left" reverseOrder={false} />
+                  <Routes>
+                    <Route
+                      path="/admin/*"
+                      element={
+                        <ProtectRoute allowedRole="admin">
+                          <Suspense fallback={<Loading />}>
+                            <AdminnLayout />
+                          </Suspense>
+                        </ProtectRoute>
+                      }
+                    />
+                    <Route
+                      path="/*"
+                      element={
+                        <Suspense fallback={<Loading />}>
+                          <UserLayout />
+                        </Suspense>
+                      }
+                    />
+                  </Routes>
+                </BookingContextProvider>
+              </SavedFlightsProvider>
+            </PassengerProvider>
+          </FlightContextProvider>
         </Suspense>
       </UserProvider>
     </PersonContextProvider>
