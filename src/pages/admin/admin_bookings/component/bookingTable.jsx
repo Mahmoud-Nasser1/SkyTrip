@@ -80,7 +80,7 @@ export default function BookingTable({ search }) {
           return <>
           <div key={b._id} className="border dark:border-gray-700 p-4 rounded-xl bg-white dark:bg-[#10161E]">
               <div className="flex justify-between">
-                <span className="font-semibold">{b.bookingCode}</span>
+                <span className="font-semibold text-black">{b.bookingCode}</span>
                 <div className="flex gap-3 text-lg">
                   <FiEye className="text-blue-500" />
                   <FiEdit className="text-yellow-500" onClick={() => {setSelectedBooking(b); setIsEditOpen(true);}}/>
