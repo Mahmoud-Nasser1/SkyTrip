@@ -95,7 +95,7 @@ export default function FlightTable({ search }) {
             className="bg-white dark:bg-[#10161E] border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-md"
           >
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold text-black">
+              <h3 className="text-lg font-semibold text-black dark:text-white">
                 {flight.flightNumber} - {flight.airline}
               </h3>
 
@@ -115,20 +115,20 @@ export default function FlightTable({ search }) {
               </div>
             </div>
 
-            <p className="text-sm mb-1 text-gray-700">
+            <p className="text-sm mb-1 text-gray-700 dark:text-white">
               <strong>Route:</strong> {flight.departureCity} →{" "}
               {flight.arrivalCity}
             </p>
-            <p className="text-sm flex items-center gap-2 mb-1 text-gray-700">
+            <p className="text-sm flex items-center gap-2 mb-1 text-gray-700 dark:text-white">
               <MdAccessTime /> <strong>Departure:</strong>{" "}
               {timeConverter(flight.departureTime)}
             </p>
-            <p className="text-sm flex items-center gap-2 mb-1 text-gray-700">
+            <p className="text-sm flex items-center gap-2 mb-1 text-gray-700 dark:text-white">
               <MdAccessTime /> <strong>Arrival:</strong>{" "}
               {timeConverter(flight.arrivalTime)}
             </p>
 
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-gray-700 dark:text-white">
               <strong>Capacity:</strong> {flight.passenger}
             </p>
           </div>

@@ -59,7 +59,7 @@ export default function UserTable({ search }) {
         {filteredUsers.map(user => (
           <div key={user._id} className="bg-white dark:bg-[#10161E] border border-gray-300 dark:border-gray-700 rounded-xl p-4 shadow-md">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-lg font-semibold text-black">{user._id.slice(0, 4)} - {user.firstName}</h3>
+              <h3 className="text-lg font-semibold text-black dark:text-white">{user._id.slice(0, 4)} - {user.firstName}</h3>
               <div className="flex gap-3 text-lg">
                 <FiEye className="cursor-pointer text-blue-500" />
                 <FiEdit className="cursor-pointer text-yellow-500" />
