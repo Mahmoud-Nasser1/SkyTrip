@@ -6,8 +6,8 @@ import { PiAirplaneTiltLight } from 'react-icons/pi';
 export default function DashBoard() {
   return (
     <>
-      <div className="overview mt-8 sm:mt-16 px-4 sm:px-0">
-        <h1 className="text-black dark:text-white text-xl sm:text-2xl font-semibold">
+      <div className="overview mt-14 px-4 sm:px-0">
+        <h1 className="text-black dark:text-white text-xl sm:text-2xl font-semibold sm:mt-15">
           Dashboard Overview
         </h1>
         <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
