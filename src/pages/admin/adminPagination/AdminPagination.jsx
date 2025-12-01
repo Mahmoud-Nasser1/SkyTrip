@@ -44,10 +44,10 @@ export default function AdminPagination() {
       forcePage={currentPage}
       onPageChange={handlePageClick}
       containerClassName="flex justify-center mt-6 space-x-2 md:hidden"
-      pageClassName="px-4 py-2 border rounded cursor-pointer bg-gradient-to-r from-gradient-violet to-gradient-peach text-white dark:bg-gray-700 dark:text-white"
-      activeClassName="bg-blue-500 text-white"
-      previousClassName="px-4 py-2 border rounded cursor-pointer bg-gradient-to-r from-gradient-violet to-gradient-peach text-white dark:bg-gray-700 dark:text-white"
-      nextClassName="px-4 py-2 border rounded cursor-pointer bg-gradient-to-r from-gradient-violet to-gradient-peach text-white dark:bg-gray-700 dark:text-white"
+      pageClassName="px-4 py-2 border rounded cursor-pointer bg-white text-black border-gray-300 dark:bg-[#10161E] dark:text-white dark:border-gray-600"
+      activeClassName="bg-gradient-to-r from-gradient-violet to-gradient-peach text-white"
+      previousClassName="px-4 py-2 border rounded cursor-pointer bg-white text-black border-gray-300 dark:bg-[#10161E] dark:text-white dark:border-gray-600"
+      nextClassName="px-4 py-2 border rounded cursor-pointer bg-white text-black border-gray-300 dark:bg-[#10161E] dark:text-white dark:border-gray-600"
     />
   );
 }
