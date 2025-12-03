@@ -22,6 +22,7 @@ const SearchFlight = () => {
       !searchData.passengers
     ) {
       alert("Please fill all fields.");
+      return;
     }
 
     const passengersNeeded =
