@@ -6,7 +6,7 @@ const NotFound = () => {
     navigate("/");
   };
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden flex items-center justify-center mb-16 p-6">
+    <section className="dark:bg-dark-background relative min-h-screen bg-white overflow-hidden flex items-center justify-center mb-16 p-6">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-purple-300 blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-60 h-60 bg-cyan-300 blur-3xl"></div>
@@ -22,12 +22,12 @@ const NotFound = () => {
               <span className="absolute inset-0 text-cyan-400 opacity-70 animate-glitch-2">
                 404
               </span>
-              <span className="relative">404</span>
+              <span className="relative dark:text-white">404 </span>
             </span>
           </h1>
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-black mb-6 dark:text-white">
           Page Not Found
         </h2>
 
