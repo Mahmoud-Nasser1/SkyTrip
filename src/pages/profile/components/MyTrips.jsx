@@ -49,14 +49,12 @@ const MyTrips = () => {
           >
             <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
               <div className="flex flex-col gap-4">
-                <div className="space-y-2">
-                  {bookingFlights.map((flight, index) => (
-                    <div key={index} className="space-y-1">
+                    <div className="space-y-2">
                       <p className="text-base font-bold text-gray-900 dark:text-white">
-                        {flight.departureCity} → {flight.arrivalCity}
+                        {bookingFlights[0].departureCity} → {bookingFlights[0].arrivalCity}
                       </p>
                       <p className="text-sm text-gray-500 dark:text-white">
-                        {new Date(flight.flightDate).toLocaleDateString(
+                        {new Date(bookingFlights[0].flightDate).toLocaleDateString(
                           "en-GB",
                           {
                             day: "2-digit",
@@ -65,22 +63,20 @@ const MyTrips = () => {
                           }
                         )}
                       </p>
-                    </div>
-                  ))}
-                </div>
 
                 <div className="flex flex-wrap">
                   <Button
                     size="md"
                     variant="outlined"
                     className="capitalize rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-gradient-main dark:bg-gradient-main dark:text-white"
-                    onClick={() => navigate(`/flights/${_id}`)}
+                    onClick={() => navigate(`/flights/${bookingFlights[0]._id}`)}
                   >
                     View Details
                   </Button>
+                  </div>
                 </div>
-              </div>
-
+                </div>
+                      
               <div className="flex flex-col gap-4 items-center md:items-end">
                 <Chip
                   value={status}
