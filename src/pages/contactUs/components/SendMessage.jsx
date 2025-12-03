@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail, MdSubject } from "react-icons/md";
+import { useUser } from "../../../context/UserContext";
 
 const SendMessage = () => {
   //   const navigate = useNavigate();
@@ -8,17 +9,11 @@ const SendMessage = () => {
   //     navigate("/payment");
   //   };
 
-  const dbUser = {
-    firstName: "Jane",
-    lastName: "Doe",
-    email: "mahmoudnasser80@gmail.com",
-    phoneNumber: "01142070488",
-    password: "Password@123",
-  };
+  const { user } = useUser();
 
   const [userInfo, setUserInfo] = useState({
-    fullName: dbUser.firstName + dbUser.lastName,
-    email: dbUser.email,
+    fullName: user.firstName + user.lastName,
+    email: user.email,
     subject: "",
     message: "",
   });
@@ -50,7 +45,6 @@ const SendMessage = () => {
           : "",
     };
     setErrors(newErrors);
-    
   };
 
   return (
