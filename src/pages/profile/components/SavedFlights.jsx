@@ -4,14 +4,20 @@ import { useUser } from "../../../context/UserContext";
 import { useEffect, useContext } from "react";
 import Loading from "../../../components/loading/Loading";
 import { SavedFlightsContext } from "../../../context/userFlights";
+import { FlightContext } from "../../../context/FlightContext";
 
 const SavedFlights = () => {
   const { user } = useUser();
   const { savedFlights, loadingSavedFlights,getSavedFlights, unsaveFlight } =
     useContext(SavedFlightsContext);
   const navigate = useNavigate();
-
+const { getOneFlight } = useContext(FlightContext);
   const userId = user?.id;
+
+const goBooking = async (flightId) => {
+  await getOneFlight(flightId);  
+  navigate("/booking");    
+};
 
  useEffect(() => {
     if (userId) {
@@ -68,7 +74,7 @@ const SavedFlights = () => {
                     <Button
                       size="md"
                       className="rounded-full px-6 bg-gradient-main hover:shadow-blue-gray-100"
-                      onClick={() => navigate("/booking")}
+                      onClick={() => goBooking(_id)}
                     >
                       Book Now
                     </Button>
