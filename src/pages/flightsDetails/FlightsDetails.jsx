@@ -57,6 +57,12 @@ const FlightsDetails = () => {
     setCheckingSaved(false);
   }, [savedFlights, flightId]);
 
+  useEffect(() => {
+    if (user?.id) {
+      getSavedFlights(user.id);
+    }
+  }, [user]);
+
   return (
     <div className="dark:bg-dark-background dark:text-dark-primary">
       {loading ? (
@@ -66,25 +72,27 @@ const FlightsDetails = () => {
           <div className="w-full lg:w-3/4 flex flex-col gap-6">
             <FlightStepper />
             <FlightSummery />
-            <Button
-              onClick={handleSave}
-              disabled={checkingSaved || saving || loadingSavedFlights}
-              className="bg-gradient-violet py-4 text-base rounded-3xl flex justify-center items-center gap-4"
-            >
-              {checkingSaved || loadingSavedFlights ? (
-                "Loading..."
-              ) : saving ? (
-                "Processing..."
-              ) : saved ? (
-                <>
-                  <FaBookmark /> Flight saved
-                </>
-              ) : (
-                <>
-                  <FaRegBookmark /> Save Flight
-                </>
-              )}
-            </Button>
+            {user.role != "admin" && (
+              <Button
+                onClick={handleSave}
+                disabled={checkingSaved || saving || loadingSavedFlights}
+                className="bg-gradient-violet py-4 text-base rounded-3xl flex justify-center items-center gap-4"
+              >
+                {checkingSaved || loadingSavedFlights ? (
+                  "Loading..."
+                ) : saving ? (
+                  "Processing..."
+                ) : saved ? (
+                  <>
+                    <FaBookmark /> Flight saved
+                  </>
+                ) : (
+                  <>
+                    <FaRegBookmark /> Save Flight
+                  </>
+                )}
+              </Button>
+            )}
 
             <FlightTaps />
           </div>
