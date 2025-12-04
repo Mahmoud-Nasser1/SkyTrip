@@ -18,7 +18,13 @@ const MyTrips = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setTrips(data.data);
+        const allFlights = data.data.flatMap((booking) =>
+          booking.bookingFlights.map((flight) => ({
+            ...flight,
+            status: booking.status,
+          }))
+        );
+        setTrips(allFlights);
         setLoading(false);
       })
       .catch((err) => {
@@ -41,59 +47,60 @@ const MyTrips = () => {
       <h1 className="mb-4 text-gray-800 dark:text-white">My Trips</h1>
 
       <div className="space-y-6">
-        {trips.map(({ _id, bookingFlights, totalPrice, status }) => (
-          <Card
-            key={_id}
-            className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30
-              hover:scale-[1.01] hover:border-gradient-violet duration-500 dark:bg-dark-muted dark:border-dark-border"
-          >
-            <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
-              <div className="flex flex-col gap-4">
-                    <div className="space-y-2">
+        {trips.map(
+          ({ _id, departureCity, arrivalCity, price, flightDate, status }) => (
+            <Card
+              key={_id}
+              className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30
+
+              <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
+                <div className="flex flex-col gap-4">
+                  <div className="space-y-2">
+                    <div  className="space-y-1">
                       <p className="text-base font-bold text-gray-900 dark:text-white">
-                        {bookingFlights[0].departureCity} → {bookingFlights[0].arrivalCity}
+                        {departureCity} → {arrivalCity}
                       </p>
                       <p className="text-sm text-gray-500 dark:text-white">
-                        {new Date(bookingFlights[0].flightDate).toLocaleDateString(
-                          "en-GB",
-                          {
-                            day: "2-digit",
-                            month: "short",
-                            year: "numeric",
-                          }
-                        )}
+                        {new Date(flightDate).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })}
                       </p>
+                    </div>
+                  </div>
 
-                <div className="flex flex-wrap">
-                  <Button
-                    size="md"
-                    variant="outlined"
-                    className="capitalize rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-gradient-main dark:bg-gradient-main dark:text-white"
-                    onClick={() => navigate(`/flights/${bookingFlights[0]._id}`)}
-                  >
-                    View Details
-                  </Button>
+                  <div className="flex flex-wrap">
+                    <Button
+                      size="md"
+                      variant="outlined"
+                      className="capitalize rounded-full px-6 border-purple-600 text-purple-600 hover:text-white hover:bg-gradient-main dark:bg-gradient-main dark:text-white"
+                      onClick={() => navigate(`/flights/${_id}`)}
+                    >
+                      View Details
+                    </Button>
                   </div>
                 </div>
+
+                <div className="flex flex-col gap-4 items-center md:items-end">
+                  <Chip
+                    value={status}
+                    size="sm"
+                    className={`rounded-full px-3 py-1 text-xs ${
+                      status === "confirmed"
+                        ? "bg-green-100 text-green-400"
+                        : "bg-orange-100 text-orange-400"
+                    }`}
+                  />
+                  <p className="text-lg text-purple-400 dark:text-white">
+                    ${price}
+                  </p>
                 </div>
-                      
-              <div className="flex flex-col gap-4 items-center md:items-end">
-                <Chip
-                  value={status}
-                  size="sm"
-                  className={`rounded-full px-3 py-1 text-xs ${
-                    status === "confirmed"
-                      ? "bg-green-100 text-green-400"
-                      : "bg-orange-100 text-orange-400"
-                  }`}
-                />
-                <p className="text-lg text-purple-400 dark:text-white">
-                  ${totalPrice}
-                </p>
+          
               </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          )
+        )}
       </div>
     </div>
   );
