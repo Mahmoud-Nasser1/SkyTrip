@@ -51,7 +51,7 @@ const MyTrips = () => {
           ({ _id, departureCity, arrivalCity, price, flightDate, status }) => (
             <Card
               key={_id}
-              className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30
+              className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30 
               hover:scale-[1.01] hover:border-gradient-violet duration-500 dark:bg-dark-muted dark:border-dark-border"
             >
               <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
@@ -88,7 +88,7 @@ const MyTrips = () => {
                     value={status}
                     size="sm"
                     className={`rounded-full px-3 py-1 text-xs ${
-                      status === "confirmed"
+                      status === "Confirmed"
                         ? "bg-green-100 text-green-400"
                         : "bg-orange-100 text-orange-400"
                     }`}
