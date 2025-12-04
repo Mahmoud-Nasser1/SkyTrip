@@ -72,27 +72,26 @@ const FlightsDetails = () => {
           <div className="w-full lg:w-3/4 flex flex-col gap-6">
             <FlightStepper />
             <FlightSummery />
-            {user.role != "admin" && (
-              <Button
-                onClick={handleSave}
-                disabled={checkingSaved || saving || loadingSavedFlights}
-                className="bg-gradient-violet py-4 text-base rounded-3xl flex justify-center items-center gap-4"
-              >
-                {checkingSaved || loadingSavedFlights ? (
-                  "Loading..."
-                ) : saving ? (
-                  "Processing..."
-                ) : saved ? (
-                  <>
-                    <FaBookmark /> Flight saved
-                  </>
-                ) : (
-                  <>
-                    <FaRegBookmark /> Save Flight
-                  </>
-                )}
-              </Button>
-            )}
+
+            <Button
+              onClick={handleSave}
+              disabled={checkingSaved || saving || loadingSavedFlights}
+              className="bg-gradient-violet py-4 text-base rounded-3xl flex justify-center items-center gap-4"
+            >
+              {checkingSaved || loadingSavedFlights ? (
+                "Loading..."
+              ) : saving ? (
+                "Processing..."
+              ) : saved ? (
+                <>
+                  <FaBookmark /> Flight saved
+                </>
+              ) : (
+                <>
+                  <FaRegBookmark /> Save Flight
+                </>
+              )}
+            </Button>
 
             <FlightTaps />
           </div>

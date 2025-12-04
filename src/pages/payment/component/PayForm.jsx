@@ -267,9 +267,7 @@ const PayForm = () => {
     navigate("/");
   };
   const goUserTrips = () => {
-    user.role !== "user"
-      ? navigate("/admin/adminnn/bookings")
-      : navigate("/profile/trips");
+    navigate("/profile/trips");
   };
   return (
     <div className="md:w-3/5 md:container md:mx-auto mx-0 w-full p-10 gap-6 flex flex-col py-24 dark:bg-dark-background dark:text-dark-primary">
