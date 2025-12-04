@@ -57,7 +57,7 @@ const MyTrips = () => {
               <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
                 <div className="flex flex-col gap-4">
                   <div className="space-y-2">
-                    <div  className="space-y-1">
+                    <div className="space-y-1">
                       <p className="text-base font-bold text-gray-900 dark:text-white">
                         {departureCity} → {arrivalCity}
                       </p>
