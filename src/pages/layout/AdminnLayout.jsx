@@ -19,7 +19,9 @@ const FeaturedDestinationsDetails = lazy(() =>
 
 const AdminLayout = lazy(() => import("./../admin/admin_layout/AdminLayout"));
 const DashBoard = lazy(() => import("../admin/admin_dashboard/DashBoard"));
-const AdminBookings = lazy(() => import("../admin/admin_bookings/AdminBookings"));
+const AdminBookings = lazy(() =>
+  import("../admin/admin_bookings/AdminBookings")
+);
 const AdminFlights = lazy(() => import("../admin/admin_flights/AdminFlights"));
 const Payments = lazy(() => import("../admin/admin_payments/Payments"));
 const Users = lazy(() => import("../admin/admin_users/Users"));
@@ -31,66 +33,10 @@ const AdminnLayout = () => {
       <Header />
       <Routes>
         <Route
-          index
-          element={
-            <Suspense fallback={<Loading />}>
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
           path="booking"
           element={
             <Suspense fallback={<Loading />}>
               <Booking />
-            </Suspense>
-          }
-        />
-        <Route
-          path="about-us"
-          element={
-            <Suspense fallback={<Loading />}>
-              <AboutUs />
-            </Suspense>
-          }
-        />
-        <Route
-          path="featured-destinations-details/:cityId"
-          element={
-            <Suspense fallback={<Loading />}>
-              <FeaturedDestinationsDetails />
-            </Suspense>
-          }
-        />
-        <Route
-          path="flights"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Flights />
-            </Suspense>
-          }
-        />
-        <Route
-          path="flights/:flightId"
-          element={
-            <Suspense fallback={<Loading />}>
-              <FlightsDetails />
-            </Suspense>
-          }
-        />
-        <Route
-          path="contact-us"
-          element={
-            <Suspense fallback={<Loading />}>
-              <ContactUs />
-            </Suspense>
-          }
-        />
-        <Route
-          path="profile/:tabId"
-          element={
-            <Suspense fallback={<Loading />}>
-              <Profile />
             </Suspense>
           }
         />
