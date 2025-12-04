@@ -52,6 +52,7 @@ const MyTrips = () => {
             <Card
               key={_id}
               className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30
+              >
 
               <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
                 <div className="flex flex-col gap-4">
