@@ -64,7 +64,6 @@ export default function BookingTable({ search }) {
                         </td>
                         <td className="px-4 py-3">
                           <div className="flex gap-3">
-                            <FiEye className="cursor-pointer text-blue-500 text-lg" />
                             <FiEdit
                               className="cursor-pointer text-yellow-500 text-lg"
                               onClick={() => {
@@ -108,7 +107,6 @@ export default function BookingTable({ search }) {
                       {b.bookingCode}
                     </span>
                     <div className="flex gap-3 text-lg">
-                      <FiEye className="text-blue-500" />
                       <FiEdit
                         className="text-yellow-500"
                         onClick={() => {

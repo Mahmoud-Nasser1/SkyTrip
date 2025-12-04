@@ -4,6 +4,8 @@ import { FlightContext } from "../../../../context/FlightContext";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { useFormik } from "formik";
+import countryConverter from "../../../../hooks/countryConverter";
+import timeConverter from "../../../../hooks/timeConverter";
 
 export default function EditFlight({ isOpen, setIsOpen, flight }) {
   const { updateFlight } = useContext(FlightContext);
@@ -40,10 +42,10 @@ export default function EditFlight({ isOpen, setIsOpen, flight }) {
       const payload = {
         flightNumber: values.flightId,
         airline: values.airline,
-        departureCity: values.from,
-        arrivalCity: values.to,
-        departureTime: values.departure,
-        arrivalTime: values.arrival,
+        departureCity: countryConverter(values.from), 
+        arrivalCity: countryConverter(values.to), 
+        departureTime: timeConverter(values.departure), 
+        arrivalTime: timeConverter(values.arrival), 
         passenger: values.capacity,
         cabinClass: values.cabinClass,   
         flightType: values.flightType, 
