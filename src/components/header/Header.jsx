@@ -127,26 +127,32 @@ export default function Header() {
                 </button>
 
                 <ul className="absolute right-0 mt-2 w-40 bg-white dark:bg-dark-card shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2">
-                    {user?.role === "admin" ? (
+                  {user?.role === "admin" && (
+                    <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2">
                       <Link
                         to="/admin/adminnn"
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 w-full"
                       >
                         <FaUserCircle className="w-5 h-5 text-gradient-violet" />
                         <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
                           Dashboard
                         </span>
                       </Link>
-                    ) : (
-                      <Link to="/profile/info" className="flex items-center gap-2">
-                        <FaUserCircle className="w-5 h-5 text-gradient-violet" />
-                        <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
-                          Profile
-                        </span>
-                      </Link>
-                    )}
+                    </li>
+                  )}
+
+                  <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2">
+                    <Link
+                      to="/profile/info"
+                      className="flex items-center gap-2 w-full"
+                    >
+                      <FaUserCircle className="w-5 h-5 text-gradient-violet" />
+                      <span className="text-light-muted-foreground dark:text-dark-muted-foreground">
+                        Profile
+                      </span>
+                    </Link>
                   </li>
+
                   <li
                     className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center gap-2"
                     onClick={() => {

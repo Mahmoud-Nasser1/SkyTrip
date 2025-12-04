@@ -18,8 +18,8 @@ const Profile = lazy(() => import("../profile/Profile"));
 const Payment = lazy(() => import("../payment/Payment"));
 const PayForm = lazy(() => import("../payment/component/PayForm"));
 const SignUp = lazy(() => import("../signUp/SignUp"));
-const FeaturedDestinationsDetails = lazy(
-  () => import("../FeaturedDestinationsDetails/FeaturedDestinationsDetails")
+const FeaturedDestinationsDetails = lazy(() =>
+  import("../FeaturedDestinationsDetails/FeaturedDestinationsDetails")
 );
 const NotFound = lazy(() => import("../notFound/NotFound"));
 
@@ -108,11 +108,9 @@ const UserLayout = () => {
         <Route
           path="profile/:tabId"
           element={
-            <ProtectRoute allowedRole="user">
-              <Suspense fallback={<Loading />}>
-                <Profile />
-              </Suspense>
-            </ProtectRoute>
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
           }
         />
 
