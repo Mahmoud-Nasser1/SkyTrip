@@ -51,7 +51,7 @@ const MyTrips = () => {
           ({ _id, departureCity, arrivalCity, price, flightDate, status }) => (
             <Card
               key={_id}
-              className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30
+              className="p-6 shadow-lg border border-purple-100 hover:shadow-gradient-violet/30"
               >
 
               <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
