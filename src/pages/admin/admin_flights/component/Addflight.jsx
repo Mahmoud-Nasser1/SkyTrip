@@ -4,6 +4,8 @@ import { FlightContext } from '../../../../context/FlightContext';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { useFormik } from 'formik';
+import timeConverter from '../../../../hooks/timeConverter';
+import countryConverter from "../../../../hooks/countryConverter"
 
 export default function Addflight() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +46,10 @@ export default function Addflight() {
 const payload = {
   flightNumber: values.flightId,
   airline: values.airline,
-  departureCity: values.from,
-  arrivalCity: values.to,
-  departureTime: values.departure,
-  arrivalTime: values.arrival,
+  departureCity:countryConverter( values.from),
+  arrivalCity: countryConverter(values.to),
+  departureTime: timeConverter(values.departure),
+  arrivalTime: timeConverter(values.arrival),
   duration: values.duration,
   passenger: values.capacity,
   cabinClass: values.cabinClass,
