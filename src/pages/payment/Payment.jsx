@@ -1,12 +1,9 @@
-import React from "react";
-import { Input, Typography, Button } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import { FaLock } from "react-icons/fa";
 import { LuCreditCard } from "react-icons/lu";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { RiLock2Line } from "react-icons/ri";
 import { LuLock } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
+import { MdOutlineLocalPhone } from "react-icons/md";
 import StepperWithContent from "../booking/components/StepperWithContent";
 import { CiUser } from "react-icons/ci";
 import { useUser } from "../../context/UserContext";
@@ -20,16 +17,7 @@ const Payment = () => {
     prices: { taxes, serviceCharge, total },
   } = usePassenger();
   const {
-    flight: {
-      departureTime,
-      departureCity,
-      duration,
-      arrivalTime,
-      arrivalCity,
-      cabinClass,
-      flightDate,
-      price,
-    },
+    flight: { departureCity, arrivalCity, price },
   } = useContext(FlightContext);
   const navigate = useNavigate();
   const { user } = useUser();
@@ -58,7 +46,9 @@ const Payment = () => {
           <div className="flex flex-col gap-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-orange-50 dark:bg-gradient-to-br dark:from-[#1E2A47] dark:via-[#2B2C4E] dark:to-[#3C2F2F]">
             <h1 className="font-semibold text-lg ">Payment Summary</h1>
             <section className="flex justify-between">
-              <h2>{departureCity} → {arrivalCity}</h2>
+              <h2>
+                {departureCity} → {arrivalCity}
+              </h2>
               <h4>${price}</h4>
             </section>
             <section className="flex justify-between">

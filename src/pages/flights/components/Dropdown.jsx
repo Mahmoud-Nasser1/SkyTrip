@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   MenuHandler,
@@ -12,14 +12,13 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 const Dropdown = ({ label, items, onSelect }) => {
   const [selected, setSelected] = useState(label);
 
-  
   useEffect(() => {
     setSelected(label);
   }, [label]);
 
   const handleSelect = (item) => {
-    setSelected(item); 
-    if (onSelect) onSelect(item); 
+    setSelected(item);
+    if (onSelect) onSelect(item);
   };
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Tabs,
   TabsHeader,
@@ -12,7 +11,6 @@ import { FaBan } from "react-icons/fa";
 import { MdOutlineLuggage } from "react-icons/md";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { FaRegCircleXmark } from "react-icons/fa6";
-
 const FlightTaps = () => {
   const data = [
     {
@@ -33,7 +31,9 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <IoMdCheckmarkCircleOutline className="text-2xl text-green-600" />
-                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">
+                  {title}
+                </h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>
@@ -55,7 +55,9 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <MdOutlineLuggage className="text-2xl text-purple-600" />
-                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">
+                  {title}
+                </h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>
@@ -80,7 +82,9 @@ const FlightTaps = () => {
             <div key={title} className="flex flex-col gap-1">
               <span className="flex items-center gap-3">
                 <FaRegCircleXmark className="text-xl text-red-600" />
-                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">{title}</h2>
+                <h2 className="text-lg text-black font-semibold dark:text-dark-primary">
+                  {title}
+                </h2>
               </span>
               <p className="text-gray-600 ps-9">{desc}</p>
             </div>

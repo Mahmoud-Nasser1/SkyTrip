@@ -30,7 +30,6 @@ const FlightsDetails = () => {
 
   const handleSave = async () => {
     if (!user || saving) return;
-
     setSaving(true);
     const isSaved =
       Array.isArray(savedFlights) &&
@@ -44,9 +43,6 @@ const FlightsDetails = () => {
 
   useEffect(() => {
     setCheckingSaved(true);
-  }, [flightId]);
-
-  useEffect(() => {
     getOneFlight(flightId);
     setFlightId(flightId);
   }, [flightId]);

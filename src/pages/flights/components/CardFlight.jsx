@@ -1,5 +1,4 @@
-import React from "react";
-import { Card, CardHeader, CardBody, Chip } from "@material-tailwind/react";
+import { Card, CardBody, Chip } from "@material-tailwind/react";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { IoIosArrowDropright } from "react-icons/io";
 import { IoMdTime } from "react-icons/io";

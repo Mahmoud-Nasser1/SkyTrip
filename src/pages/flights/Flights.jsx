@@ -3,7 +3,7 @@ import FlightFilter from "./components/FlightFilter";
 import CardFlight from "./components/CardFlight";
 import { useContext, useState } from "react";
 import { FlightContext } from "../../context/FlightContext";
-import { Collapse, Button } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 
 const Flights = () => {
   const { flights, getAllFlights } = useContext(FlightContext);
@@ -39,7 +39,6 @@ const Flights = () => {
   const filteredFlights = flights
     .filter((flight) => {
       const matchPrice = flight.price <= filters.price;
-
       const macthtime =
         filters.times.length === 0 ||
         filters.times.some((tim) => {
@@ -116,13 +115,13 @@ const Flights = () => {
             </div>
           </div>
           <div className="w-full lg:w-2/3 flex flex-col gap-6">
-            {filteredFlights.length >= 0 ? (
+            {filteredFlights.length > 0 ? (
               filteredFlights.map((flight) => (
                 <CardFlight key={flight._id} flight={flight} />
               ))
             ) : (
               <p className="text-center text-gray-600">
-                No flights match your filters.
+                No flights found based on your filters.
               </p>
             )}
             <div className="flex w-full justify-center pt-8">
