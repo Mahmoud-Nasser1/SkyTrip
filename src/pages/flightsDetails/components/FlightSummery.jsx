@@ -6,12 +6,10 @@ import { IoTimeOutline } from "react-icons/io5";
 import { FaUserFriends } from "react-icons/fa";
 import { FlightContext } from "../../../context/FlightContext";
 import { useContext } from "react";
-import Loading from "./../../../components/loading/Loading";
 
 const FlightSummery = () => {
   const {
     flight: {
-      _id,
       airline,
       flightNumber,
       departureTime,
@@ -21,7 +19,6 @@ const FlightSummery = () => {
       arrivalCity,
       cabinClass,
       flightDate,
-      price,
       passenger,
     },
   } = useContext(FlightContext);

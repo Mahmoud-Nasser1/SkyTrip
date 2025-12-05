@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useUser } from "./UserContext";
 
 export const SavedFlightsContext = createContext();
 
@@ -9,7 +8,6 @@ export default function SavedFlightsProvider({ children }) {
   const [savedFlights, setSavedFlights] = useState([]);
   const [loadingSavedFlights, setloadingSavedFlights] = useState(true);
   const url = "https://sky-trip-back-end.vercel.app/";
-  const { user } = useUser();
 
   const getSavedFlights = async (userId) => {
     try {
@@ -66,7 +64,6 @@ export default function SavedFlightsProvider({ children }) {
       return [];
     }
   };
-
 
   return (
     <SavedFlightsContext.Provider

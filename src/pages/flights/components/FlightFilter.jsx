@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { LuFilter } from "react-icons/lu";
 import Dropdown from "./Dropdown";
 
@@ -19,7 +19,7 @@ const FlightFilter = ({ onFilterList }) => {
     <div className="flex lg:mx-6 flex-wrap items-center justify-between gap-4 bg-white shadow-xl p-4 rounded-2xl  dark:bg-dark-card ">
       <div className="flex items-center gap-2 text-gray-800 font-bold dark:text-dark-primary">
         <LuFilter className="text-gradient-violet text-2xl" />
-        <span >Filters</span>
+        <span>Filters</span>
       </div>
 
       <div className="flex flex-wrap gap-3 w-full sm:w-auto justify-start lg:justify-between dark:text-dark-primary">

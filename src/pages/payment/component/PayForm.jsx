@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import { useCountries } from "use-react-countries";
 import {
@@ -17,12 +17,7 @@ import {
   Option,
   Alert,
 } from "@material-tailwind/react";
-import {
-  BanknotesIcon,
-  CreditCardIcon,
-  LockClosedIcon,
-} from "@heroicons/react/24/solid";
-
+import { CreditCardIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 import {
   Dialog,
   DialogHeader,
@@ -66,7 +61,6 @@ const PayForm = () => {
   const { user } = useUser();
   const { countries } = useCountries();
   const [type, setType] = useState("card");
-
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const [error, setError] = useState("");

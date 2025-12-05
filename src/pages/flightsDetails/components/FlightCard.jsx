@@ -1,12 +1,5 @@
-import React, { useContext } from "react";
-
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+import { useContext } from "react";
+import { Card, CardBody, CardFooter, Button } from "@material-tailwind/react";
 import { FaArrowRight } from "react-icons/fa";
 import { LuShield } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
@@ -17,8 +10,8 @@ import { useEffect } from "react";
 
 const FlightCard = () => {
   const { setPrices } = usePassenger();
-  const navigate = useNavigate();
   const { user } = useUser();
+  const navigate = useNavigate();
   const goBooking = () => {
     if (user.role !== "user") {
       navigate("/admin/booking");
