@@ -12,8 +12,8 @@ const SendMessage = () => {
   const { user } = useUser();
 
   const [userInfo, setUserInfo] = useState({
-    fullName: user.firstName + user.lastName,
-    email: user.email,
+    fullName: user ? user.firstName + " " + user.lastName : "",
+    email: user ? user.email : "",
     subject: "",
     message: "",
   });
